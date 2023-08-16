@@ -35,3 +35,16 @@
 	.board_list_type1 tbody tr td:nth-child(4){width:0%}
 	.board_list_type1 tbody tr td:nth-child(5){width:0%}
 }
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+
+.article {
+  border: 1px solid #ccc;
+  padding: 20px;
+  grid-column: span 1;
+  grid-row: span 1;
+
+}

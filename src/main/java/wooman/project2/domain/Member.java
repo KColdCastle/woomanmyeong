@@ -18,6 +18,7 @@ import java.sql.Date;
 @Entity
 
 public class Member {
+    @Id
     private String email;
     private String pwd;
     private String nickname;
