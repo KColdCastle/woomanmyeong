@@ -34,17 +34,54 @@
 	.board_list_type1 tbody tr td:nth-child(3){width:90%;}
 	.board_list_type1 tbody tr td:nth-child(4){width:0%}
 	.board_list_type1 tbody tr td:nth-child(5){width:0%}
-}
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
-}
 
-.article {
-  border: 1px solid #ccc;
-  padding: 20px;
-  grid-column: span 1;
-  grid-row: span 1;
+    .section {
+      border: 1px solid black;
+      margin: 20px;
+      padding: 10px;
+      background-color: #f9f9f9;
+    }
 
-}
+    .section-title {
+      font-size: 24px;
+      margin: 0;
+      padding: 10px;
+    }
+
+    .section-icon img {
+      vertical-align: middle;
+    }
+
+    .article-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .article {
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .article a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .article-info {
+      font-size: 14px;
+      color: #888;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3개의 열로 구성 */
+      gap: 20px; /* 열과 행 간격 설정 */
+    }
+
+    .section {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
