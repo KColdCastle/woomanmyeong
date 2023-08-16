@@ -6,4 +6,7 @@ public interface MemberLoginService {
     int check(String email,String pwd);
 
     Member getLogin(String email);
+
+    void insertM(Member member);
+
 }

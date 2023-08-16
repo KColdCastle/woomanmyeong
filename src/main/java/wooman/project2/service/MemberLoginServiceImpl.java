@@ -1,6 +1,7 @@
 package wooman.project2.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import wooman.project2.domain.Member;
 import wooman.project2.repository.MemberLoginRepository;
@@ -10,6 +11,7 @@ import static wooman.project2.service.MemberLoginConst.*;
 @RequiredArgsConstructor
 @Service
 public class MemberLoginServiceImpl implements MemberLoginService {
+
     private final MemberLoginRepository memberLoginRepository;
     @Override
     public int check(String email, String pwd) {
@@ -34,4 +36,11 @@ public class MemberLoginServiceImpl implements MemberLoginService {
         member.setPwd("");
         return member;
     }
+    @Override
+    public void insertM(Member member){
+        member = memberLoginRepository.save(member);
+    }
+
+
+
 }

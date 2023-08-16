@@ -67,7 +67,7 @@
 
        <!-- 5. 이메일_전화번호 -->
             <div class="col-sm-6 ms-0">
-                <select class="form-select" aria-label="Default select example" id="emailDomainSelect">
+                <select class="form-select" aria-label="Default select example" id="emailDomainSelect" name="maildomain">
                     <option selected>이메일 선택</option>
                     <option value="@naver.com">@naver.com</option>
                     <option value="@daum.net">@daum.net</option>
