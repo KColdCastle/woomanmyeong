@@ -74,7 +74,7 @@
                     <div class="home__data">
                         <span class="home__data-subtitle">국여진사람들</span>
                         <h1 class="home__data-title">국내<br> 여행에 <b>빠진 <br> 사람들</b></h1>
-                        <a href="write.jsp" class="button">글쓰기</a>
+                        <a href="/write/insert.do" class="button">글쓰기</a>
 
                     </div>
 
