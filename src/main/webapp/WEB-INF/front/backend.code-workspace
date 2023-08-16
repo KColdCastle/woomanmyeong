@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../backend"
+		},
+		{
+			"name": "responsive_travel_website-1",
+			"path": "../responsive_travel_website-1"
+		}
+	],
+	"settings": {
+		"java.compile.nullAnalysis.mode": "automatic"
+	}
+}
