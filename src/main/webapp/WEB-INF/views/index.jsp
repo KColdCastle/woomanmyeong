@@ -98,7 +98,7 @@
                         <div>
                             <span class="home__info-title">회원정보 업로드</span>
                             <a href="" class="button button--flex button--link home__info-button">
-                            <br><a href="loginMember.html">회원가입</a> <i class="ri-arrow-right-line"></i>
+                            <br><a href="member/reg">회원가입</a> <i class="ri-arrow-right-line"></i>
                             </a>
 
                         </div>
