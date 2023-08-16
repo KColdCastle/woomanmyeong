@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html xmlns:th="http://www.thymeleaf.org">
 	<div th:replace="/nav"></div>
 	<link rel="stylesheet" href="write.css">
