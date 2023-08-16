@@ -1,13 +1,23 @@
 package wooman.project2.controller;
 
+import jakarta.servlet.http.HttpSession;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import wooman.project2.domain.Member;
+import wooman.project2.service.MemberLoginService;
+
+import static wooman.project2.service.MemberLoginConst.YES_ID_PWD;
+
 @RequestMapping("member")
 @Controller
+@AllArgsConstructor
 public class MemberController {
+    private final MemberLoginService memberLoginService;
     @GetMapping("reg")
     public String reg(){
         return "member/reg";
@@ -39,4 +49,31 @@ public class MemberController {
     public String fail(){
         return "registration_fail";
     }
+
+    @GetMapping("login")
+    public String login(){
+        return "member/login";
+    }
+    @PostMapping("login")
+    public String tryLogin(Member member, HttpSession session, Model model){
+        int result = memberLoginService.check(member.getEmail(), member.getPwd());
+        if(result == YES_ID_PWD){ //로긴성공 일때
+            Member loginOkUser = memberLoginService.getLogin(member.getEmail());
+            session.setAttribute("loginOkUser", loginOkUser);
+
+        model.addAttribute("result", result);
+
+            return "member/registration_success";
+        }
+        else {
+            return "member/registration_fail";
+        }
+    }
+    @GetMapping("logout")
+    public String logout(HttpSession session){
+        //session.removeAttribute("loginOkUser");//1개만
+        session.invalidate();//session 모든객체 제거
+        return "redirect:../";
+    }
+
 }

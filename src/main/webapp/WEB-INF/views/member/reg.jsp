@@ -51,12 +51,12 @@
         </div>
         <div class="field">
             <b style="color: rgb(68, 119, 206);">비밀번호</b>
-            <input type="password" name="password" placeholder="비밀번호를 입력하세요 ">
+            <input type="password" name="pwd" placeholder="비밀번호를 입력하세요 ">
             <!-- <input class="userpw" type="password"> -->
         </div>
         <div class="field">
             <b style="color: rgb(68, 119, 206);">비밀번호 재확인</b>
-            <input type="password" name="check_password" placeholder="비밀번호 확인 ">
+            <input type="password" name="check_pwd" placeholder="비밀번호 확인 ">
             <!-- <input class="userpw-confirm" type="password"> -->
         </div>
         <div class="field">
