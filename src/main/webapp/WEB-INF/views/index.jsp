@@ -8,17 +8,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!--=============== FAVICON ===============-->
-        <link rel="shortcut icon" href="css/img/favicon.png" type="image/png">
+        <link rel="shortcut icon" href="/front/assets/img/favicon.png" type="image/png">
 
         <!--=============== REMIXICONS ===============-->
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
         <!--=============== SWIPER CSS ===============-->
-        <link rel="stylesheet" href="css/swiper-bundle.min.css">
+        <link rel="stylesheet" href="/front/swiper-bundle.min.css">
 
         <!--=============== CSS ===============-->
-        <link rel="stylesheet" type="text/css" href="styles.css">
-        <link rel="stylesheet" type="text/css" href="board_type1.css">
+        <link rel="stylesheet" type="text/css" href="/front/styles.css">
+        <link rel="stylesheet" type="text/css" href="/front/board_type1.css">
 
         <title>국내여행에에빠진사람들</title>
 
@@ -71,7 +71,7 @@
         <main class="main">
             <!--==================== HOME =================여기 홈===-->
 
-                <img src="assets/img/home1.jpg" alt="" class="home__img">
+                <img src="/front/assets/img/home1.jpg" alt="" class="home__img">
 
                 <div class="home__container container grid">
                     <div class="home__data">
@@ -104,7 +104,7 @@
                         </div>
                         <section class="home" id="home">
                         <div class="home__info-overlay">
-                            <img src="assets/img/home2.jpg" alt="" class="home__info-img">
+                            <img src="/context-path/front/assets/img/home2.jpg" alt="" class="home__info-img">
                         </div>
                     </div>
                 </div>
