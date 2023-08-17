@@ -16,8 +16,8 @@ import java.sql.Date;
 @Data
 public class Board {
     @Id
-    private String boardName;
+    private String boardname;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss", timezone = "Asia/Seoul")
     @CreationTimestamp
-    private Date boardRDate;
+    private Date boardrdate;
 }

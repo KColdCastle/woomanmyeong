@@ -15,9 +15,9 @@ import lombok.NoArgsConstructor;
 public class Post_Reply {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "POST_REPLY_SEQ_GENERATOR")
-    private long replySeq;
+    private long replyseq;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "POST_REPLY_SEQ_GENERATOR")
-    private long postSeq;
+    private long postseq;
 }

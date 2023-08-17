@@ -53,10 +53,11 @@
 	text-decoration: none;
 }
 .form-group{
-	display: flex;
-	margin-left: -15px;
-	margin-right: -15px;
-	margin-bottom: 15px;
+  display: flex;
+  flex-direction: column; /* 수직 방향으로 정렬 */
+  justify-content: flex-start; /* 위에서부터 정렬 */
+  align-items: center; /* 수평 가운데 정렬 */
+  height: 100vh; /* 컨테이너 높이를 화면의 높이로 설정 (옵션) */
 }
 label{
 	padding-top: 7px;

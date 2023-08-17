@@ -15,9 +15,9 @@ import lombok.NoArgsConstructor;
 public class Post_Fileup {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "POST_FILEUP_SEQ_GENERATOR")
-    private long fileUpSeq;
+    private long fileupseq;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "POST_FILEUP_SEQ_GENERATOR")
-    private long postSeq;
+    private long postseq;
 }

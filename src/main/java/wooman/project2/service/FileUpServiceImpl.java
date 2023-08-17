@@ -34,15 +34,15 @@ public class FileUpServiceImpl implements FileUpService {
         String savedPath= fileDir+savedName;//파일 불러올 때 사용할 파일 경로
 
         FileUp fileUp=FileUp.builder()
-                .originalName(origName)//DB의 컬럼 이름과 같아야 함!
-                .saveName(savedName)//DB의 컬럼 이름과 같아야 함!
-                .fileUpPath(savedPath)//DB의 컬럼 이름과 같아야 함!
+                .originalname(origName)//DB의 컬럼 이름과 같아야 함!
+                .savename(savedName)//DB의 컬럼 이름과 같아야 함!
+                .fileUppath(savedPath)//DB의 컬럼 이름과 같아야 함!
                 .build();
 
         mf.transferTo(new File(savedPath));//실제로 로컬에 uuid를 파일명으로 저장
         FileUp saveFile=repository.save(fileUp);//save()에 도메인만 넣어주면 자동으로 insert가 됨. DB에 인서트됨
 
-        return saveFile.getFileSeq();
+        return saveFile.getFileseq();
     }
     //(2)파일 다운로드
     @Override
@@ -66,7 +66,7 @@ public class FileUpServiceImpl implements FileUpService {
     public void remove(long fileSeq) {
         FileUp fileUp = repository.findById(fileSeq).orElse(null);
 
-        String savedpath = fileUp.getFileUpPath();
+        String savedpath = fileUp.getFileUppath();
         File f = new File(savedpath);
         if(f.exists()){
             f.delete();
