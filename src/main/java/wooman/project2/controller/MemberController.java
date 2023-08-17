@@ -81,5 +81,9 @@ public class MemberController {
         session.invalidate();//session 모든객체 제거
         return "redirect:../";
     }
+    @GetMapping("mypage")
+    public String mypage(){
+        return "member/mypage";
+    }
 
 }
