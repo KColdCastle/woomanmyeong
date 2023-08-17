@@ -57,9 +57,10 @@ public class RegisterMail implements MailServiceInter {
          */
         String msgg = "";
         msgg += "<div style='position: relative;'>";
-        msgg += "<img src='https://img.freepik.com/free-photo/low-angle-shot-of-the-mesmerizing-starry-sky_181624-27925.jpg?w=1380&t=st=1692109625~exp=1692110225~hmac=0a2072bcee8eef68e3fbd23e0a6cacff10222c9b9331bf44e5b6eddb4b1ddf3f' style='max-width: 100%; height: 300px;' />"; // 이미지 높이 수정
+        msgg += "<img src='https://postfiles.pstatic.net/MjAyMzA4MTZfMTU0/MDAxNjkyMTc2NzM0ODQy.e9A0Zw2eJgIw3TG_K5za_wLl54y1jghJPxkPQwrRymgg.iGujV9FN1wOnawXDIDXLw2i7MkgjWLmAHmhB2mrk8SIg.PNG.umanmyeong/hello.png?type=w966' style='max-width: 100%; height: 300px;' />";
+        //msgg += "<img src='https://img.freepik.com/free-photo/low-angle-shot-of-the-mesmerizing-starry-sky_181624-27925.jpg?w=1380&t=st=1692109625~exp=1692110225~hmac=0a2072bcee8eef68e3fbd23e0a6cacff10222c9b9331bf44e5b6eddb4b1ddf3f' style='max-width: 100%; height: 300px;' />"; // 이미지 높이 수정
         msgg += "<div style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center;'>";
-        msgg += "<h3 style='margin: 0;'>fallintravel 인증코드 입니다.</h3>";
+        msgg += "<h3 style='margin: 0;'>fallintravel 인증코드입니다.</h3>";
         msgg += "<p style='margin: 0;'><strong>" + ePw + "</strong></p>";
         msgg += "</div>";
         msgg += "</div>";

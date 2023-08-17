@@ -74,7 +74,7 @@
                     <div class="home__data">
                         <span class="home__data-subtitle">국여진사람들</span>
                         <h1 class="home__data-title">국내<br> 여행에 <b>빠진 <br> 사람들</b></h1>
-                        <a href="write.jsp" class="button">글쓰기</a>
+                        <a href="/write/insert.do" class="button">글쓰기</a>
 
                     </div>
 
@@ -93,9 +93,19 @@
 
                     <div class="home__info">
                         <div>
-                            <span class="home__info-title">회원정보 업로드</span>
+                            <span class="home__info-title">regist/login</span>
                             <a href="" class="button button--flex button--link home__info-button">
                             <br><a href="member/reg">회원가입</a> <i class="ri-arrow-right-line"></i>
+
+                                                <c:choose>
+                                                    <c:when test="${empty loginOkUser}">
+                                                        <a href="member/login">로그인</a><i class="ri-arrow-right-line"></i>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <a href="member/logout">로그아웃</a><i class="ri-arrow-right-line"></i>
+                                                        <br><font style="color:green">${loginOkUser.nickname}님 환영합니다.</font><br/>
+                                                    </c:otherwise>
+                                                </c:choose>
                             </a>
 
                         </div>

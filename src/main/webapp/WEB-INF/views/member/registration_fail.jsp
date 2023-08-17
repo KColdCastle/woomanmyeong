@@ -8,7 +8,7 @@
         // JavaScript 코드
         window.onload = function() {
             // 페이지 로드 시 알림창 띄우기
-            alert("회원가입에 실패했습니다. 다시 시도해 주세요.");
+            alert("접근에 실패했습니다. 다시 시도해 주세요.");
             // 이전 페이지로 돌아가기
             goBack();
         };

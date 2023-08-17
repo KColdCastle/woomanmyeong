@@ -51,12 +51,12 @@
         </div>
         <div class="field">
             <b style="color: rgb(68, 119, 206);">비밀번호</b>
-            <input type="password" name="password" placeholder="비밀번호를 입력하세요 ">
+            <input type="password" name="pwd" placeholder="비밀번호를 입력하세요 ">
             <!-- <input class="userpw" type="password"> -->
         </div>
         <div class="field">
             <b style="color: rgb(68, 119, 206);">비밀번호 재확인</b>
-            <input type="password" name="check_password" placeholder="비밀번호 확인 ">
+            <input type="password" name="check_pwd" placeholder="비밀번호 확인 ">
             <!-- <input class="userpw-confirm" type="password"> -->
         </div>
         <div class="field">
@@ -67,7 +67,7 @@
 
        <!-- 5. 이메일_전화번호 -->
             <div class="col-sm-6 ms-0">
-                <select class="form-select" aria-label="Default select example" id="emailDomainSelect">
+                <select class="form-select" aria-label="Default select example" id="emailDomainSelect" name="maildomain">
                     <option selected>이메일 선택</option>
                     <option value="@naver.com">@naver.com</option>
                     <option value="@daum.net">@daum.net</option>
