@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class Good {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GOOD_SEQ_GENERATOR")
-    private long goodseq;
-    private long postseq;
+    private long goodSeq;
+    private long postSeq;
     private String email;
 }

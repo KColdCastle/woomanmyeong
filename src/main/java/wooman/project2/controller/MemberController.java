@@ -66,9 +66,7 @@ public class MemberController {
         if(result == YES_ID_PWD){
             Member loginOkUser = memberLoginService.getLogin(member.getEmail());
             session.setAttribute("loginOkUser", loginOkUser);
-
-        model.addAttribute("result", result);
-
+            model.addAttribute("result", result);
             return "member/registration_success";
         }
         else {
