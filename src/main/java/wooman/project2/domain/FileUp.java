@@ -19,22 +19,22 @@ import java.sql.Date;
 public class FileUp {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "FILEUP_SEQ_GENERATOR")
-    private long fileSeq;
-    private String fileUpPath;
-    private String originalName;
-    private String saveName;
+    private long fileseq;
+    private String fileUppath;
+    private String originalname;
+    private String savename;
     private String email;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss", timezone = "Asia/Seoul")
     @CreationTimestamp
-    private Date fRDate;
+    private Date frdate;
 
     @Builder//도메인 쓸때 빌더를 더 많이 씀, NoArgsConstructor과 겹침.
-    public FileUp(long fileSeq, String fileUpPath, String originalName, String saveName,String email, Date fRDate){
-        this.fileSeq=fileSeq;
-        this.fileUpPath=fileUpPath;
-        this.originalName=originalName;
-        this.saveName=saveName;
+    public FileUp(long fileseq, String fileUppath, String originalname, String savename,String email, Date frdate){
+        this.fileseq=fileseq;
+        this.fileUppath=fileUppath;
+        this.originalname=originalname;
+        this.savename=savename;
         this.email=email;
-        this.fRDate=fRDate;
+        this.frdate=frdate;
     }
 }
