@@ -18,10 +18,10 @@ import java.sql.Date;
 public class Reply {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "REPLY_SEQ_GENERATOR")
-    private long replySeq;
+    private long replyseq;
     private String email;
-    private String replyContent;
+    private String replycontent;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss", timezone = "Asia/Seoul")
     @CreationTimestamp
-    private Date replyDate;
+    private Date replydate;
 }
