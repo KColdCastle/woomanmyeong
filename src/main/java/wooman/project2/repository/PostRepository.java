@@ -14,5 +14,4 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     Post findBySeq(long seq);
     @Query(value = "SELECT CURRENT_DATE", nativeQuery = true)
     Date getCurrentDate();
-
 }

@@ -1,7 +1,7 @@
 package wooman.project2.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import wooman.project2.domain.Post;
@@ -19,6 +19,12 @@ public class PostServiceImpl implements PostService {
     public List<Post> listS() {
         return repository.findAll();
     }
+
+    @Override
+    public List<Post> indexListS() {
+        return repository.findAll(Sort.by(Sort.Direction.DESC, "viewnum"));
+    }
+
     @Override
     public Post insertS(Post post) {
         return repository.save(post);

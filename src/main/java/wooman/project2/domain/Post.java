@@ -13,7 +13,7 @@ import java.sql.Date;
 @NoArgsConstructor
 @Entity
 @Data
-@SequenceGenerator(name="POST_SEQ_GENERATOR", sequenceName = "POSTSEQ", initialValue = 1, allocationSize = 1)
+@SequenceGenerator(name="POST_SEQ_GENERATOR", sequenceName = "POST_SEQ", initialValue = 1, allocationSize = 1)
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "POST_SEQ_GENERATOR")
@@ -28,6 +28,7 @@ public class Post {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss", timezone = "Asia/Seoul")
     @CreationTimestamp
     private Date crdate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss", timezone = "Asia/Seoul")
+    @CreationTimestamp
     private Date cudate;
-
 }

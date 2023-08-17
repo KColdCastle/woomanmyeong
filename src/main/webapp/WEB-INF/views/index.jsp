@@ -55,21 +55,21 @@
                         </li>
                     </ul>
 
-                    <div class="nav__dark">
-                   <!-- Theme change button -->
-                   <span class="change-theme-name">Dark mode</sp    an>
-                   <i class="ri-moon-line change-theme" id="theme-button"></i>
-               </div>
-
-               <i class="ri-close-line nav__close" id="nav-close"></i>
-           </div>
-
-           <div class="nav__toggle" id="nav-toggle">
-               <i class="ri-function-line"></i>
-           </div>
-       </nav>
     </header>
 
+                        <div class="nav__dark">
+                           <!-- Theme change button -->
+                           <span class="change-theme-name">Dark mode</sp    an>
+                           <i class="ri-moon-line change-theme" id="theme-button"></i>
+                       </div>
+
+                        <i class="ri-close-line nav__close" id="nav-close"></i>
+                        </div>
+
+                       <div class="nav__toggle" id="nav-toggle">
+                           <i class="ri-function-line"></i>
+                       </div>
+                   </nav>
         <main class="main">
             <!--==================== HOME =================여기 홈===-->
 
@@ -102,15 +102,15 @@
                             <a href="" class="button button--flex button--link home__info-button">
                             <br><a href="member/regtest">회원가입</a> <i class="ri-arrow-right-line"></i>
 
-                                                <c:choose>
-                                                    <c:when test="${empty loginOkUser}">
-                                                        <a href="member/logintest">로그인</a><i class="ri-arrow-right-line"></i>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <a href="member/logout">로그아웃</a><i class="ri-arrow-right-line"></i>
-                                                        <br><font style="color:green">${loginOkUser.nickname}님 환영합니다.</font><br/>
-                                                    </c:otherwise>
-                                                </c:choose>
+                                <c:choose>
+                                    <c:when test="${empty loginOkUser}">
+                                        <a href="member/logintest">로그인</a><i class="ri-arrow-right-line"></i>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a href="member/logout">로그아웃</a><i class="ri-arrow-right-line"></i>
+                                        <br><font style="color:green">${loginOkUser.nickname}님 환영합니다.</font><br/>
+                                    </c:otherwise>
+                                </c:choose>
                             </a>
 
                         </div>
@@ -131,86 +131,38 @@
     <body style="background: var(--gray);">
         <section class="mt-4">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col" style="min-width: auto;background: var(--gray);">
-                        <div class="card text-left" style="background: var(--gray);">
-                            <div class="card-header py-2" style="margin-right: 24px;background: var(--gray);">
-                                <p class="lead text-info m-0" style="margin-right: 3px;border-color: rgb(32,125,193);background: var(--gray);"><span style="color: rgb(1, 1, 1);">게시판</span></p>
-                            </div>
-                            <div class="card-body text-left" style="background: var(--gray);"><a class="btn btn-primary text-justify border rounded-0 shadow float-right" role="button" href="test" style="background: var(--primary);">Button</a>
-                                <div class="w-100"></div>
-                                <div class="table-responsive table mb-0 pt-3 pr-2">
-                                    <table class="table table-striped table-sm my-0 mydatatable">
-                                        <thead>
-                                            <tr>
-                                                <th data-bss-hover-animate="bounce">작성자</th>
-                                                <th>제목</th>
-                                                <th>날짜</th>
-                                                <th>조회수</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Airi Satou</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>33</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Angelica Ramos</td>
-                                                <td>Chief Executive Officer(CEO)</td>
-                                                <td>London</td>
-                                                <td>47</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ashton Cox</td>
-                                                <td>Junior Technical Author</td>
-                                                <td>San Francisco</td>
-                                                <td>66</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bradley Greer</td>
-                                                <td>Software Engineer</td>
-                                                <td>London</td>
-                                                <td>41</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Brenden Wagner</td>
-                                                <td>Software Engineer</td>
-                                                <td>San Francisco</td>
-                                                <td>28</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Brielle Williamson</td>
-                                                <td>Integration Specialist</td>
-                                                <td>New York</td>
-                                                <td>61</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bruno Nash<br></td>
-                                                <td>Software Engineer</td>
-                                                <td>London</td>
-                                                <td>38</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Caesar Vance</td>
-                                                <td>Pre-Sales Support</td>
-                                                <td>New York</td>
-                                                <td>21</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Cara Stevens</td>
-                                                <td>Sales Assistant</td>
-                                                <td>New York</td>
-                                                <td>46</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Cedric Kelly</td>
-                                                <td>Senior JavaScript Developer</td>
-                                                <td>Edinburgh</td>
-                                                <td>22</td>
-                                            </tr>
-                                        </tbody>
+        <div class="row">
+    <div class="col" style="min-width: auto;background: var(--gray);">
+        <div class="card text-left" style="background: var(--gray);">
+            <div class="card-header py-2" style="margin-right: 24px;background: var(--gray);">
+                <p class="lead text-info m-0" style="margin-right: 3px;border-color: rgb(32,125,193);background: var(--gray);"><span style="color: rgb(1, 1, 1);">게시판</span></p>
+            </div>
+            <div class="card-body text-left" style="background: var(--gray);"><a class="btn btn-primary text-justify border rounded-0 shadow float-right" role="button" href="#home" style="background: var(--primary);">더보기</a>
+                <div class="w-100"></div>
+                <div class="table-responsive table mb-0 pt-3 pr-2">
+                    <table class="table table-striped table-sm my-0 mydatatable">
+                        <thead>
+                            <tr>
+                                <th data-bss-hover-animate="bounce">닉네임</th>
+                                <th>제목</th>
+                                <th>조회수</th>
+                            </tr>
+                                </thead>
+                                <tbody>
+                            <c:if test="${empty post}">
+                                <tr>
+                                    <td align='center' colspan="5">검색된 글이 없음</td>
+                                </tr>
+                            </c:if>
+                                    <c:forEach items="${post}" var="post">
+                                        <tr>
+                                            <td>${post.email}</td>
+                                            <td>${post.subject}</td>
+                                            <td>${post.viewnum}</td>
+                                        </tr>
+                                        </c:forEach>
+                                    </tbody>
+
                                     </table>
                                 </div>
                             </div>
@@ -218,149 +170,8 @@
                     </div>
                 </div>
             </div>
-        </section>
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="assets/js/bs-init.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.flash.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-        <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
-        <script src="assets/js/DataTable---Fully-BSS-Editable-style.js"></script>
-        <script src="assets/js/Like-Button-Like-Counter.js"></script>
 
-                <section class="mt-4">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col">
-                                <div class="card shadow">
-                                    <div class="card-header py-2" style="margin-right: 24px;">
-                                        <p class="lead text-info m-0" style="margin-right: 3px;">게시판</p>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-lg-1" style="padding-right: 13px;"></div>
-                                            <div class="col-lg-1" style="padding-right: 13px;"></div>
-                                            <div class="col-lg-1" style="padding-right: 13px;"></div>
-                                            <div class="col-lg-1" style="padding-right: 13px;"></div>
-                                            <div class="col-lg-1" style="padding-right: 13px;"></div>
-                                            <div class="col-lg-1" style="padding-right: 13px;"></div>
-                                            <div class="col-lg-1" style="padding-right: 13px;"></div>
-                                            <div class="col-lg-1" style="padding-right: 13px;"></div>
-                                            <div class="col-lg-1" style="padding-right: 13px;"></div>
-                                            <div class="col-lg-1" style="padding-right: 13px;"></div>
-                                            <div class="col"><button class="btn btn-primary" type="button" style="margin-right: 0px;padding-right: 14px;width: 87px;">글쓰기</button></div>
-                                        </div>
-                                        <div class="table-responsive table mb-0 pt-3 pr-2">
-                                            <table class="table table-striped table-sm my-0 mydatatable">
-                                                <thead>
-                                                    <tr>
-                                                        <th>작성자</th>
-                                                        <th>제목</th>
-                                                        <th>조회수</th>
-                                                        <th>날짜</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                    	<c:if test="${empty list}">
-                                    		<tr>
-                                    			<td align='center' colspan="5">검색된 글이 없음</td>
-                                    		</tr>
-                                    	</c:if>
-                                    	<c:forEach items="${list}" var="board">
-                                    		<tr>
-                                    			<td align='center'>${board.seq}</td>
-                                    			<td align='center'>${board.writer}</td>
-                                    			<td align='center'>${board.email}</td>
-                                    			<td align='center'>
-                                    				<a href='content.do?&seq=${board.seq}'>${board.subject}</a>
-                                    			</td>
-                                    			<td align='center'>${board.rdate}</td>
-                                    		</tr>
-                                    	</c:forEach>
-                                                    <tr>
-                                                        <td>Angelica Ramos</td>
-                                                        <td>Chief Executive Officer(CEO)</td>
-                                                        <td>London</td>
-                                                        <td>47</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Ashton Cox</td>
-                                                        <td>Junior Technical Author</td>
-                                                        <td>San Francisco</td>
-                                                        <td>66</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Bradley Greer</td>
-                                                        <td>Software Engineer</td>
-                                                        <td>London</td>
-                                                        <td>41</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Brenden Wagner</td>
-                                                        <td>Software Engineer</td>
-                                                        <td>San Francisco</td>
-                                                        <td>28</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Brielle Williamson</td>
-                                                        <td>Integration Specialist</td>
-                                                        <td>New York</td>
-                                                        <td>61</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Bruno Nash<br></td>
-                                                        <td>Software Engineer</td>
-                                                        <td>London</td>
-                                                        <td>38</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Caesar Vance</td>
-                                                        <td>Pre-Sales Support</td>
-                                                        <td>New York</td>
-                                                        <td>21</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Cara Stevens</td>
-                                                        <td>Sales Assistant</td>
-                                                        <td>New York</td>
-                                                        <td>46</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Cedric Kelly</td>
-                                                        <td>Senior JavaScript Developer</td>
-                                                        <td>Edinburgh</td>
-                                                        <td>22</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <script src="assets/js/jquery.min.js"></script>
-                <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-                <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
-                <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.flash.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-                <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
-                <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
-                <script src="assets/js/DataTable---Fully-BSS-Editable-style.js"></script>
-                <script src="assets/js/Like-Button-Like-Counter.js"></script>
+
 
 
             <section class="subscribe section">

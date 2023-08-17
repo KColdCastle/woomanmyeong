@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface PostService {
     List<Post> listS();
+    List<Post> indexListS();
+
     Post insertS(Post post);
     Post contentS(long seq);
     void updateS(Post post);
