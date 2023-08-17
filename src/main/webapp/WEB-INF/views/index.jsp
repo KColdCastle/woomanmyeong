@@ -95,11 +95,11 @@
                         <div>
                             <span class="home__info-title">regist/login</span>
                             <a href="" class="button button--flex button--link home__info-button">
-                            <br><a href="member/reg">회원가입</a> <i class="ri-arrow-right-line"></i>
+                            <br><a href="member/regtest">회원가입</a> <i class="ri-arrow-right-line"></i>
 
                                                 <c:choose>
                                                     <c:when test="${empty loginOkUser}">
-                                                        <a href="member/login">로그인</a><i class="ri-arrow-right-line"></i>
+                                                        <a href="member/logintest">로그인</a><i class="ri-arrow-right-line"></i>
                                                     </c:when>
                                                     <c:otherwise>
                                                         <a href="member/logout">로그아웃</a><i class="ri-arrow-right-line"></i>

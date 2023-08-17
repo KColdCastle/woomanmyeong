@@ -20,9 +20,9 @@ import static wooman.project2.service.MemberLoginConst.YES_ID_PWD;
 public class MemberController {
     private final MemberLoginService memberLoginService;
 
-    @GetMapping("reg")
+    @GetMapping("regtest")
     public String reg(){
-        return "member/reg";
+        return "member/regtest";
     }
     @PostMapping("register")//회원가입 성공 실패
     public String register(Member member,
@@ -56,9 +56,9 @@ public class MemberController {
         return "registration_fail";
     }
 
-    @GetMapping("login")
+    @GetMapping("logintest")
     public String login(){
-        return "member/login";
+        return "member/logintest";
     }
     @PostMapping("login")
     public String tryLogin(Member member, HttpSession session, Model model){
