@@ -17,7 +17,7 @@ public class WriteServiceImpl implements WriteService {
     @Override
     public Post insertS(Post post) {
         post = repository.save(post);
-        return repository.save(post);
+        return post;
     }
 
 
