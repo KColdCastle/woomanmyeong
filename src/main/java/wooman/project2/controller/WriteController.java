@@ -19,7 +19,7 @@ import java.util.List;
 public class WriteController {
     @Autowired
     WriteService service;
-    @Autowired
+
     FileUpService fileUpService;
 
     @GetMapping("insert.do")
@@ -27,11 +27,15 @@ public class WriteController {
         return "write";
     }
 
-    @PostMapping("insert.do")
-    public String write(Post post,
+    @PostMapping("boardin")
+    public String write(Post post)/*,
                         @RequestParam("file") MultipartFile file,
-                        @RequestParam("files") List<MultipartFile> files) throws IOException {
+                        @RequestParam("files") List<MultipartFile> files) throws IOException
+                         */{
+                             System.out.println(post);
         service.insertS(post);
+        System.out.println("insertS(): "+service.insertS(post));
+       /*
         long fileSize = file.getSize();
         System.out.println("@@FileController fileSize: " + fileSize);
         fileUpService.saveFile(file); //단일파일
@@ -39,6 +43,8 @@ public class WriteController {
         for(MultipartFile mfile: files){ //멀티파일
             fileUpService.saveFile(mfile);
         }
+
+        */
         return "redirect:../";
     }
 
