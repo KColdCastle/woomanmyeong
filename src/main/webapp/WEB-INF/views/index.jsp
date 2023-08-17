@@ -34,7 +34,7 @@
                             <a href="#home" class="nav__link active-link">Home</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#home" class="nav__link">혼자여행</a>
+                            <a href="post_page/list.do" class="nav__link">혼자여행</a>
                         </li>
                         <li class="nav__item">
                             <a href="#couple" class="nav__link">커플여행</a>

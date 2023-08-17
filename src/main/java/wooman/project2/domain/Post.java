@@ -17,16 +17,16 @@ import java.sql.Date;
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "POST_SEQ_GENERATOR")
-    private long postSeq;
-    private long viewNum;
+    private long postseq;
+    private long viewnum;
     private String email;
     private String subject;
-    private String boardName;
+    private String boardname;
     @Lob
     private String content;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss", timezone = "Asia/Seoul")
     @CreationTimestamp
-    private Date cRDate;
-    private Date cUDate;
+    private Date crdate;
+    private Date cudate;
 
 }
