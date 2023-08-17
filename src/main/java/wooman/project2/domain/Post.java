@@ -17,7 +17,8 @@ import java.sql.Date;
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "POST_SEQ_GENERATOR")
-    private long postseq;
+    @Column(name="postseq")
+    private long seq;
     private long viewnum;
     private String email;
     private String subject;

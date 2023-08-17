@@ -1,63 +1,46 @@
 package wooman.project2.service;
 
-import jakarta.transaction.Transactional;
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import wooman.project2.domain.Post;
-import wooman.project2.domain.PostListResult;
 import wooman.project2.repository.PostRepository;
 
-import java.sql.Date;
+import java.util.List;
+import java.util.Optional;
 
-@Transactional
-@RequiredArgsConstructor
 @Service
-
+@RequiredArgsConstructor
+@Transactional
 public class PostServiceImpl implements PostService {
-    @Autowired
     private final PostRepository repository;
     @Override
-    public Page<Post> findAll(Pageable pageable) {
-        return repository.findByOrderByPostseqDesc(pageable);
+    public List<Post> listS() {
+        return repository.findAll();
     }
-
-    @Override
-    public PostListResult getPostListResult(Pageable pageable) {
-        Page<Post> list = findAll(pageable);
-        int page = pageable.getPageNumber();
-        long totalCount = repository.count();
-        int size = pageable.getPageSize();
-        return new PostListResult(page, totalCount, size, list);
-    }
-
     @Override
     public Post insertS(Post post) {
-        post = repository.save(post);
-        return post;
+        return repository.save(post);
     }
-
     @Override
-    public void deleteS(long postseq) {
-        repository.deleteById(postseq);
-
+    public Post contentS(long seq) {
+        return repository.findBySeq(seq);
     }
-
     @Override
-    public Post updateS(Post post) {
-        Date dt = repository.getReferenceById(post.getPostseq()).getCrdate();
-        post.setCrdate(dt);
-        post = repository.save(post);
-        return post;
+    public void updateS(Post post) {
+
+        Optional<Post> newContent= repository.findById(post.getSeq());
+        Post post1=newContent.get();
+        post1.setEmail(post.getEmail());
+        post1.setSubject(post.getSubject());
+        post1.setContent(post.getContent());
+        post1.setViewnum(post.getViewnum()+1);
+        System.out.println(post1.getViewnum());
+        repository.save(post1);
     }
-
     @Override
-    public Post contentS(long postseq) {
-        Post post = new Post();
-        post = repository.getReferenceById(postseq);
-        return post;
+    public void deleteS(long seq) {
+        repository.deleteById(seq);
     }
 }

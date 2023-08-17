@@ -1,33 +1,29 @@
 package wooman.project2.controller;
 
-import jakarta.servlet.ServletContext;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+
 import lombok.AllArgsConstructor;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import wooman.project2.domain.Post;
-import wooman.project2.domain.PostListResult;
 import wooman.project2.service.PostService;
 
+import java.util.List;
+
 @AllArgsConstructor
-@RequestMapping("")
+@RequestMapping("post_page")
 @Controller
 public class PostController {
+    @Autowired
     private final PostService service;
     @GetMapping("list.do")
-    public String list(@PageableDefault(size=3, sort = "postseq", direction= Sort.Direction.DESC) Pageable pageable,
-                       Model model){
-        PostListResult listResult = service.getPostListResult(pageable);
-        model.addAttribute("listResult", listResult);
-        return "list";
+    public String list(Model model){
+        List<Post> list = service.listS();
+        model.addAttribute("listResult", list);
+        return "/post_page/list";
     }
     @GetMapping("write.do")
     public String write(){
@@ -38,28 +34,26 @@ public class PostController {
         service.insertS(post);
         return "redirect:list.do";
     }
-    @GetMapping("del.do")
-    public String delete(long postseq, ServletContext application, HttpSession session,
-                         HttpServletRequest request, Object page, HttpServletResponse response){
-        application = session.getServletContext();
-        service.deleteS(postseq);
-        return "redirect:list.do";
+    @GetMapping("content.do")
+    public String content(long seq, Model model){
+        Post post =service.contentS(seq);
+        model.addAttribute("post", post);
+        return "/post_page/content";
     }
     @GetMapping("update.do")
-    public String update(long postseq, Model model){
-        Post post = service.contentS(postseq);
+    public String update(long seq, Model model){
+        Post post = service.contentS(seq);
         model.addAttribute("post", post);
-        return "update";
+        return "/post_page/update";
     }
     @PostMapping("update.do")
     public String update(Post post){
         service.updateS(post);
         return "redirect:list.do";
     }
-    @GetMapping("content.do")
-    public String content(long postseq, Model model){
-        Post post =service.contentS(postseq);
-        model.addAttribute("post", post);
-        return "content";
+    @GetMapping("del.do")
+    public String delete(long seq){
+        service.deleteS(seq);
+        return "redirect:list.do";
     }
 }
