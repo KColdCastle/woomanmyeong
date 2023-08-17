@@ -66,9 +66,7 @@ public class MemberController {
         if(result == YES_ID_PWD){
             Member loginOkUser = memberLoginService.getLogin(member.getEmail());
             session.setAttribute("loginOkUser", loginOkUser);
-
-        model.addAttribute("result", result);
-
+            model.addAttribute("result", result);
             return "member/registration_success";
         }
         else {
@@ -80,6 +78,10 @@ public class MemberController {
         //session.removeAttribute("loginOkUser");//1개만
         session.invalidate();//session 모든객체 제거
         return "redirect:../";
+    }
+    @GetMapping("mypage")
+    public String mypage(){
+        return "member/mypage";
     }
 
 }
