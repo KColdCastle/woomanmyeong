@@ -80,28 +80,27 @@
             <form action="writeUp.do" name="f" method="post" class="form-horizontal" id="board_write_form"
                   novalidate="novalidate" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label class="col-md-2 control-label">${loginOkUser.nickname}</label>
+                    <label class="col-md-2 control-label">닉네임</label>
                     <div class="form-group-half">
-                        <input type="text" class="form-control" placeholder="닉네임" name="bd_subject"
-                               onkeydown="enterCheck(this)" disabled>
+                        <input type="text" class="form-control" placeholder="${loginOkUser.nickname}" name="bd_subject"
+                               onkeydown="enterCheck(this)" readonly>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label">제목</label>
                     <div class="form-group-half">
                         <input type="hidden" class="form-control" name="bd_mb_seq" value="${mb_seq}">
-                        <input type="text" class="form-control" placeholder="제목을 입력하세요" readonly
-                               value="${mb_name}">
+                        <input type="text" class="form-control" placeholder="제목을 입력하세요">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label">카테고리</label>
                     <div class="form-group-quarter">
-                        <select id="board_category" name="bd_gr_seq" onchange="categoryChanged()"
+                        <select id="board_category" name="board" onchange="categoryChanged()"
                                 class="form-control" onkeydown="enterCheck(this)">
-                            <c:forEach items="${goryDTOS}" var="goryDTOS">
-                                <c:if test="${not goryDTOS.gr_name.toString().equals('공지사항')}">
-                                    <option value="${goryDTOS.gr_seq}">${goryDTOS.gr_name}</option>
+                            <c:forEach items="${board}" var="board">
+                                <c:if test="${not board.boardName.toString().equals('공지사항')}">
+                                    <option value="${board.boardName}">${board.boardName}</option>
                                 </c:if>
                             </c:forEach>
                         </select>

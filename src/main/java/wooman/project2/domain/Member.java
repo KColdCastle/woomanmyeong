@@ -21,9 +21,9 @@ public class Member {
     @Id
     private String email;
     private String pwd;
-    private String nickName;
+    private String nickname;
     private long permission;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss", timezone = "Asia/Seoul")
     @CreationTimestamp
-    private Date jDate;
+    private Date jdate;
 }
