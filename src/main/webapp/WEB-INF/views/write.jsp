@@ -3,6 +3,11 @@
 
 <html>
 <head>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
 
 
     <link rel="stylesheet" href="/front/write.css">
@@ -26,8 +31,8 @@
                 }
             }
             }
-    var bd_contentval = f.bd_content.value;
-            bd_contentval = trim(bd_contentval);
+    var bd_contentval = f.summernote.value;
+
             if (bd_contentval.length == 0) {
                 alert("내용을 입력해주세요");
                 f.bd_content.value = "";
@@ -55,7 +60,8 @@
 
     </head>
     <body>
-    <form id="boardpostinsert" action="boardin" method="post">
+    <form id="boardpostinsert" action="boardin" method="post" name="f">
+
         <main class="main">
             <div class="write">
                 <div class="row">
@@ -67,7 +73,7 @@
                             <div class="form-group">
                                 <label class="col-md-2 control-label">닉네임</label>
                                 <div class="form-group-half">
-                                    <input type="text" class="form-control" placeholder="${loginOkUser.nickname}" name="nickname"
+                                    <input type="text" class="form-control" value="${loginOkUser.nickname}" name="nickname"
                                            onkeydown="enterCheck(this)" readonly>
                                 </div>
                             </div>
@@ -97,18 +103,31 @@
                                     </select>
                                 </div>
                             </div>
+
+
                             <div class="form-group">
-                                <label class="col-md-2 control-label">파일첨부</label>
+                              <label class="col-md-2 control-label">내용</label>
                                 <div class="form-group-in">
-                                    <input type="file" multiple="multiple" name="files">
+
+                                <textarea name="content" id="summernote" value="content"></textarea>
+
                                 </div>
+                                <script>
+                                $(document).ready(function() {
+                                     $('#summernote').summernote({
+                                             height: 300,                 // set editor height
+                                             minHeight: null,             // set minimum height of editor
+                                             maxHeight: null,             // set maximum height of editor
+                                             focus: true                  // set focus to editable area after initializing summernote
+                                     });
+                                });
+
+                                $(document).ready(function() {
+                                     $('#summernote').summernote();
+                                   });
+                                </script>
                             </div>
-                            <div class="form-group">
-                                <label class="col-md-2 control-label">내용</label>
-                                <div class="form-group-in">
-                                    <textarea rows="15" name="content"></textarea>
-                                </div>
-                            </div>
+
                             <div class="form-group">
                                 <div class="form-group-submit">
                                     <button type="submit" class="btn btn-primary">글쓰기</button>

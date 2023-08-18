@@ -24,6 +24,7 @@ public class Post {
     @ColumnDefault("long 0")
     private long viewnum;
     private String email;
+    private String nickname;
     private String subject;
     private String boardname;
     @Lob
@@ -34,5 +35,4 @@ public class Post {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss", timezone = "Asia/Seoul")
     @CreationTimestamp
     private Date cudate;
-
 }
