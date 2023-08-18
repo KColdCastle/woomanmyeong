@@ -22,8 +22,8 @@
             <p class="fs-4 text-center" style="height: 18px;font-size: 21px;margin: 15px;">회원가입</p>
             <form class="text-start" id="form-login">
                 <div class="mb-3"><label class="form-label" id="lbl-usuario" for="txt-usuario">NickName</label><input class="form-control" input type="text" id="txt-usuario" name="nickname">
-                    <div class="mb-3"><label class="form-label" id="lbl-usuario-1" for="txt-usuario">Password</label><input class="form-control"input type="text" id="txt-usuario-1" name="pwd">
-                        <div class="mb-3"><label class="form-label" id="lbl-usuario-1" for="txt-usuario">Re_Password</label><input class="form-control"input type="text" id="txt-usuario-1" name="check_pwd"></div>
+                    <div class="mb-3"><label class="form-label" id="lbl-usuario-1" for="txt-usuario">Password</label><input class="form-control"input type="password" id="txt-usuario-1" name="pwd">
+                        <div class="mb-3"><label class="form-label" id="lbl-usuario-1" for="txt-usuario">Re_Password</label><input class="form-control"input type="password" id="txt-usuario-1" name="check_pwd"></div>
                     </div>
                 </div>
                 <div class="mb-3"><label class="form-label" id="lbl-password" for="txt-password">Email</label>
@@ -74,7 +74,7 @@
                 verificationInput.focus();
             }
             function disableEmail(){
-                document.getElementById("email").readOnly = true;
+                document.getElementById("txt-usuario-2").readOnly = true;
             }
         </script>
 </body>
