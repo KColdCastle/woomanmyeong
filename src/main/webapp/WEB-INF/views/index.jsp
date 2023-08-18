@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-
 <!DOCTYPE html>
     <html lang="ko">
     <head>
@@ -27,14 +26,11 @@
         <!--=============== CSS ===============-->
         <link rel="stylesheet" href="front/styles.css">
         <link rel="stylesheet" href="front/board_type1.css">
-       <link rel="stylesheet" href="/front/bootstrap.min.css">
+        <link rel="stylesheet" href="front/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css">
-        <link rel="stylesheet" href="/front/Like-Button.css">
-
-
+        <link rel="stylesheet" href="front/Like-Button.css">
         <title>국내여행에에빠진사람들</title>
-
     </head>
     <body>
         <header class="header" id="header">
@@ -48,16 +44,16 @@
                             <a href="#home" class="nav__link active-link">Home</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#home" class="nav__link">혼자여행</a>
+                            <a href="#home" class="nav__link active-link">혼자여행</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#couple" class="nav__link">커플여행</a>
+                            <a href="#couple" class="nav__link active-link">커플여행</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#discover" class="nav__link">가족여행</a>
+                            <a href="#discover" class="nav__link active-link">가족여행</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#about" class="nav__link">단체여행</a>
+                            <a href="#about" class="nav__link active-link">단체여행</a>
                         </li>
 
 		                <li class="nav__item dropdown">
@@ -101,7 +97,7 @@
                     <div class="home__data">
                         <span class="home__data-subtitle">국여진사람들</span>
                         <h1 class="home__data-title">국내<br> 여행에 <b>빠진 <br> 사람들</b></h1>
-                        <a href="write.jsp" class="button">글쓰기</a>
+                        <a href="/write/insert.do" class="button">글쓰기</a>
 
                     </div>
 
@@ -602,11 +598,11 @@
             <i class="ri-arrow-up-line scrollup__icon"></i>
         </a>
         <!--=============== SCROLL REVEAL ===========-->
-        <script src="assets/js/scrollreveal.min.js"></script>
+        <script src="/front/assets/js/scrollreveal.min.js"></script>
         <!--=============== SWIPER JS ===============-->
-        <script src="assets/js/swiper-bundle.min.js"></script>
+        <script src="/front/assets/js/swiper-bundle.min.js"></script>
 
         <!--=============== MAIN JS ===============-->
-        <script src="assets/js/main.js"></script>
+        <script src="/front/assets/js/main.js"></script>
     </body>
 </html>
