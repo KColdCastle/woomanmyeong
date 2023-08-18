@@ -22,6 +22,7 @@
                 <div class="mb-3"><label class="form-label" id="lbl-usuario" for="txt-usuario">Email</label><input class="form-control" type="text" id="txt-usuario" name="email"></div>
                 <div class="mb-3"><label class="form-label" id="lbl-password" for="txt-password">Password</label><input class="form-control" type="password" id="txt-password" name="pwd"></div>
             </form><button class="btn btn-primary" id="btn-sesion" type="submit" style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: #323537;">로그인</button>
+            <a class="fs-6" href="../" style="padding: -87px;margin: 41px;">비회원 접속</a>
         </div>
         </form>
     </div>
