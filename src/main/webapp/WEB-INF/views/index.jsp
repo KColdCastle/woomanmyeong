@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=utf-8"%>
+<%@ page language="java" contentType="text/html;charset=utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
@@ -16,17 +16,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!--=============== FAVICON ===============-->
-        <link rel="shortcut icon" href="front/assets/img/favicon.png" type="image/png">
+        <link rel="shortcut icon" href="/front/assets/img/favicon.png" type="image/png">
 
         <!--=============== REMIXICONS ===============-->
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
         <!--=============== SWIPER CSS ===============-->
-        <link rel="stylesheet" href="front/assets/css/swiper-bundle.min.css">
+        <link rel="stylesheet" href="/front/assets/css/swiper-bundle.min.css">
 
         <!--=============== CSS ===============-->
-        <link rel="stylesheet" href="front/styles.css">
-        <link rel="stylesheet" href="front/board_type1.css">
+        <link rel="stylesheet" href="/front/styles.css">
+        <link rel="stylesheet" href="/front/board_type1.css">
        <link rel="stylesheet" href="/front/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css">
@@ -95,7 +95,7 @@
         <main class="main">
             <!--==================== HOME =================여기 홈===-->
 
-                <img src="front/assets/img/home1.jpg" alt="" class="home__img">
+                <img src="/front/assets/img/home1.jpg" alt="" class="home__img">
 
                 <div class="home__container container grid">
                     <div class="home__data">
@@ -138,7 +138,7 @@
                         </div>
                         <section class="home" id="home">
                         <div class="home__info-overlay">
-                            <img src="front/assets/img/home2.jpg" alt="" class="home__info-img">
+                            <img src="/front/assets/img/home2.jpg" alt="" class="home__info-img">
                         </div>
                     </div>
                 </div>
@@ -602,11 +602,11 @@
             <i class="ri-arrow-up-line scrollup__icon"></i>
         </a>
         <!--=============== SCROLL REVEAL ===========-->
-        <script src="assets/js/scrollreveal.min.js"></script>
+        <script src="/front/assets/js/scrollreveal.min.js"></script>
         <!--=============== SWIPER JS ===============-->
-        <script src="assets/js/swiper-bundle.min.js"></script>
+        <script src="/front/assets/js/swiper-bundle.min.js"></script>
 
         <!--=============== MAIN JS ===============-->
-        <script src="assets/js/main.js"></script>
+        <script src="/front/assets/js/main.js"></script>
     </body>
 </html>
