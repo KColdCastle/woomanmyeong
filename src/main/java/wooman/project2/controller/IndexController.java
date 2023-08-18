@@ -20,7 +20,7 @@ public class IndexController {
 
     @GetMapping("")
     public String index(Model model){
-        List<Post> postList = service.indexListS();
+        List<Post> postList = service.indexListS(5);
         model.addAttribute("post", postList);
         return "index";
     }

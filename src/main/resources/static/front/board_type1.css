@@ -9,17 +9,16 @@
 .board_list_type1 tbody tr{border-bottom:1px solid white;font-size:16px;height:50px;}
 .board_list_type1 tbody tr .left{text-align:center;padding-left:10px;padding-right:10px;}
 /* 각칸마다 비율*/
-.board_list_type1 thead tr th:nth-child(1){width:5%; text-align: center;}
+.board_list_type1 thead tr th:nth-child(1){width:10; text-align: center;}
 .board_list_type1 thead tr th:nth-child(2){width: auto; text-align: center;}
 .board_list_type1 thead tr th:nth-child(3){width:60%; text-align: center;}
 .board_list_type1 thead tr th:nth-child(4){width:10%; text-align: center;}
-.board_list_type1 thead tr th:nth-child(5){width:12%; text-align: center;}
 
-.board_list_type1 tbody tr td:nth-child(1){width:5%; text-align: center;}
+
+.board_list_type1 tbody tr td:nth-child(1){width:10%; text-align: center;}
 .board_list_type1 tbody tr td:nth-child(2){width:8%; text-align: center;}
 .board_list_type1 tbody tr td:nth-child(3){width:60%; text-align: center; text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
 .board_list_type1 tbody tr td:nth-child(4){width:10%; text-align: center;}
-.board_list_type1 tbody tr td:nth-child(5){width:12%; text-align: center;}
 
 @media only screen and (max-width:760px){
 	.active_type{display:none;}
@@ -27,13 +26,13 @@
 	.board_list_type1 thead tr th:nth-child(2){width:0%}
 	.board_list_type1 thead tr th:nth-child(3){width:90%;}
 	.board_list_type1 thead tr th:nth-child(4){width:0%}
-	.board_list_type1 thead tr th:nth-child(5){width:0%}
-	
+
+
 	.board_list_type1 tbody tr td:nth-child(1){width:10%}
 	.board_list_type1 tbody tr td:nth-child(2){width:0%}
 	.board_list_type1 tbody tr td:nth-child(3){width:90%;}
 	.board_list_type1 tbody tr td:nth-child(4){width:0%}
-	.board_list_type1 tbody tr td:nth-child(5){width:0%}
+}
 
 
 body {

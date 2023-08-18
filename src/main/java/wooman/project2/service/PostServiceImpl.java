@@ -1,6 +1,7 @@
 package wooman.project2.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,8 +22,8 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<Post> indexListS() {
-        return repository.findAll(Sort.by(Sort.Direction.DESC, "viewnum"));
+    public List<Post> indexListS(int count) {
+        return repository.findAll(PageRequest.of(0, count, Sort.by(Sort.Direction.DESC, "viewnum"))).getContent();
     }
 
     @Override

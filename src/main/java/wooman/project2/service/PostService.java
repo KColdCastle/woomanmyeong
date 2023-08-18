@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface PostService {
     List<Post> listS();
-    List<Post> indexListS();
+    List<Post> indexListS(int count);
 
     Post insertS(Post post);
     Post contentS(long seq);

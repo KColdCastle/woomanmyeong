@@ -1,29 +1,37 @@
 <%@ page contentType="text/html;charset=utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+
 <!DOCTYPE html>
     <html lang="ko">
     <head>
+
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!--=============== FAVICON ===============-->
-        <link rel="shortcut icon" href="/front/assets/img/favicon.png" type="image/png">
+        <link rel="shortcut icon" href="front/assets/img/favicon.png" type="image/png">
 
         <!--=============== REMIXICONS ===============-->
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
         <!--=============== SWIPER CSS ===============-->
-        <link rel="stylesheet" href="/front/swiper-bundle.min.css">
+        <link rel="stylesheet" href="front/assets/css/swiper-bundle.min.css">
 
         <!--=============== CSS ===============-->
-        <link rel="stylesheet" type="text/css" href="/front/styles.css">
-        <link rel="stylesheet" type="text/css" href="/front/board_type1.css">
-           <link rel="stylesheet" href="/front/bootstrap.min.css">
-            <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css">
-            <link rel="stylesheet" href="/front/Like-Button.css">
+        <link rel="stylesheet" href="front/styles.css">
+        <link rel="stylesheet" href="front/board_type1.css">
+       <link rel="stylesheet" href="/front/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="/front/Like-Button.css">
+
 
         <title>국내여행에에빠진사람들</title>
 
@@ -35,51 +43,65 @@
 
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
+
                         <li class="nav__item">
                             <a href="#home" class="nav__link active-link">Home</a>
                         </li>
                         <li class="nav__item">
-                            <a href="post_page/list.do" class="nav__link">혼자여행</a>
+                            <a href="#home" class="nav__link">혼자여행</a>
                         </li>
                         <li class="nav__item">
                             <a href="#couple" class="nav__link">커플여행</a>
                         </li>
                         <li class="nav__item">
+                            <a href="#discover" class="nav__link">가족여행</a>
+                        </li>
+                        <li class="nav__item">
                             <a href="#about" class="nav__link">단체여행</a>
                         </li>
+
+		                <li class="nav__item dropdown">
+                            <a class="nav__link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   자유게시판
+                            </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="post_page/list.do">여행은 혼자지</a>
+                                <a class="dropdown-item" href="elements.html">여행은 커플</a>
+                                <a class="dropdown-item" href="elements.html">단체여행~</a>
+                                <a class="dropdown-item" href="elements.html">맘대로 떠드는 자유게시판</a>
+                                </div>
+                            </li>
+
                         <li class="nav__item">
-                            <a href="freeBoardList.jsp" class="nav__link">자유게시판</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="./bug.jsp" class="nav__link">신고</a>
+                            <a href="#place" class="nav__link">신고</a>
                         </li>
                     </ul>
 
-    </header>
+                    <div class="nav__dark">
+                        <!-- Theme change button -->
+                        <span class="change-theme-name">Dark mode</span>
+                        <i class="ri-moon-line change-theme" id="theme-button"></i>
+                    </div>
 
-                        <div class="nav__dark">
-                           <!-- Theme change button -->
-                           <span class="change-theme-name">Dark mode</sp    an>
-                           <i class="ri-moon-line change-theme" id="theme-button"></i>
-                       </div>
+                    <i class="ri-close-line nav__close" id="nav-close"></i>
+                </div>
 
-                        <i class="ri-close-line nav__close" id="nav-close"></i>
-                        </div>
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-function-line"></i>
+                </div>
+            </nav>
+        </header>
 
-                       <div class="nav__toggle" id="nav-toggle">
-                           <i class="ri-function-line"></i>
-                       </div>
-                   </nav>
         <main class="main">
             <!--==================== HOME =================여기 홈===-->
 
-                <img src="/front/assets/img/home1.jpg" alt="" class="home__img">
+                <img src="front/assets/img/home1.jpg" alt="" class="home__img">
 
                 <div class="home__container container grid">
                     <div class="home__data">
                         <span class="home__data-subtitle">국여진사람들</span>
                         <h1 class="home__data-title">국내<br> 여행에 <b>빠진 <br> 사람들</b></h1>
-                        <a href="/write/insert.do" class="button">글쓰기</a>
+                        <a href="write.jsp" class="button">글쓰기</a>
 
                     </div>
 
@@ -116,7 +138,7 @@
                         </div>
                         <section class="home" id="home">
                         <div class="home__info-overlay">
-                            <img src="/context-path/front/assets/img/home2.jpg" alt="" class="home__info-img">
+                            <img src="front/assets/img/home2.jpg" alt="" class="home__info-img">
                         </div>
                     </div>
                 </div>
@@ -124,28 +146,20 @@
 
 
             <!--==================== ABOUT ====================-->
-            <section class="couple" id="couple"></section>
-               <div class="board_type1_wrap">
-                  <table class="board_list_type1">
+                   <section class="home" id="home"></section>
 
-    <body style="background: var(--gray);">
-        <section class="mt-4">
-            <div class="container-fluid">
-        <div class="row">
-    <div class="col" style="min-width: auto;background: var(--gray);">
-        <div class="card text-left" style="background: var(--gray);">
-            <div class="card-header py-2" style="margin-right: 24px;background: var(--gray);">
-                <p class="lead text-info m-0" style="margin-right: 3px;border-color: rgb(32,125,193);background: var(--gray);"><span style="color: rgb(1, 1, 1);">게시판</span></p>
-            </div>
-            <div class="card-body text-left" style="background: var(--gray);"><a class="btn btn-primary text-justify border rounded-0 shadow float-right" role="button" href="#home" style="background: var(--primary);">더보기</a>
-                <div class="w-100"></div>
-                <div class="table-responsive table mb-0 pt-3 pr-2">
-                    <table class="table table-striped table-sm my-0 mydatatable">
-                        <thead>
-                            <tr>
+                   <div class="board_type1_wrap">
+                       <table class="board_list_type1">
+                             <br>
+
+                          <h2> 공지사항  </h2>
+                           <thead>
+                               <tr>
                                 <th data-bss-hover-animate="bounce">닉네임</th>
                                 <th>제목</th>
                                 <th>조회수</th>
+
+
                             </tr>
                                 </thead>
                                 <tbody>
@@ -157,22 +171,180 @@
                                     <c:forEach items="${post}" var="post">
                                         <tr>
                                             <td>${post.email}</td>
-                                            <td>${post.subject}</td>
+                                    <td>
+                                <a href='content.do?&seq=${post.seq}'>${post.subject}</a>
+                                 </td>
                                             <td>${post.viewnum}</td>
                                         </tr>
                                         </c:forEach>
-                                    </tbody>
+                                   </thead>
+                                   <tbody>
 
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                   </tbody>
+       							 </section>
+                               </table>
+                                <div class="board_type1_wrap">
+                              <table class="board_list_type1">
+       							<a href="#" class="button">더보기</a>
+                                    <br>
+                                    <br>
+                                    <br>
+
+       							<h2 >혼자  <br> 여행</h2>
+
+       						   <thead>
+                               <tr>
+                                <th data-bss-hover-animate="bounce">닉네임</th>
+                                <th>제목</th>
+                                <th>조회수</th>
+
+
+                            </tr>
+                                </thead>
+                                <tbody>
+                            <c:if test="${empty post}">
+                                <tr>
+                                    <td align='center' colspan="5">검색된 글이 없음</td>
+                                </tr>
+                            </c:if>
+                                    <c:forEach items="${post}" var="post">
+                                        <tr>
+                                            <td>${post.email}</td>
+                                    <td>
+                                <a href='content.do?&seq=${post.seq}'>${post.subject}</a>
+                                 </td>
+                                            <td>${post.viewnum}</td>
+                                        </tr>
+                                        </c:forEach>
+                                   </thead>
+                                   <tbody>
+
+                                   </tbody>
+       							 </section>
+                               </table>
+                           <div class="board_type1_wrap">
+                         <table class="board_list_type1">
+
+       						<a href="#" class="button">더보기</a>
+
+                                    <br>
+                                    <br>
+                                    <br>
+       						<h2 >커플  <br> 여행</h2>
+
+       						   <thead>
+                               <tr>
+                                <th data-bss-hover-animate="bounce">닉네임</th>
+                                <th>제목</th>
+                                <th>조회수</th>
+
+
+                            </tr>
+                                </thead>
+                                <tbody>
+                            <c:if test="${empty post}">
+                                <tr>
+                                    <td align='center' colspan="5">검색된 글이 없음</td>
+                                </tr>
+                            </c:if>
+                                    <c:forEach items="${post}" var="post">
+                                        <tr>
+                                            <td>${post.email}</td>
+                                    <td>
+                                <a href='content.do?&seq=${post.seq}'>${post.subject}</a>
+                                 </td>
+                                            <td>${post.viewnum}</td>
+                                        </tr>
+                                        </c:forEach>
+                                   </thead>
+                                   <tbody>
+
+                                   </tbody>
+       							 </section>
+                               </table>
+                           <div class="board_type1_wrap">
+                         <table class="board_list_type1">
+
+       					<a href="#" class="button">더보기</a>
+                                <br>
+                                <br>
+                                <br>
+       						  <h2>단체 <br> 여행</h2>
+
+       						   <thead>
+                               <tr>
+                                <th data-bss-hover-animate="bounce">닉네임</th>
+                                <th>제목</th>
+                                <th>조회수</th>
+
+
+                            </tr>
+                                </thead>
+                                <tbody>
+                            <c:if test="${empty post}">
+                                <tr>
+                                    <td align='center' colspan="5">검색된 글이 없음</td>
+                                </tr>
+                            </c:if>
+                                    <c:forEach items="${post}" var="post">
+                                        <tr>
+                                            <td>${post.email}</td>
+                                    <td>
+                                <a href='content.do?&seq=${post.seq}'>${post.subject}</a>
+                                 </td>
+                                            <td>${post.viewnum}</td>
+                                        </tr>
+                                        </c:forEach>
+                                   </thead>
+                                   <tbody>
+
+                                   </tbody>
+       							 </section>
+                               </table>
+                               <div class="board_type1_wrap">
+                             <table class="board_list_type1">
+       						<a href="#" class="button">더보기</a>
+
+       						<br>
+       						<br>
+       						<br>
+       						<h2>자유 <br>게시판</h2>
+       						   <thead>
+                               <tr>
+                                <th data-bss-hover-animate="bounce">닉네임</th>
+                                <th>제목</th>
+                                <th>조회수</th>
+
+
+                            </tr>
+                                </thead>
+                                <tbody>
+                            <c:if test="${empty post}">
+                                <tr>
+                                    <td align='center' colspan="5">검색된 글이 없음</td>
+                                </tr>
+                            </c:if>
+                                    <c:forEach items="${post}" var="post">
+                                        <tr>
+                                            <td>${post.email}</td>
+                                    <td>
+                                <a href='content.do?&seq=${post.seq}'>${post.subject}</a>
+                                 </td>
+                                            <td>${post.viewnum}</td>
+                                        </tr>
+                                        </c:forEach>
+                                   </thead>
+                                   <tbody>
+
+                                   </tbody>
+       							 </section>
+                               </table>
+
+                           </div>
 
 
 
+            <!--==================== VIDEO ====================-->
 
             <section class="subscribe section">
                 <div class="subscribe__bg">
@@ -193,187 +365,6 @@
                 </div>
             </section>
 
-            <section class="about section" id="about">
-                <div class="about__container container grid">
-                    <div class="about__data">
-                        <h2 class="section__title about__title">공지사항  <br> 공지글</h2>
-                        <!-- <p class="about__description">You can find the most beautiful and pleasant places at the best
-                            prices with special discounts, you choose the place we will guide you all the way to wait, get your
-                            place now. -->
-                        </p>
-                        <a href="#" class="button">위로가기버튼</a>
-                    </div>
-
-                    <div class="about__img">
-                        <div class="about__img-overlay">
-                            <img src="assets/img/about1.jpg" alt="" class="about__img-one">
-                        </div>
-
-                        <div class="about__img-overlay">
-                            <img src="assets/img/about2.jpg" alt="" class="about__img-two">
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!--==================== DISCOVER ====================-->
-
-            <div class="board_type1_wrap">
-                <table class="board_list_type1">
-
-                    <thead>
-                        <tr>
-                            <th><input type="checkbox" /></th>
-                            <th class="active_type">글번호</th>
-                            <th>제목</th>
-                            <th class="active_type">작성자</th>
-                            <th class="active_type">작성날짜</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><input type="checkbox" /></td>
-                            <td class="active_type">1</td>
-                            <td class="left">게시물1번입니다.</td>
-                            <td class="active_type">관리자</td>
-                            <td class="active_type">2017-12-19</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" /></td>
-                            <td class="active_type">1</td>
-                            <td class="left">게시물1번입니다.게시물1번입니다.게시물1번입니다.게시물1번입니다.게시물1번입니다.</td>
-                            <td class="active_type">관리자</td>
-                            <td class="active_type">2017-12-19</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" /></td>
-                            <td class="active_type">1</td>
-                            <td class="left">게시물1번입니다.</td>
-                            <td class="active_type">관리자</td>
-                            <td class="active_type">2017-12-19</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" /></td>
-                            <td class="active_type">1</td>
-                            <td class="left">게시물1번입니다.</td>
-                            <td class="active_type">관리자</td>
-                            <td class="active_type">2017-12-19</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" /></td>
-                            <td class="active_type">1</td>
-                            <td class="left">게시물1번입니다.</td>
-                            <td class="active_type">관리자</td>
-                            <td class="active_type">2017-12-19</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" /></td>
-                            <td class="active_type">1</td>
-                            <td class="left">게시물1번입니다.</td>
-                            <td class="active_type">관리자</td>
-                            <td class="active_type">2017-12-19</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" /></td>
-                            <td class="active_type">1</td>
-                            <td class="left">게시물1번입니다.</td>
-                            <td class="active_type">관리자</td>
-                            <td class="active_type">2017-12-19</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" /></td>
-                            <td class="active_type">1</td>
-                            <td class="left">게시물1번입니다.</td>
-                            <td class="active_type">관리자</td>
-                            <td class="active_type">2017-12-19</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" /></td>
-                            <td class="active_type">1</td>
-                            <td class="left">게시물1번입니다.</td>
-                            <td class="active_type">관리자</td>
-                            <td class="active_type">2017-12-19</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" /></td>
-                            <td class="active_type">1</td>
-                            <td class="left">게시물1번입니다.</td>
-                            <td class="active_type">관리자</td>
-                            <td class="active_type">2017-12-19</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" /></td>
-                            <td class="active_type">1</td>
-                            <td class="left">게시물1번입니다.</td>
-                            <td class="active_type">관리자</td>
-                            <td class="active_type">2017-12-19</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-
-
-            <section class="discover section" id="discover">
-              <h2 class="section__title">중간 제목 <br> Attractive Places</h2>
-              <div class="board_type1_wrap">
-                <table class="board_list_type1">
-
-                    <thead>
-                        <tr>
-                            <th><input type="checkbox" /></th>
-                            <th class="active_type">글번호</th>
-                            <th>제목</th>
-                            <th class="active_type">작성자</th>
-                            <th class="active_type">작성날짜</th>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td><input type="checkbox" /></td>
-                        <td class="active_type">1</td>
-                        <td class="left">게시물1번입니다.</td>
-                        <td class="active_type">관리자</td>
-                        <td class="active_type">2017-12-19</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-            </section>
-            <!--==================== EXPERIENCE ====================-->
-            <section class="experience section">
-                <h2 class="section__title">With Our Experience <br> We Will Serve You</h2>
-
-                <div class="experience__container container grid">
-                    <div class="experience__content grid">
-                        <div class="experience__data">
-                            <h2 class="experience__number">20</h2>
-                            <span class="experience__description">Year <br> Experience</span>
-                        </div>
-
-                        <div class="experience__data">
-                            <h2 class="experience__number">75</h2>
-                            <span class="experience__description">Complete <br> tours</span>
-                        </div>
-
-                        <div class="experience__data">
-                            <h2 class="experience__number">650+</h2>
-                            <span class="experience__description">Tourist <br> Destination</span>
-                        </div>
-                    </div>
-
-                    <div class="experience__img grid">
-                        <div class="experience__overlay">
-                            <img src="assets/img/experience1.jpg" alt="" class="experience__img-one">
-                        </div>
-
-                        <div class="experience__overlay">
-                            <img src="assets/img/experience2.jpg" alt="" class="experience__img-two">
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!--==================== VIDEO ====================-->
             <section class="video section">
                 <h2 class="section__title">Video Tour</h2>
                 <div class="video__container container">
@@ -527,7 +518,7 @@
         </main> -->
 
         <!--=============== FOOTER ===============-->
-        <!-- <footer class="footer section">
+         <footer class="footer section">
 
             <div class="footer__container container grid">
                 <div class="footer__content grid">
@@ -604,7 +595,7 @@
                 </div>
             </div>
 
-        </footer>  -->
+        </footer>
 
         <!--=============== SCROLL UP ===============-->
         <a href="#" class="scrollup" id="scroll-up">
