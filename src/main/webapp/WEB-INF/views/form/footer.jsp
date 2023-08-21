@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="footer__rights">
-                    <p class="footer__copy">&#169; 2021 devjade. All rigths reserved.</p>
+                    <p class="footer__copy">&#169; 2023 devjade. All rigths reserved.</p>
                     <div class="footer__terms">
                         <a href="#" class="footer__terms-link">Terms & Agreements</a>
                         <a href="#" class="footer__terms-link">Privacy Policy</a>

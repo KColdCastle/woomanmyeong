@@ -315,6 +315,15 @@ input {
   object-fit: cover;
   object-position: 83%;
 }
+.home__img__list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: 83%;
+}
 
 .home__container {
   position: relative;

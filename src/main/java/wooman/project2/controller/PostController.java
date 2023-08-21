@@ -51,6 +51,15 @@ public class PostController {
 
         return "/post_page/coupleList";
     }
+
+    @GetMapping("noticeList.do")
+    public String noticeList(Model model, @PageableDefault(page = 0, size = 10, sort = "seq", direction = Sort.Direction.DESC) Pageable pageable){
+
+        PostListResult noticeList=service.getPostListResultWithBoardName("공지사항", pageable);
+        model.addAttribute("noticeList", noticeList);
+
+        return "/post_page/noticeList";
+    }
     @GetMapping("write.do")
     public String write(){
         return "/post_page/write";
