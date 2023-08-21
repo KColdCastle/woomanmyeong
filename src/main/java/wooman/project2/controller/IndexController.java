@@ -24,5 +24,4 @@ public class IndexController {
         model.addAttribute("post", postList);
         return "index";
     }
-
 }

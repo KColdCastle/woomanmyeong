@@ -37,59 +37,7 @@
 
     </head>
     <body>
-        <header class="header" id="header">
-            <nav class="nav container">
-                <a href="#" class="nav__logo"></a>
-
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-
-                        <li class="nav__item">
-                            <a href="#home" class="nav__link active-link">Home</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#home" class="nav__link">혼자여행</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#couple" class="nav__link">커플여행</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#discover" class="nav__link">가족여행</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#about" class="nav__link">단체여행</a>
-                        </li>
-
-		                <li class="nav__item dropdown">
-                            <a class="nav__link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                   자유게시판
-                            </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="post_page/list.do">여행은 혼자지</a>
-                                <a class="dropdown-item" href="elements.html">여행은 커플</a>
-                                <a class="dropdown-item" href="elements.html">단체여행~</a>
-                                <a class="dropdown-item" href="elements.html">맘대로 떠드는 자유게시판</a>
-                                </div>
-                            </li>
-
-                        <li class="nav__item">
-                            <a href="#place" class="nav__link">신고</a>
-                        </li>
-                    </ul>
-
-                    <div class="nav__dark">
-                        <!-- Theme change button -->
-                        <span class="change-theme-name">Dark mode</span>
-                        <i class="ri-moon-line change-theme" id="theme-button"></i>
-                    </div>
-
-                    <i class="ri-close-line nav__close" id="nav-close"></i>
-                </div>
-
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class="ri-function-line"></i>
-                </div>
-            </nav>
+        <jsp:include page="form/navbar.jsp"/>
         </header>
 
         <main class="main">
@@ -146,6 +94,25 @@
 
 
             <!--==================== ABOUT ====================-->
+              <!--  <section class="subscribe section"> -->
+                <div class="subscribe__bg">
+                    <div class="subscribe__container container">
+                        <h2 class="section__title subscribe__title">Subscribe Our <br> Newsletter</h2>
+                        <p class="subscribe__description">Subscribe to our newsletter and get a
+                            special 30% discount.
+                        </p>
+
+                        <form action="" class="subscribe__form">
+                            <input type="text" placeholder="검색" class="subscribe__input">
+
+                            <button class="button">
+                                검색하기
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            <!--  </section>  -->
+
                    <section class="home" id="home"></section>
 
                    <div class="board_type1_wrap">
@@ -170,7 +137,7 @@
                             </c:if>
                                     <c:forEach items="${post}" var="post">
                                         <tr>
-                                            <td>${post.email}</td>
+                                            <td>${post.nickname}</td>
                                     <td>
                                 <a href='content.do?&seq=${post.seq}'>${post.subject}</a>
                                  </td>
@@ -186,6 +153,7 @@
                                 <div class="board_type1_wrap">
                               <table class="board_list_type1">
        							<a href="#" class="button">더보기</a>
+       							<div class="text-center"><i class="fa fa-arrow-left border rounded-circle" style="color: rgb(0,0,0);"></i><button class="btn btn-primary border rounded-circle" type="button" style="background-color: #ff8000;color: rgb(0,0,0);">1</button><button class="btn btn-primary border rounded-circle" type="button" style="color: rgb(0,0,0);background-color: rgba(0,123,255,0);">2</button><button class="btn btn-primary border rounded-circle" type="button" style="background-color: rgba(0,123,255,0);color: rgb(0,0,0);">3</button><button class="btn btn-primary border rounded-circle" type="button" style="color: rgb(0,0,0);background-color: rgba(0,123,255,0);">4</button><button class="btn btn-primary border rounded-circle" type="button" style="color: rgb(0,0,0);background-color: rgba(0,123,255,0);">...</button><button class="btn btn-primary border rounded-circle" type="button" style="color: rgb(0,0,0);background-color: rgba(0,123,255,0);">7</button><i class="fa fa-arrow-right" style="color: rgb(0,0,0);"></i></div>
                                     <br>
                                     <br>
                                     <br>
@@ -209,7 +177,7 @@
                             </c:if>
                                     <c:forEach items="${post}" var="post">
                                         <tr>
-                                            <td>${post.email}</td>
+                                            <td>${post.nickname}</td>
                                     <td>
                                 <a href='content.do?&seq=${post.seq}'>${post.subject}</a>
                                  </td>
@@ -224,6 +192,7 @@
                                </table>
                            <div class="board_type1_wrap">
                          <table class="board_list_type1">
+
 
        						<a href="#" class="button">더보기</a>
 
@@ -249,7 +218,7 @@
                             </c:if>
                                     <c:forEach items="${post}" var="post">
                                         <tr>
-                                            <td>${post.email}</td>
+                                            <td>${post.nickname}</td>
                                     <td>
                                 <a href='content.do?&seq=${post.seq}'>${post.subject}</a>
                                  </td>
@@ -288,7 +257,7 @@
                             </c:if>
                                     <c:forEach items="${post}" var="post">
                                         <tr>
-                                            <td>${post.email}</td>
+                                            <td>${post.nickname}</td>
                                     <td>
                                 <a href='content.do?&seq=${post.seq}'>${post.subject}</a>
                                  </td>
@@ -326,7 +295,7 @@
                             </c:if>
                                     <c:forEach items="${post}" var="post">
                                         <tr>
-                                            <td>${post.email}</td>
+                                            <td>${post.nickname}</td>
                                     <td>
                                 <a href='content.do?&seq=${post.seq}'>${post.subject}</a>
                                  </td>
@@ -346,24 +315,7 @@
 
             <!--==================== VIDEO ====================-->
 
-            <section class="subscribe section">
-                <div class="subscribe__bg">
-                    <div class="subscribe__container container">
-                        <h2 class="section__title subscribe__title">Subscribe Our <br> Newsletter</h2>
-                        <p class="subscribe__description">Subscribe to our newsletter and get a
-                            special 30% discount.
-                        </p>
 
-                        <form action="" class="subscribe__form">
-                            <input type="text" placeholder="검색" class="subscribe__input">
-
-                            <button class="button">
-                                검색하기
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </section>
 
             <section class="video section">
                 <h2 class="section__title">Video Tour</h2>
@@ -371,7 +323,7 @@
                     <p class="video__description">Find out more with our video of the most beautiful and pleasant places for you and your family.</p>
                     <div class="video__content">
                         <video id="video-file">
-                            <source src="assets/video/video.mp4" type="video/mp4">
+                            <source src="front/assets/video/video.mp4" type="video/mp4">
                         </video>
                         <button class="button button--flex video__button" id="video-button">
                             <i class="ri-play-line video__button-icon" id="video-icon"></i>
@@ -386,7 +338,7 @@
 
                     <!--==================== PLACES CARD 1====================-->
                     <!-- <div class="place__card">
-                        <img src="assets/img/place1.jpg" alt="" class="place__img">
+                        <img src="front/assets/img/place1.jpg" alt="" class="place__img">
                         <div class="place__content">
                             <span class="place__rating">
                                 <i class="ri-star-line place__rating-icon"></i>
@@ -516,7 +468,10 @@
                 </div>
             </section>
         </main> -->
+       <jsp:include page="form/footer.jsp"/>
 
+
+<!--
         <!--=============== FOOTER ===============-->
          <footer class="footer section">
 
@@ -595,7 +550,7 @@
                 </div>
             </div>
 
-        </footer>
+        </footer> -->
 
         <!--=============== SCROLL UP ===============-->
         <a href="#" class="scrollup" id="scroll-up">
