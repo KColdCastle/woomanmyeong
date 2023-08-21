@@ -35,10 +35,13 @@
 
         <title>국내여행에에빠진사람들</title>
 
+
     </head>
     <body>
         <jsp:include page="form/navbar.jsp"/>
         </header>
+
+
 
         <main class="main">
             <!--==================== HOME =================여기 홈===-->
@@ -53,53 +56,13 @@
 
                     </div>
 
+                   <!--  <section class="subscribe section"> -->
 
-                    <div class="home__social">
-                        <a href="https://www.facebook.com/" target="_blank" class="home__social-link">
-                            <i class="ri-facebook-box-fill"></i>
-                        </a>
-                        <a href="https://www.instagram.com/" target="_blank" class="home__social-link">
-                            <i class="ri-instagram-fill"></i>
-                        </a>
-                        <a href="https://twitter.com/" target="_blank" class="home__social-link">
-                            <i class="ri-twitter-fill"></i>
-                        </a>
-                    </div>
-
-                    <div class="home__info">
-                        <div>
-                            <span class="home__info-title">regist/login</span>
-                            <a href="" class="button button--flex button--link home__info-button">
-                            <br><a href="member/regtest">회원가입</a> <i class="ri-arrow-right-line"></i>
-
-                                <c:choose>
-                                    <c:when test="${empty loginOkUser}">
-                                        <a href="member/logintest">로그인</a><i class="ri-arrow-right-line"></i>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <a href="member/logout">로그아웃</a><i class="ri-arrow-right-line"></i>
-                                        <br><font style="color:green">${loginOkUser.nickname}님 환영합니다.</font><br/>
-                                    </c:otherwise>
-                                </c:choose>
-                            </a>
-
-                        </div>
-                        <section class="home" id="home">
-                        <div class="home__info-overlay">
-                            <img src="front/assets/img/home2.jpg" alt="" class="home__info-img">
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-            <!--==================== ABOUT ====================-->
-              <!--  <section class="subscribe section"> -->
                 <div class="subscribe__bg">
                     <div class="subscribe__container container">
-                        <h2 class="section__title subscribe__title">Subscribe Our <br> Newsletter</h2>
-                        <p class="subscribe__description">Subscribe to our newsletter and get a
-                            special 30% discount.
+                         <!--  <h2 class="section__title subscribe__title">Subscribe Our <br> Newsletter</h2>-->
+                      <!--   <p class="subscribe__description">Subscribe to our newsletter and get a
+                            special 30% discount.-->
                         </p>
 
                         <form action="" class="subscribe__form">
@@ -112,6 +75,53 @@
                     </div>
                 </div>
             <!--  </section>  -->
+
+
+
+                    <div class="home__social">
+                        <a href="https://www.facebook.com/" target="_blank" class="home__social-link">
+                            <i class="ri-facebook-box-fill"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" target="_blank" class="home__social-link">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                        <a href="https://twitter.com/" target="_blank" class="home__social-link">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+
+                    </div>
+
+
+                    <div class="home__info">
+                        <div>
+
+                            <span class="home__info-title">regist/login</span>
+                             <c:choose>
+                             <c:when test="${empty loginOkUser}">
+                            <a href="member/logintest">로그인</a><i class="ri-arrow-right-line"></i>
+                            <a href="" class="button button--flex button--link home__info-button">
+                            <br><a href="member/regtest">회원가입</a> <i class="ri-arrow-right-line"></i>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a href="member/logout">로그아웃</a><i class="ri-arrow-right-line"></i>
+                                        <br><font style="color:green">${loginOkUser.nickname}님 환영합니다.</font><br/>
+                                    </c:otherwise>
+                                </c:choose>
+                            </a>
+                        </div>
+                        <section class="home" id="home">
+                        <div class="home__info-overlay">
+                            <img src="front/assets/img/home2.jpg" alt="" class="home__info-img">
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+
+            <!--==================== ABOUT ====================-->
+
 
                    <section class="home" id="home"></section>
 
@@ -153,7 +163,7 @@
                                 <div class="board_type1_wrap">
                               <table class="board_list_type1">
        							<a href="#" class="button">더보기</a>
-       							<div class="text-center"><i class="fa fa-arrow-left border rounded-circle" style="color: rgb(0,0,0);"></i><button class="btn btn-primary border rounded-circle" type="button" style="background-color: #ff8000;color: rgb(0,0,0);">1</button><button class="btn btn-primary border rounded-circle" type="button" style="color: rgb(0,0,0);background-color: rgba(0,123,255,0);">2</button><button class="btn btn-primary border rounded-circle" type="button" style="background-color: rgba(0,123,255,0);color: rgb(0,0,0);">3</button><button class="btn btn-primary border rounded-circle" type="button" style="color: rgb(0,0,0);background-color: rgba(0,123,255,0);">4</button><button class="btn btn-primary border rounded-circle" type="button" style="color: rgb(0,0,0);background-color: rgba(0,123,255,0);">...</button><button class="btn btn-primary border rounded-circle" type="button" style="color: rgb(0,0,0);background-color: rgba(0,123,255,0);">7</button><i class="fa fa-arrow-right" style="color: rgb(0,0,0);"></i></div>
+
                                     <br>
                                     <br>
                                     <br>
@@ -194,7 +204,7 @@
                          <table class="board_list_type1">
 
 
-       						<a href="/post_page/soloList.do" class="button">더보기</a>
+       						<a href="#" class="button">더보기</a>
 
                                     <br>
                                     <br>
@@ -467,101 +477,21 @@
                     </div>
                 </div>
             </section>
-        </main> -->
+        </main>
        <jsp:include page="form/footer.jsp"/>
 
 
-<!--
-        <!--=============== FOOTER ===============-->
-         <footer class="footer section">
-
-            <div class="footer__container container grid">
-                <div class="footer__content grid">
-                    <div class="footer__data">
-                        <h3 class="footer__title">Travel</h3>
-                        <p class="footer__description">Travel you choose the<br>
-                            destination, we offer you the<br>
-                            experience.</p>
-                        <div>
-                            <a href="https://www.facebook.com/" target="_blank" class="footer__social">
-                                <i class="ri-facebook-box-fill"></i>
-                            </a>
-                            <a href="https://twitter.com/" target="_blank" class="footer__social">
-                                <i class="ri-twitter-fill"></i>
-                            </a>
-                            <a href="https://www.instagram.com/" target="_blank" class="footer__social">
-                                <i class="ri-instagram-fill"></i>
-                            </a>
-                            <a href="https://www.youtube.com/" target="_blank" class="footer__social">
-                                <i class="ri-youtube-fill"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="footer__data">
-                        <h3 class="footer__subtitle">About</h3>
-                        <ul>
-                            <li class="footer__item">
-                                <a href="#" class="footer__link">About Us</a>
-                            </li>
-                            <li class="footer__item">
-                                <a href="#" class="footer__link">Features</a>
-                            </li>
-                            <li class="footer__item">
-                                <a href="#" class="footer__link">New & Blog</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="footer__data">
-                        <h3 class="footer__subtitle">Company</h3>
-                        <ul>
-                            <li class="footer__item">
-                                <a href="#" class="footer__link">Team</a>
-                            </li>
-                            <li class="footer__item">
-                                <a href="#" class="footer__link">Plan & Pricing</a>
-                            </li>
-                            <li class="footer__item">
-                                <a href="#" class="footer__link">Become a member</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="footer__data">
-                        <h3 class="footer__subtitle">Support</h3>
-                        <ul>
-                            <li class="footer__item">
-                                <a href="#" class="footer__link">FAQs</a>
-                            </li>
-                            <li class="footer__item">
-                                <a href="#" class="footer__link">Support Center</a>
-                            </li>
-                            <li class="footer__item">
-                                <a href="#" class="footer__link">Contact Us</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="footer__rights">
-                    <p class="footer__copy">&#169; 2021 devjade. All rigths reserved.</p>
-                    <div class="footer__terms">
-                        <a href="#" class="footer__terms-link">Terms & Agreements</a>
-                        <a href="#" class="footer__terms-link">Privacy Policy</a>
-                    </div>
-                </div>
-            </div>
-
-        </footer> -->
 
         <!--=============== SCROLL UP ===============-->
         <a href="#" class="scrollup" id="scroll-up">
             <i class="ri-arrow-up-line scrollup__icon"></i>
         </a>
         <!--=============== SCROLL REVEAL ===========-->
-        <script src="/front/assets/js/scrollreveal.min.js"></script>
+        <script src="front/assets/js/scrollreveal.min.js"></script>
         <!--=============== SWIPER JS ===============-->
-        <script src="/front/assets/js/swiper-bundle.min.js"></script>
+        <script src="front/assets/js/swiper-bundle.min.js"></script>
 
         <!--=============== MAIN JS ===============-->
-        <script src="/front/assets/js/main.js"></script>
+        <script src="front/assets/js/main.js"></script>
     </body>
 </html>

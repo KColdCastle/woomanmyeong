@@ -202,10 +202,12 @@ input {
 }
 
 /*=============== NAV ===============*/
+
 .nav {
   height: var(--header-height);
   display: flex;
-  justify-content: space-between;
+  /*justify-content: space-between;*/
+  justify-content: center;
   align-items: center;
 }
 
@@ -226,6 +228,9 @@ input {
 .nav__menu {
   position: relative;
 }
+#srch {
+    display: none; /* 초기에는 검색 창을 숨김 */
+}
 
 @media screen and (max-width: 767px) {
   .nav__menu {
@@ -238,6 +243,7 @@ input {
     box-shadow: -1px 0 4px rgba(14, 55, 63, 0.15);
     padding: 3rem;
     transition: 0.4s;
+
   }
 }
 
