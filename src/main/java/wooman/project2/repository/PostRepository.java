@@ -16,4 +16,5 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     Date getCurrentDate();
 
     List<Post> findByContentContaining(String content);
+    Page<Post> findByOrderBySeqDesc(Pageable pageable);//for 페이징
 }

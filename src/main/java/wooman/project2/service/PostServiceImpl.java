@@ -1,11 +1,14 @@
 package wooman.project2.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import wooman.project2.domain.Post;
+import wooman.project2.domain.PostListResult;
 import wooman.project2.repository.PostRepository;
 
 import java.util.List;
@@ -17,8 +20,18 @@ import java.util.Optional;
 public class PostServiceImpl implements PostService {
     private final PostRepository repository;
     @Override
-    public List<Post> listS() {
-        return repository.findAll(Sort.by(Sort.Direction.DESC, "seq"));
+    public Page<Post> listS(Pageable pageable) {
+        return repository.findByOrderBySeqDesc(pageable);
+    }
+
+    @Override
+    public PostListResult getPostListResult(Pageable pageable) {
+        Page<Post> list =listS(pageable);
+        int page = pageable.getPageNumber();//현재 페이지
+        long totalCount = repository.count();
+        int size = pageable.getPageSize();
+
+        return new PostListResult(page, totalCount, size, list);
     }
 
     @Override

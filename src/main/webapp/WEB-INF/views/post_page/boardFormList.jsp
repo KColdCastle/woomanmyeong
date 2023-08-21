@@ -44,7 +44,7 @@
                 </thead>
 
                 <tbody>
-                    <jsp:include file="list.jsp"/>
+
                 </tbody>
                       </table>
                   </div>

@@ -1,11 +1,15 @@
 package wooman.project2.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import wooman.project2.domain.Post;
+import wooman.project2.domain.PostListResult;
 
 import java.util.List;
 
 public interface PostService {
-    List<Post> listS();
+    Page<Post> listS(Pageable pageable);
+    PostListResult getPostListResult(Pageable pageable);
     List<Post> indexListS(int count);
 
     Post insertS(Post post);

@@ -9,9 +9,9 @@
 <center>
 	<font color='gray' size='4' face='맑은고딕'>
 	<hr width='600' size='2' color='gray' noshade>
-	<h3>왜 사공사?</h3>
+	<h3>${post.boardname}</h3>
 	<font color='gray' size='4' face='맑은고딕'>
-	<a href='../write.do'>글쓰기</a>
+	<a href='insert.do'>글쓰기</a>
 	</font>
 	<hr width='600' size='2' color='gray' noshade>
 	</font>
@@ -23,11 +23,11 @@
 			</tr>
 			<tr>
 				<td align='center'>글쓴이</td>
-				<td>${post.email}</td>
+				<td>${post.nickname}</td>
 			</tr>
 			<tr>
 				<td align='center'>이메일</td>
-				<td>${post.boardname}</td>
+				<td>${post.email}</td>
 			</tr>
 			<tr>
 				<td align='center'>글제목</td>

@@ -39,10 +39,7 @@
                 f.bd_content.focus();
                 return false;
             }
-
     </script>
-
-
         <!--=============== FAVICON ===============-->
         <link rel="shortcut icon" href="/front/assets/img/favicon.png" type="image/png">
 
@@ -60,57 +57,43 @@
 
     </head>
     <body>
-    <form id="boardpostinsert" action="boardin.do" method="post" name="f">
+    <form id="boardpostupdate" action="update.do" method="post" name="f">
 
         <main class="main">
             <div class="write">
                 <div class="row">
                     <div class="row-in">
-                       <input type="hidden" class="form-control" name="email" value="${loginOkUser.email}">
+                       <input type="hidden" class="form-control" name="seq" value="${post.seq}">
+                       <input type="hidden" class="form-control" name="email" value="${post.email}">
+                       <input type="hidden" class="form-control" name="viewnum" value="${post.viewnum}">
+
+
 
                         <!--<form action="insert.do" name="f" method="post" class="form-horizontal" id="board_write_form"
                               novalidate="novalidate" enctype="multipart/form-data"> -->
                             <div class="form-group">
                                 <label class="col-md-2 control-label">닉네임</label>
                                 <div class="form-group-half">
-                                    <input type="text" class="form-control" value="${loginOkUser.nickname}" name="nickname"
+                                    <input type="text" class="form-control" value="${post.nickname}" name="nickname"
                                            onkeydown="enterCheck(this)" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2 control-label">제목</label>
                                 <div class="form-group-half">
-
-                                    <input type="text" class="form-control" placeholder="제목을 입력하세요" name="subject">
+                                    <input type="text" class="form-control" placeholder="제목을 입력하세요" name="subject" value="${post.subject}">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2 control-label">카테고리</label>
-                                <div class="form-group-quarter">
-                                    <select id="board_category" name="boardname" class="form-control" >
-
-                                                <option value="혼자여행">혼자여행</option>
-                                                <option value="가족여행">가족여행</option>
-                                                <option value="혼자여행">혼자여행</option>
-                                                <option value="가족여행">가족여행</option>
-                                                <option value="자유게시판">자유게시판</option>
-                                                <c:choose>
-                                                <c:when test="${loginOkUser.nickname =='관리자'}">
-                                                    <option value="공지사항">공지사항</option>
-                                                </c:when>
-                                                </c:choose>
-
-                                    </select>
+                                <div class="form-group-half">
+                                    <input type="text" class="form-control" placeholder="${post.boardname}" name="boardname" readonly>
                                 </div>
                             </div>
-
-
                             <div class="form-group">
                               <label class="col-md-2 control-label">내용</label>
                                 <div class="form-group-in">
-
-                                <textarea name="content" id="summernote" value="content"></textarea>
-
+                                 <textarea name="content" id="summernote" value="content">${post.content}</textarea>
                                 </div>
                                 <script>
                                 $(document).ready(function() {
@@ -121,7 +104,6 @@
                                              focus: true                  // set focus to editable area after initializing summernote
                                      });
                                 });
-
                                 $(document).ready(function() {
                                      $('#summernote').summernote();
                                    });
@@ -133,7 +115,6 @@
                                     <button type="submit" class="btn btn-primary">글쓰기</button>
                                 </div>
                             </div>
-
                         <!-- </form> -->
                     </div>
                 </div>

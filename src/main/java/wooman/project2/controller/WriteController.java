@@ -19,7 +19,7 @@ public class WriteController {
     public String form(){
         return "write";
     }
-    @PostMapping("boardin")
+    @PostMapping("boardin.do")
     public String write(Post post){
         System.out.println(post);
         service.insertS(post);
