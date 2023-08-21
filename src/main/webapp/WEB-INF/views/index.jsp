@@ -119,7 +119,7 @@
                        <table class="board_list_type1">
                              <br>
 
-                          <h2> 공지사항  </h2>
+                       <h2 class="section__title">공지 <br> 사항</h2>
                            <thead>
                                <tr>
                                 <th data-bss-hover-animate="bounce">닉네임</th>
@@ -130,18 +130,18 @@
                             </tr>
                                 </thead>
                                 <tbody>
-                            <c:if test="${empty post}">
+                            <c:if test="${empty noticePost}">
                                 <tr>
                                     <td align='center' colspan="5">검색된 글이 없음</td>
                                 </tr>
                             </c:if>
-                                    <c:forEach items="${post}" var="post">
+                                    <c:forEach items="${noticePost}" var="noticePost">
                                         <tr>
-                                            <td>${post.nickname}</td>
+                                            <td>${noticePost.nickname}</td>
                                     <td>
-                                <a href='content.do?&seq=${post.seq}'>${post.subject}</a>
+                                <a href='content.do?&seq=${noticePost.seq}'>${noticePost.subject}</a>
                                  </td>
-                                            <td>${post.viewnum}</td>
+                                            <td>${noticePost.viewnum}</td>
                                         </tr>
                                         </c:forEach>
                                    </thead>
@@ -158,7 +158,7 @@
                                     <br>
                                     <br>
 
-       							<h2 >혼자  <br> 여행</h2>
+       							<h2 class="section__title">혼자 <br> 여행</h2>
 
        						   <thead>
                                <tr>
@@ -170,18 +170,18 @@
                             </tr>
                                 </thead>
                                 <tbody>
-                            <c:if test="${empty post}">
+                            <c:if test="${empty soloPost}">
                                 <tr>
                                     <td align='center' colspan="5">검색된 글이 없음</td>
                                 </tr>
                             </c:if>
-                                    <c:forEach items="${post}" var="post">
+                                    <c:forEach items="${soloPost}" var="soloPost">
                                         <tr>
-                                            <td>${post.nickname}</td>
+                                            <td>${soloPost.nickname}</td>
                                     <td>
-                                <a href='content.do?&seq=${post.seq}'>${post.subject}</a>
+                                <a href='content.do?&seq=${soloPost.seq}'>${soloPost.subject}</a>
                                  </td>
-                                            <td>${post.viewnum}</td>
+                                            <td>${soloPost.viewnum}</td>
                                         </tr>
                                         </c:forEach>
                                    </thead>
@@ -199,7 +199,7 @@
                                     <br>
                                     <br>
                                     <br>
-       						<h2 >커플  <br> 여행</h2>
+       						<h2 class="section__title">커플 <br> 여행</h2>
 
        						   <thead>
                                <tr>
@@ -211,18 +211,18 @@
                             </tr>
                                 </thead>
                                 <tbody>
-                            <c:if test="${empty post}">
+                            <c:if test="${empty couplePost}">
                                 <tr>
                                     <td align='center' colspan="5">검색된 글이 없음</td>
                                 </tr>
                             </c:if>
-                                    <c:forEach items="${post}" var="post">
+                                    <c:forEach items="${couplePost}" var="couplePost">
                                         <tr>
-                                            <td>${post.nickname}</td>
+                                            <td>${couplePost.nickname}</td>
                                     <td>
-                                <a href='content.do?&seq=${post.seq}'>${post.subject}</a>
+                                <a href='content.do?&seq=${couplePost.seq}'>${couplePost.subject}</a>
                                  </td>
-                                            <td>${post.viewnum}</td>
+                                            <td>${couplePost.viewnum}</td>
                                         </tr>
                                         </c:forEach>
                                    </thead>
@@ -238,7 +238,7 @@
                                 <br>
                                 <br>
                                 <br>
-       						  <h2>단체 <br> 여행</h2>
+       						 <h2 class="section__title">단체 <br> 여행</h2>
 
        						   <thead>
                                <tr>
@@ -250,18 +250,18 @@
                             </tr>
                                 </thead>
                                 <tbody>
-                            <c:if test="${empty post}">
+                            <c:if test="${empty familyPost}">
                                 <tr>
                                     <td align='center' colspan="5">검색된 글이 없음</td>
                                 </tr>
                             </c:if>
-                                    <c:forEach items="${post}" var="post">
+                                    <c:forEach items="${familyPost}" var="familyPost">
                                         <tr>
-                                            <td>${post.nickname}</td>
+                                            <td>${familyPost.nickname}</td>
                                     <td>
-                                <a href='content.do?&seq=${post.seq}'>${post.subject}</a>
+                                <a href='content.do?&seq=${familyPost.seq}'>${familyPost.subject}</a>
                                  </td>
-                                            <td>${post.viewnum}</td>
+                                            <td>${familyPost.viewnum}</td>
                                         </tr>
                                         </c:forEach>
                                    </thead>
@@ -277,7 +277,7 @@
        						<br>
        						<br>
        						<br>
-       						<h2>자유 <br>게시판</h2>
+       						<h2 class="section__title">자유 <br> 여행</h2>
        						   <thead>
                                <tr>
                                 <th data-bss-hover-animate="bounce">닉네임</th>
@@ -288,18 +288,18 @@
                             </tr>
                                 </thead>
                                 <tbody>
-                            <c:if test="${empty post}">
+                            <c:if test="${empty freePost}">
                                 <tr>
                                     <td align='center' colspan="5">검색된 글이 없음</td>
                                 </tr>
                             </c:if>
-                                    <c:forEach items="${post}" var="post">
+                                    <c:forEach items="${freePost}" var="freePost">
                                         <tr>
-                                            <td>${post.nickname}</td>
+                                            <td>${freePost.nickname}</td>
                                     <td>
-                                <a href='content.do?&seq=${post.seq}'>${post.subject}</a>
+                                <a href='content.do?&seq=${freePost.seq}'>${freePost.subject}</a>
                                  </td>
-                                            <td>${post.viewnum}</td>
+                                            <td>${freePost.viewnum}</td>
                                         </tr>
                                         </c:forEach>
                                    </thead>

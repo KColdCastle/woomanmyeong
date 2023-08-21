@@ -16,4 +16,9 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     Date getCurrentDate();
 
     List<Post> findByContentContaining(String content);
+
+//    List<Post> findByBoardnameOrderByViewnumDesc(String boardName);
+
+    @Query("SELECT p FROM Post p WHERE p.boardname = ?1 ORDER BY p.viewnum DESC")
+    List<Post> findTopViewedPostsByBoardname(String boardName, Pageable pageable);
 }

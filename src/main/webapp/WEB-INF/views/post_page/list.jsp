@@ -4,6 +4,33 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="/front/assets/img/favicon.png" type="image/png">
+
+        <!--=============== REMIXICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+        <!--=============== SWIPER CSS ===============-->
+        <link rel="stylesheet" href="/front/assets/css/swiper-bundle.min.css">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="/front/styles.css">
+        <link rel="stylesheet" href="/front/board_type1.css">
+       <link rel="stylesheet" href="/front/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="/front/Like-Button.css">
+
+
 <title> Spring Board </title>
 <meta charset="utf-8">
 
@@ -19,6 +46,7 @@
 	</style>
 </head>
     <body>
+       <jsp:include page="../form/navbar.jsp"/>
         <center>
         <font color='gray' size='4' face='맑은고딕'>
         <hr width='600' size='2' color='gray' noshade>
@@ -61,5 +89,22 @@
         </font>
         <hr width='600' size='2' color='gray' noshade>
         </center>
+
+
     </body>
+    <footer>
+         <jsp:include page="../form/footer.jsp"/>
+
+
+          </footer>
+                <a href="#" class="scrollup" id="scroll-up">
+                    <i class="ri-arrow-up-line scrollup__icon"></i>
+                </a>
+                <!--=============== SCROLL REVEAL ===========-->
+                <script src="/front/assets/js/scrollreveal.min.js"></script>
+                <!--=============== SWIPER JS ===============-->
+                <script src="/front/assets/js/swiper-bundle.min.js"></script>
+
+                <!--=============== MAIN JS ===============-->
+                <script src="/front/assets/js/main.js"></script>
 </html>

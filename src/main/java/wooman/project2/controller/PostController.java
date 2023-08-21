@@ -23,7 +23,7 @@ public class PostController {
     public String list(Model model){
         List<Post> list = service.listS();
         model.addAttribute("listResult", list);
-        return "/post_page/boardFormList";
+        return "/post_page/list";
     }
     @GetMapping("write.do")
     public String write(){

@@ -9,7 +9,7 @@
                     <ul class="nav__list">
 
                         <li class="nav__item">
-                            <a href="#home" class="nav__link active-link">Home</a>
+                            <a href="../" class="nav__link active-link">Home</a>
                         </li>
                         <li class="nav__item">
                             <a href="#home" class="nav__link">혼자여행</a>
