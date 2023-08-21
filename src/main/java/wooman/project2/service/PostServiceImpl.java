@@ -11,6 +11,7 @@ import wooman.project2.domain.Post;
 import wooman.project2.domain.PostListResult;
 import wooman.project2.repository.PostRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -63,4 +64,10 @@ public class PostServiceImpl implements PostService {
     public void deleteS(long seq) {
         repository.deleteById(seq);
     }
+
+    @Override
+    public List<Post> findTopViewedPostsByBoardname(String boardName, Pageable pageable) {
+        return repository.findTopViewedPostsByBoardname(boardName, pageable);
+    }
 }
+
