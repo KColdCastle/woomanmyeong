@@ -10,10 +10,15 @@ import java.util.List;
 public interface PostService {
     Page<Post> listS(Pageable pageable);
     PostListResult getPostListResult(Pageable pageable);
-    List<Post> indexListS(int count);
 
-    Post insertS(Post post);
+    Page<Post> listBoardNameS(String boardName, Pageable pageable);
+
+    PostListResult getPostListResultWithBoardName(String boardName, Pageable pageable);
+
+    //Post insertS(Post post);
+    //boradin 으로 따로 빼서 작성함.
     Post contentS(long seq);
+    void viewNumUp(long seq);
     void updateS(Post post);
     void deleteS(long seq);
 

@@ -18,6 +18,12 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     List<Post> findByContentContaining(String content);
     Page<Post> findByOrderBySeqDesc(Pageable pageable);//for 페이징
 
+    @Query("SELECT p FROM Post p WHERE p.boardname = ?1 ORDER BY p.viewnum DESC")
+    Page<Post> findByBoardNameOrderBySeqDesc(String boardName, Pageable pageable);
+
+    @Query("SELECT COUNT(p) FROM Post p WHERE p.boardname = ?1")
+    long countByBoardName(String boardName);
+
 //    List<Post> findByBoardnameOrderByViewnumDesc(String boardName);
 
     @Query("SELECT p FROM Post p WHERE p.boardname = ?1 ORDER BY p.viewnum DESC")

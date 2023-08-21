@@ -33,21 +33,40 @@ public class PostServiceImpl implements PostService {
         int size = pageable.getPageSize();
 
         return new PostListResult(page, totalCount, size, list);
-    }
+    }//전체글 페이징을 위한 메소드
 
     @Override
-    public List<Post> indexListS(int count) {
-        return repository.findAll(PageRequest.of(0, count, Sort.by(Sort.Direction.DESC, "viewnum"))).getContent();
+    public Page<Post> listBoardNameS(String boardName, Pageable pageable) {
+        return repository.findByBoardNameOrderBySeqDesc(boardName, pageable);
     }
-
     @Override
-    public Post insertS(Post post) {
-        return repository.save(post);
-    }
+    public PostListResult getPostListResultWithBoardName(String boardName, Pageable pageable) {
+        Page<Post> list =listBoardNameS(boardName, pageable);
+        int page = pageable.getPageNumber();//현재 페이지
+        long totalCount = repository.countByBoardName(boardName);
+        int size = pageable.getPageSize();
+
+        return new PostListResult(page, totalCount, size, list);
+    }//특정 게시판 페이징을 위한 메소드
+
+
+//    @Override
+//    public Post insertS(Post post) {
+//        return repository.save(post);
+//    }
     @Override
     public Post contentS(long seq) {
         return repository.findBySeq(seq);
     }
+
+    @Override
+    public void viewNumUp(long seq) {
+        Optional<Post> newContent= repository.findById(seq);
+        Post post1=newContent.get();
+        post1.setViewnum(post1.getViewnum()+1);
+        repository.save(post1);
+    }
+
     @Override
     public void updateS(Post post) {
 
@@ -68,6 +87,6 @@ public class PostServiceImpl implements PostService {
     @Override
     public List<Post> findTopViewedPostsByBoardname(String boardName, Pageable pageable) {
         return repository.findTopViewedPostsByBoardname(boardName, pageable);
-    }
+    }//메인페이지 top 5 게시글 불러오는 메소드
 }
 

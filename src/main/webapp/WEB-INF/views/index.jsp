@@ -49,7 +49,7 @@
                     <div class="home__data">
                         <span class="home__data-subtitle">국여진사람들</span>
                         <h1 class="home__data-title">국내<br> 여행에 <b>빠진 <br> 사람들</b></h1>
-                        <a href="write.jsp" class="button">글쓰기</a>
+                        <a href="/write/insert.do" class="button">글쓰기</a>
 
                     </div>
 
@@ -194,7 +194,7 @@
                          <table class="board_list_type1">
 
 
-       						<a href="#" class="button">더보기</a>
+       						<a href="/post_page/soloList.do" class="button">더보기</a>
 
                                     <br>
                                     <br>
@@ -557,11 +557,11 @@
             <i class="ri-arrow-up-line scrollup__icon"></i>
         </a>
         <!--=============== SCROLL REVEAL ===========-->
-        <script src="assets/js/scrollreveal.min.js"></script>
+        <script src="/front/assets/js/scrollreveal.min.js"></script>
         <!--=============== SWIPER JS ===============-->
-        <script src="assets/js/swiper-bundle.min.js"></script>
+        <script src="/front/assets/js/swiper-bundle.min.js"></script>
 
         <!--=============== MAIN JS ===============-->
-        <script src="assets/js/main.js"></script>
+        <script src="/front/assets/js/main.js"></script>
     </body>
 </html>

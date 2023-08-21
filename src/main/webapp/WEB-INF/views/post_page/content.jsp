@@ -2,10 +2,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
+<html lang="ko">
+<head>
 <style>
 	a{text-decoration:none}
 </style>
 <meta charset="utf-8">
+</head>
+
+<body>
 <center>
 	<font color='gray' size='4' face='맑은고딕'>
 	<hr width='600' size='2' color='gray' noshade>
@@ -45,7 +50,15 @@
 	 &nbsp;&nbsp;| 
 	<a href='del.do?seq=${post.seq}'>삭제</a>
 	 &nbsp;&nbsp;| 
-	<a href='list.do'>목록</a>
+	<a href='#' onclick='goBack();'>목록</a>
+	    <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
 	</font>
 	<hr width='600' size='2' color='gray' noshade>
 </center>
+</body>
+
+</html>

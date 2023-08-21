@@ -33,17 +33,36 @@ public class PostController {
 
         return "/post_page/list";
     }
+    @GetMapping("soloList.do")
+    public String SoloList(Model model, @PageableDefault(page = 0, size = 10, sort = "seq", direction = Sort.Direction.DESC) Pageable pageable){
+
+        PostListResult soloList=service.getPostListResultWithBoardName("혼자여행", pageable);
+        model.addAttribute("soloList", soloList);
+
+        return "/post_page/soloList";
+    }//혼자여행으로 가는 메소드
+
+
+    @GetMapping("coupleList.do")
+    public String CoupleList(Model model, @PageableDefault(page = 0, size = 10, sort = "seq", direction = Sort.Direction.DESC) Pageable pageable){
+
+        PostListResult coupleList=service.getPostListResultWithBoardName("커플여행", pageable);
+        model.addAttribute("coupleList", coupleList);
+
+        return "/post_page/coupleList";
+    }
     @GetMapping("write.do")
     public String write(){
         return "/post_page/write";
     }
-    @PostMapping("write.do")
-    public String write(Post post){
-        service.insertS(post);
-        return "redirect:list.do";
-    }
+//    @PostMapping("write.do")
+//    public String write(Post post){
+//        service.insertS(post);
+//        return "redirect:list.do";
+//    }
     @GetMapping("content.do")
     public String content(long seq, Model model){
+        service.viewNumUp(seq);
         Post post =service.contentS(seq);
         model.addAttribute("post", post);
         return "/post_page/content";

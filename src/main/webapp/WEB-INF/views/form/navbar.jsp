@@ -12,10 +12,10 @@
                             <a href="../" class="nav__link active-link">Home</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#home" class="nav__link">혼자여행</a>
+                            <a href="../post_page/soloList.do" class="nav__link">혼자여행</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#couple" class="nav__link">커플여행</a>
+                            <a href="../post_page/coupleList.do" class="nav__link">커플여행</a>
                         </li>
                         <li class="nav__item">
                             <a href="#discover" class="nav__link">가족여행</a>
