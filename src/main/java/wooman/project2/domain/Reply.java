@@ -13,12 +13,12 @@ import java.sql.Date;
 @NoArgsConstructor
 @Entity
 @Data
-@SequenceGenerator(name="REPLY_SEQ_GENERATOR", sequenceName = "REPLYSEQ", initialValue = 1, allocationSize = 1)
+@SequenceGenerator(name="REPLY_SEQ_GENERATOR", sequenceName = "REPLY_SEQ", initialValue = 1, allocationSize = 1)
 
 public class Reply {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "REPLY_SEQ_GENERATOR")
-    private long replyseq;
+    private long seq;
     private String email;
     private String nickname;
     private String replycontent;
