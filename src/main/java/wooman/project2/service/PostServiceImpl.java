@@ -18,7 +18,7 @@ public class PostServiceImpl implements PostService {
     private final PostRepository repository;
     @Override
     public List<Post> listS() {
-        return repository.findAll();
+        return repository.findAll(Sort.by(Sort.Direction.DESC, "seq"));
     }
 
     @Override
