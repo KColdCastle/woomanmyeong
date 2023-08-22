@@ -25,8 +25,8 @@
         <link rel="stylesheet" href="/front/assets/css/swiper-bundle.min.css">
 
         <!--=============== CSS ===============-->
-        <link rel="stylesheet" href="/front/styles.css">
-        <link rel="stylesheet" href="/front/board_type1.css">
+        <link rel="stylesheet" href="front/styles.css">
+        <link rel="stylesheet" href="front/board_type1.css">
        <link rel="stylesheet" href="/front/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css">
@@ -39,14 +39,14 @@
     </head>
     <body>
         <jsp:include page="form/navbar.jsp"/>
-
+        </header>
 
 
 
         <main class="main">
             <!--==================== HOME =================여기 홈===-->
 
-                <img src="/front/assets/img/home1.jpg" alt="" class="home__img">
+                <img src="front/assets/img/home1.jpg" alt="" class="home__img">
 
                 <div class="home__container container grid">
                     <div class="home__data">
@@ -74,10 +74,9 @@
                         </form>
                     </div>
                 </div>
-
-
-
             <!--  </section>  -->
+
+
 
                     <div class="home__social">
                         <a href="https://www.facebook.com/" target="_blank" class="home__social-link">
@@ -104,6 +103,7 @@
                             <br><a href="member/regtest">회원가입</a> <i class="ri-arrow-right-line"></i>
                                     </c:when>
                                     <c:otherwise>
+                                        <a href="member/mypage">내정보</a><i class="ri-arrow-right-line"></i>
                                         <a href="member/logout">로그아웃</a><i class="ri-arrow-right-line"></i>
                                         <br><font style="color:green">${loginOkUser.nickname}님 환영합니다.</font><br/>
                                     </c:otherwise>
@@ -112,7 +112,7 @@
                         </div>
                         <section class="home" id="home">
                         <div class="home__info-overlay">
-                            <img src="/front/assets/img/home2.jpg" alt="" class="home__info-img">
+                            <img src="front/assets/img/home2.jpg" alt="" class="home__info-img">
                         </div>
                     </div>
                 </div>
@@ -159,19 +159,19 @@
                                    <tbody>
 
                                    </tbody>
-       							 </section>
+                             </section>
                                </table>
                                 <div class="board_type1_wrap">
                               <table class="board_list_type1">
-       							<a href="post_page/noticeList.do" class="button">공지사항더보기</a>
+                            <a href="#" class="button">더보기</a>
 
                                     <br>
                                     <br>
                                     <br>
 
-       							<h2 class="section__title">혼자 <br> 여행</h2>
+                            <h2 class="section__title">혼자 <br> 여행</h2>
 
-       						   <thead>
+                            <thead>
                                <tr>
                                 <th data-bss-hover-animate="bounce">닉네임</th>
                                 <th>제목</th>
@@ -190,7 +190,7 @@
                                         <tr>
                                             <td>${soloPost.nickname}</td>
                                     <td>
-                                <a href='post_page/content.do?&seq=${soloPost.seq}'>${soloPost.subject}</a>
+                                <a href='content.do?&seq=${soloPost.seq}'>${soloPost.subject}</a>
                                  </td>
                                             <td>${soloPost.viewnum}</td>
                                         </tr>
@@ -199,20 +199,20 @@
                                    <tbody>
 
                                    </tbody>
-       							 </section>
+                             </section>
                                </table>
                            <div class="board_type1_wrap">
                          <table class="board_list_type1">
 
 
-       						<a href="/post_page/soloList.do" class="button">더보기</a>
+                         <a href="#" class="button">더보기</a>
 
                                     <br>
                                     <br>
                                     <br>
-       						<h2 class="section__title">커플 <br> 여행</h2>
+                         <h2 class="section__title">커플 <br> 여행</h2>
 
-       						   <thead>
+                            <thead>
                                <tr>
                                 <th data-bss-hover-animate="bounce">닉네임</th>
                                 <th>제목</th>
@@ -231,7 +231,7 @@
                                         <tr>
                                             <td>${couplePost.nickname}</td>
                                     <td>
-                                <a href='post_page/content.do?&seq=${couplePost.seq}'>${couplePost.subject}</a>
+                                <a href='content.do?&seq=${couplePost.seq}'>${couplePost.subject}</a>
                                  </td>
                                             <td>${couplePost.viewnum}</td>
                                         </tr>
@@ -240,18 +240,18 @@
                                    <tbody>
 
                                    </tbody>
-       							 </section>
+                             </section>
                                </table>
                            <div class="board_type1_wrap">
                          <table class="board_list_type1">
 
-       					<a href="post_page/familyList.jsp" class="button">더보기</a>
+                      <a href="#" class="button">더보기</a>
                                 <br>
                                 <br>
                                 <br>
-       						 <h2 class="section__title">가족 <br> 여행</h2>
+                          <h2 class="section__title">단체 <br> 여행</h2>
 
-       						   <thead>
+                            <thead>
                                <tr>
                                 <th data-bss-hover-animate="bounce">닉네임</th>
                                 <th>제목</th>
@@ -270,7 +270,7 @@
                                         <tr>
                                             <td>${familyPost.nickname}</td>
                                     <td>
-                                <a href='post_page/content.do?&seq=${familyPost.seq}'>${familyPost.subject}</a>
+                                <a href='content.do?&seq=${familyPost.seq}'>${familyPost.subject}</a>
                                  </td>
                                             <td>${familyPost.viewnum}</td>
                                         </tr>
@@ -279,17 +279,17 @@
                                    <tbody>
 
                                    </tbody>
-       							 </section>
+                             </section>
                                </table>
                                <div class="board_type1_wrap">
                              <table class="board_list_type1">
-       						<a href="post_page/freeBoardList.jsp" class="button">더보기</a>
+                         <a href="#" class="button">더보기</a>
 
-       						<br>
-       						<br>
-       						<br>
-       						<h2 class="section__title">자유 <br> 게시판</h2>
-       						   <thead>
+                         <br>
+                         <br>
+                         <br>
+                         <h2 class="section__title">자유 <br> 여행</h2>
+                            <thead>
                                <tr>
                                 <th data-bss-hover-animate="bounce">닉네임</th>
                                 <th>제목</th>
@@ -308,7 +308,7 @@
                                         <tr>
                                             <td>${freePost.nickname}</td>
                                     <td>
-                                <a href='post_page/content.do?&seq=${freePost.seq}'>${freePost.subject}</a>
+                                <a href='content.do?&seq=${freePost.seq}'>${freePost.subject}</a>
                                  </td>
                                             <td>${freePost.viewnum}</td>
                                         </tr>
@@ -317,7 +317,7 @@
                                    <tbody>
 
                                    </tbody>
-       							 </section>
+                             </section>
                                </table>
 
                            </div>
@@ -328,7 +328,7 @@
 
 
 
-             <!-- <section class="video section">
+            <section class="video section">
                 <h2 class="section__title">Video Tour</h2>
                 <div class="video__container container">
                     <p class="video__description">Find out more with our video of the most beautiful and pleasant places for you and your family.</p>
@@ -342,7 +342,7 @@
                     </div>
                 </div>
             </section>
--->
+
 
             <!--==================== PLACES ====================-->
 

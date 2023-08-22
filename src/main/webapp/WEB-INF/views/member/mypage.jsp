@@ -24,7 +24,7 @@
                     <div class="mb-3"><label class="form-label" id="lbl-usuario-1" for="txt-usuario">NickName</label><input class="form-control" type="text" id="txt-usuario-1" name="nickname" value="${loginOkUser.nickname}" ></div>
                 </div>
                 <div class="mb-3"><label class="form-label" id="lbl-password" for="txt-password">Password</label><input class="form-control" type="password" id="txt-password" name="pwd" value="${loginOkUser.pwd}" ></div>
-            <button class="btn btn-primary" id="btn-sesion" type="submit" style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: #256db4;">변경</button>
+            <button class="btn btn-primary" id="btn-sesion" type="submit"  style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: #323537;">변경</button>
         </div>
         </form>
     </div>

@@ -92,4 +92,9 @@ public class PostController {
         service.deleteS(seq);
         return "redirect:list.do";
     }
+
+    @GetMapping("boardviewtest")
+    public String boardviewtest(){
+        return "/post_page/boardviewtest";
+    }
 }
