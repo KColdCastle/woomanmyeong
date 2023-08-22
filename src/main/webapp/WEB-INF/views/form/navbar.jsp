@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html;charset=utf-8"%>
 
-    <body>
+
         <header class="header" id="header">
             <nav class="nav container">
                 <a href="#" class="nav__logo"></a>
