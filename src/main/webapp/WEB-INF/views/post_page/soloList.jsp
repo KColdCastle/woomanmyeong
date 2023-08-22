@@ -89,14 +89,14 @@
                                     <td align='center' colspan="5">검색된 글이 없음</td>
                                 </tr>
                             </c:if>
-                        <c:forEach items="${soloList.list.content}" var="soloList">
+                        <c:forEach items="${soloList.list.content}" var="post">
                                 <tr>
-                                    <td>${soloList.nickname}</td>
+                                    <td>${post.nickname}</td>
                                     <td>
-                                        <a href='content.do?&seq=${soloList.seq}'>${soloList.subject}</a>
+                                        <a href='content.do?&seq=${post.seq}'>${post.subject}</a>
                                     </td>
-									<td>${soloList.crdate}</td>
-                                    <td>${soloList.viewnum}</td>
+									<td>${post.crdate}</td>
+                                    <td>${post.viewnum}</td>
 								    <c:if test="${loginOkUser.nickname =='관리자'}">
                                          <td align='center'>
                                              <a href='del.do?&seq=${post.seq}'>삭제</a>

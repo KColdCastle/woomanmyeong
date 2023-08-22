@@ -1,7 +1,9 @@
 package wooman.project2.controller;
 
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import lombok.AllArgsConstructor;
+import org.eclipse.tags.shaded.org.apache.xml.utils.SystemIDResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import wooman.project2.domain.Post;
 import wooman.project2.domain.PostListResult;
+import wooman.project2.domain.Reply;
 import wooman.project2.service.PostService;
+import wooman.project2.service.ReplyService;
 
 import java.util.List;
 
@@ -25,6 +29,8 @@ import java.util.List;
 public class PostController {
     @Autowired
     private final PostService service;
+    @Autowired
+    private final ReplyService replyService;
 
     @GetMapping("list.do")
     public String list(Model model, @PageableDefault(page = 0, size = 10, sort = "seq", direction = Sort.Direction.DESC) Pageable pageable,
@@ -97,8 +103,16 @@ public class PostController {
     public String content(long seq, Model model){
         service.viewNumUp(seq);
         Post post =service.contentS(seq);
+        List<Reply> reply=replyService.findReplyPostseq(seq);
         model.addAttribute("post", post);
-        return "/post_page/content";
+        model.addAttribute("reply", reply);
+        return "/post_page/contentReply";
+    }
+    @PostMapping("comment.do")
+    public String comment(Reply reply){
+        System.out.println("##reply: "+reply);
+        replyService.insertS(reply);
+        return "redirect:content.do?seq="+reply.getPostseq();
     }
     @GetMapping("update.do")
     public String update(long seq, Model model){

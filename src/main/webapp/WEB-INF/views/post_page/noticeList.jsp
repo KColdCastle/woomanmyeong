@@ -89,13 +89,13 @@
                                     <td align='center' colspan="5">검색된 글이 없음</td>
                                 </tr>
                             </c:if>
-                        <c:forEach items="${noticeList.list.content}" var="noticeList">
+                        <c:forEach items="${noticeList.list.content}" var="post">
                                 <tr>
-                                    <td>${noticeList.nickname}</td>
+                                    <td>${post.nickname}</td>
                                     <td>
-                                        <a href='content.do?&seq=${noticeList.seq}'>${noticeList.subject}</a>
+                                        <a href='content.do?&seq=${post.seq}'>${post.subject}</a>
                                     </td>
-                                    <td>${noticeList.viewnum}</td>
+                                    <td>${post.viewnum}</td>
                                 </tr>
                         </c:forEach>
                        </tbody>

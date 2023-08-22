@@ -90,8 +90,7 @@
                                     <select id="board_category" name="boardname" class="form-control" >
 
                                                 <option value="혼자여행">혼자여행</option>
-                                                <option value="가족여행">가족여행</option>
-                                                <option value="혼자여행">혼자여행</option>
+                                                <option value="커플여행">커플여행</option>
                                                 <option value="가족여행">가족여행</option>
                                                 <option value="자유게시판">자유게시판</option>
                                                 <c:choose>

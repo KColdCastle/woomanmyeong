@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html;charset=utf-8"%>
 
-
         <header class="header" id="header">
             <nav class="nav container">
                 <a href="#" class="nav__logo"></a>
@@ -32,10 +31,10 @@
                         <li class="nav__item">
                             <c:choose>
                                 <c:when test="${empty loginOkUser.nickname}">
-                                    <a href="member/logintest" class="nav__link">로그인</a>
+                                    <a href="../member/logintest" class="nav__link">로그인</a>
                                 </c:when>
                                 <c:otherwise>
-                                    <a href="member/logout" class="nav__link"><font style="color:green">${loginOkUser.nickname}</font></a>
+                                    <a href="../member/logout" class="nav__link"><font style="color:green">${loginOkUser.nickname}</font></a>
                                 </c:otherwise>
                             </c:choose>
                         </li>
