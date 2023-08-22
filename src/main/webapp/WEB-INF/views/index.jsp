@@ -104,7 +104,6 @@
 
                     <div class="home__info">
                         <div>
-
                             <span class="home__info-title">regist/login</span>
                              <c:choose>
                              <c:when test="${empty loginOkUser}">

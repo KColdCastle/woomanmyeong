@@ -36,6 +36,8 @@ public class MemberLoginServiceImpl implements MemberLoginService {
         member.setPwd("");
         return member;
     }
+
+
     @Override
     public void insertM(Member member){
         member = memberLoginRepository.save(member);

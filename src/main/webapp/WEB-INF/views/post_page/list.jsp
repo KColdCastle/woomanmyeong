@@ -59,7 +59,7 @@
                     <!--   <p class="subscribe__description">Subscribe to our newsletter and get a
                     special 30% discount.-->
                     </p>
-                       <form method="GET" action="/post_page/List.do">
+                       <form method="GET" action="/post_page/list.do">
                               <div class="subscribe__form">
                                   <input class="subscribe__input " type="text" placeholder="검색어를 입력하세요." id="searchText" name="searchText" value="${param.searchText}">
                                       <button class="button" type="submit">
