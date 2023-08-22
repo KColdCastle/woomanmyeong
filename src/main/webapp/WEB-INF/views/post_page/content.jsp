@@ -53,7 +53,7 @@
 	<a href='#' onclick='goBack();'>목록</a>
 	    <script>
             function goBack() {
-                window.history.back();
+                location.href = document.referrer;
             }
         </script>
 	</font>
