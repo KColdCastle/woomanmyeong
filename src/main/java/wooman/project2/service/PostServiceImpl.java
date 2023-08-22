@@ -22,8 +22,8 @@ public class PostServiceImpl implements PostService {
     private final PostRepository repository;
     @Override
     public Page<Post> listS(String nickName, String subject, Pageable pageable) {
-        return repository.findByBoardNameAndNicknameOrSubject(nickName, subject, pageable);
-    }
+        return repository.findByNicknameOrSubject(nickName, subject, pageable);
+    }//전체 게시글 불러오는 메소드+검색기능 추가
 
     @Override
     public PostListResult getPostListResult(String nickName, String subject, Pageable pageable) {
@@ -57,7 +57,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public Post contentS(long seq) {
         return repository.findBySeq(seq);
-    }
+    }//컨텐츠 내용 표시해주는 메소드
 
     @Override
     public void viewNumUp(long seq) {
@@ -65,7 +65,7 @@ public class PostServiceImpl implements PostService {
         Post post1=newContent.get();
         post1.setViewnum(post1.getViewnum()+1);
         repository.save(post1);
-    }
+    }//조회수 올리는 메소드
 
     @Override
     public void updateS(Post post) {
@@ -75,10 +75,10 @@ public class PostServiceImpl implements PostService {
         post1.setEmail(post.getEmail());
         post1.setSubject(post.getSubject());
         post1.setContent(post.getContent());
-        post1.setViewnum(post.getViewnum()+1);
+        post1.setViewnum(post.getViewnum());
         System.out.println(post1.getViewnum());
         repository.save(post1);
-    }
+    }//게시글 수정하는 메소드
     @Override
     public void deleteS(long seq) {
         repository.deleteById(seq);

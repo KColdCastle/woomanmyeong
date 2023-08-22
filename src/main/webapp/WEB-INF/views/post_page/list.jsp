@@ -34,7 +34,6 @@
 
 <title> Spring Board </title>
 <meta charset="utf-8">
-
 	<style>
 		table, th, td {
 		   border: 1px solid black;
