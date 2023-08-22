@@ -27,6 +27,9 @@
                             <a href="../post_page/noticeList.do" class="nav__link">공지사항</a>
                         </li>
                         <li class="nav__item">
+                        <a href="../post_page/list.do" class="nav__link">이것은 <br>모든글 </a>
+                        </li>
+                        <li class="nav__item">
                             <c:choose>
                                 <c:when test="${empty loginOkUser.nickname}">
                                     <a href="member/logintest" class="nav__link">로그인</a>
