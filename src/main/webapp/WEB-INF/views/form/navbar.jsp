@@ -18,21 +18,38 @@
                             <a href="../post_page/coupleList.do" class="nav__link">커플여행</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#discover" class="nav__link">가족여행</a>
+                            <a href="../post_page/familyList.do" class="nav__link">가족여행</a>
                         </li>
-		                <li class="nav__item dropdown">
+                        <li class="nav__item">
+                        <a href="../post_page/freeList.do" class="nav__link">자유게시판</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="../post_page/noticeList.do" class="nav__link">공지사항</a>
+                        </li>
+                        <li class="nav__item">
+                            <c:choose>
+                                <c:when test="${empty loginOkUser.nickname}">
+                                    <a href="member/logintest" class="nav__link">로그인</a>
+                                </c:when>
+                                <c:otherwise>
+                                    <a href="member/logout" class="nav__link"><font style="color:green">${loginOkUser.nickname}</font></a>
+                                </c:otherwise>
+                            </c:choose>
+                        </li>
+
+		             <!--    <li class="nav__item dropdown">
                             <a class="nav__link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                   자유게시판
+                                   게시판
                             </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="../post_page/list.do">여행은 혼자지</a>
-                                <a class="dropdown-item" href="elements.html">여행은 커플</a>
-                                <a class="dropdown-item" href="elements.html">즐거운 가족여행~</a>
-                                <a class="dropdown-item" href="elements.html">맘대로 떠드는 자유게시판</a>
+                                <a class="dropdown-item" href="../post_page/soloList.do">여행은 혼자지</a>
+                                <a class="dropdown-item" href="../post_page/coupleList.do">여행은 커플</a>
+                                <a class="dropdown-item" href="../post_page/familyList.do">즐거운 가족여행~</a>
+                                <a class="dropdown-item" href="../post_page/freeList.do">맘대로 떠드는 자유게시판</a>
                                 </div>
-                            </li>
+                        </li>
 
-                     <!--   <div class="srch_img">
+                       <div class="srch_img">
                            <a href="#" class="m_menu"></a>
                            <a href="#" class="searchBtn" title="검색입력서식 열기"><span></span></a>
                            <div class="appear_first">
@@ -49,10 +66,6 @@
                                <label for="srch"><a href="#" id="searchToggle">검색</a></label>
                            </fieldset>
                        </form> -->
-
-                        <li class="nav__item">
-                            <a href="#place" class="nav__link">신고</a>
-                        </li>
                     </ul>
 
                     <div class="nav__dark">
