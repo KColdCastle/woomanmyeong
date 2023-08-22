@@ -12,7 +12,7 @@ import java.util.List;
 
 public interface ReplyRepository extends JpaRepository<Reply, Long> {
 
-    List<Reply> findByPostseq(long postseq);
+    List<Reply> findByPostseqOrderBySeqDesc(long postseq);
     @Query(value = "SELECT CURRENT_DATE", nativeQuery = true)
     Date getCurrentDate();
     //자동으로 현재 날짜 넣어주는 메소드

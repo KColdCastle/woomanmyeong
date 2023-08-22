@@ -17,7 +17,7 @@ public class ReplyServiceImpl implements ReplyService {
     private final ReplyRepository repository;
     @Override
     public List<Reply> findReplyPostseq(long postseq) {
-        return repository.findByPostseq(postseq);
+        return repository.findByPostseqOrderBySeqDesc(postseq);
     }
 
     @Override
