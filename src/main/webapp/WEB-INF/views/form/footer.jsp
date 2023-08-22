@@ -1,5 +1,5 @@
         <!--=============== FOOTER ===============-->
-         <footer class="footer section">
+        <footer class="footer section">
 
             <div class="footer__container container grid">
                 <div class="footer__content grid">

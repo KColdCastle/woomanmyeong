@@ -34,7 +34,7 @@
         <link rel="stylesheet" href="/front/Like-Button.css">
 
 
-        <title>국내여행에에빠진사람들</title>
+        <title>공지사항</title>
 
 
     </head>
@@ -49,11 +49,12 @@
 
             <div class="home__container container grid">
                 <div class="home__data">
-                    <span class="home__data-subtitle">국여진사람들</span>
-                    <h1 class="home__data-title">국내<br> 여행에 <b>빠진 <br> 사람들</b></h1>
-                    <a href="/write/insert.do" class="button">글쓰기</a>
+                    <span class="home__data-subtitle"><br><br> <br><br><br> <br><br> <br><br> <br><br> </span>
+                    <h2 class="home__data-title"><br><br> <br><br> <br><br> 공지 사항 필독</h2>
+                    <c:if test="${loginOkUser.nickname =='관리자'}">
+                        <a href="/write/insert.do" class="button">글쓰기</a>
+                    </c:if>
                 </div>
-
 
                <section class="home" id="home"></section>
                 <div class="subscribe__bg">
@@ -62,21 +63,19 @@
                     <!--   <p class="subscribe__description">Subscribe to our newsletter and get a
                     special 30% discount.-->
                     </p>
-
-                        <form action="" class="subscribe__form">
-                        <input type="text" placeholder="검색" class="subscribe__input">
-
-                        <button class="button">
-                        검색하기
-                    </button>
-                    </form>
+                        <form method="GET" action="/post_page/noticeList.do">
+                        <div class="input-group input-group-sm w-auto">
+                            <input class="form-control form-control-sm" type="text" placeholder="검색어를 입력하세요." id="searchText" name="searchText" value="${param.searchText}">
+                            <button class="btn btn-outline-primary btn-sm" type="submit">검색</button>
+                        </div>
+                        </form>
                    </div>
                </div>
                <div class="board_type1_wrap">
                    <table class="board_list_type1">
                    <br>
 
-                   <h2 class="section__title">공지 <br> 사항</h2>
+                 <!--  <h2 class="section__title">공지 <br> 사항</h2>-->
                        <thead>
                            <tr>
                                 <th data-bss-hover-animate="bounce">닉네임</th>
@@ -94,7 +93,7 @@
                                 <tr>
                                     <td>${noticeList.nickname}</td>
                                     <td>
-                                        <a href='post_page/content.do?&seq=${noticeList.seq}'>${noticeList.subject}</a>
+                                        <a href='content.do?&seq=${noticeList.seq}'>${noticeList.subject}</a>
                                     </td>
                                     <td>${noticeList.viewnum}</td>
                                 </tr>
@@ -103,8 +102,27 @@
                      </section>
                    </table>
                </div>
+                  <nav>
+                     <ul class="pagination pagination-sm mb-0 justify-content-center">
+                            <c:forEach begin="0" end="${noticeList.totalPageCount > 1 ? noticeList.totalPageCount - 1 : 0}" var="i">
+                                <li class="page-item">
+                                <a class="page-link" href="noticeList.do?page=${i}&searchText=${param.searchText}">
+                                     <c:choose>
+                                        <c:when test="${i==noticeList.page}">
+                                        <strong>${i+1}</strong>
+                                        </c:when>
+                                        <c:otherwise>
+                                           ${i+1}
+                                        </c:otherwise>
+                                     </c:choose>
+                             </a>&nbsp;
+                             </li>
+                            </c:forEach>
+                     </ul>
+                 </nav>
+                <jsp:include page="../form/footer.jsp"/>
         </main>
-       <jsp:include page="../form/footer.jsp"/>
+
 
 
 
@@ -113,11 +131,11 @@
             <i class="ri-arrow-up-line scrollup__icon"></i>
         </a>
         <!--=============== SCROLL REVEAL ===========-->
-        <script src="front/assets/js/scrollreveal.min.js"></script>
+        <script src="/front/assets/js/scrollreveal.min.js"></script>
         <!--=============== SWIPER JS ===============-->
-        <script src="front/assets/js/swiper-bundle.min.js"></script>
+        <script src="/front/assets/js/swiper-bundle.min.js"></script>
 
         <!--=============== MAIN JS ===============-->
-        <script src="front/assets/js/main.js"></script>
+        <script src="/front/assets/js/main.js"></script>
     </body>
 </html>

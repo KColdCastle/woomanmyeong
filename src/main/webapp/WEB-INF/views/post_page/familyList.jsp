@@ -33,7 +33,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="/front/Like-Button.css">
 
-        <title>국내여행 커플게시판</title>
+        <title>가족여행 커플게시판</title>
 
     </head>
     <body>
@@ -47,8 +47,8 @@
 
             <div class="home__container container grid">
                 <div class="home__data">
-                    <span class="home__data-subtitle"><br><br> <br><br><br> <br><br> <br><br> <br><br> </span>
-                    <h2 class="home__data-title"><br><br><br><br><br><br><br><br> 커플들의 여행을 위한 게시판</h2>
+                    <span class="home__data-subtitle"><br><br> <br><br><br> <br><br> <br><br <br><br> </span>
+                    <h2 class="home__data-title"><br><br> <br><br> <br><br>  <br><br> 가족을 위한 게시판</h2>
                     <c:if test="${loginOkUser.nickname !='관리자'}">
                         <a href="/write/insert.do" class="button">글쓰기</a>
                     </c:if>
@@ -61,7 +61,7 @@
                     <!--   <p class="subscribe__description">Subscribe to our newsletter and get a
                     special 30% discount.-->
                     </p>
-                        <form method="GET" action="/post_page/doubleList.do">
+                        <form method="GET" action="/post_page/familyList.do">
                         <div class="input-group input-group-sm w-auto">
                             <input class="form-control form-control-sm" type="text" placeholder="검색어를 입력하세요." id="searchText" name="searchText" value="${param.searchText}">
                             <button class="btn btn-outline-primary btn-sm" type="submit">검색</button>
@@ -76,7 +76,7 @@
                            <tr>
                                 <th data-bss-hover-animate="bounce">닉네임</th>
                                 <th>제목</th>
-                        <th>날짜</th>
+								<th>날짜</th>
                                 <th>조회수</th>
                                 <c:if test="${loginOkUser.nickname =='관리자'}">
                                     <th align='center'>삭제</th>
@@ -84,20 +84,20 @@
                            </tr>
                        </thead>
                        <tbody>
-                            <c:if test="${empty coupleList}">
+                            <c:if test="${empty familyList}">
                                 <tr>
                                     <td align='center' colspan="5">검색된 글이 없음</td>
                                 </tr>
                             </c:if>
-                        <c:forEach items="${coupleList.list.content}" var="coupleList">
+                        <c:forEach items="${familyList.list.content}" var="familyList">
                                 <tr>
-                                    <td>${coupleList.nickname}</td>
+                                    <td>${familyList.nickname}</td>
                                     <td>
-                                        <a href='content.do?&seq=${coupleList.seq}'>${coupleList.subject}</a>
+                                        <a href='content.do?&seq=${familyList.seq}'>${familyList.subject}</a>
                                     </td>
-                           <td>${coupleList.crdate}</td>
-                                    <td>${coupleList.viewnum}</td>
-                            <c:if test="${loginOkUser.nickname =='관리자'}">
+									<td>${familyList.crdate}</td>
+                                    <td>${familyList.viewnum}</td>
+								    <c:if test="${loginOkUser.nickname =='관리자'}">
                                          <td align='center'>
                                              <a href='del.do?&seq=${post.seq}'>삭제</a>
                                          </td>
@@ -109,11 +109,11 @@
                </div>
                   <nav>
                      <ul class="pagination pagination-sm mb-0 justify-content-center">
-                            <c:forEach begin="0" end="${doubleList.totalPageCount > 1 ? doubleList.totalPageCount - 1 : 0}" var="i">
+                            <c:forEach begin="0" end="${familyList.totalPageCount > 1 ? familyList.totalPageCount - 1 : 0}" var="i">
                                 <li class="page-item">
-                                <a class="page-link" href="doubleList.do?page=${i}&searchText=${param.searchText}">
+                                <a class="page-link" href="familyList.do?page=${i}&searchText=${param.searchText}">
                                      <c:choose>
-                                        <c:when test="${i==doubleList.page}">
+                                        <c:when test="${i==familyList.page}">
                                         <strong>${i+1}</strong>
                                         </c:when>
                                         <c:otherwise>
