@@ -1,10 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"%>
+<%@ page contentType="text/html;charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<!DOCTYPE html>
-<html lang="ko">
 
-<head>
+
+<!DOCTYPE html>
+    <html lang="ko">
+    <head>
+
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -31,103 +33,95 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="/front/Like-Button.css">
 
+        <title>국내여행 커플게시판</title>
 
-<title> Spring Board </title>
-<meta charset="utf-8">
+    </head>
+    <body>
+        <jsp:include page="../form/navbar.jsp"/>
 
-	<style>
-		table, th, td {
-		   border: 1px solid black;
-		   border-collapse: collapse;
-		}
-		th, td {
-		   padding: 5px;
-		}
-		a { text-decoration:none }
-	</style>
-</head>
 
-<body>
-   <input type="hidden" class="form-control" name="nickname" value="${loginOkUser.nickname}">
+        <main class="main">
+        <!--==================== HOME =================여기 홈===-->
 
-    <div class="row justify-content-center">
-        <div class="col-xl-10 col-xxl-9">
-            <div class="card shadow">
-                <div class="card-header d-flex flex-wrap justify-content-center align-items-center justify-content-sm-between gap-3">
-                    <h5 class="display-6 text-nowrap text-capitalize mb-0">커플여행(${coupleList.totalCount})</h5>
-                    <div class="input-group input-group-sm w-auto">
-                        <input class="form-control form-control-sm" type="text" placeholder="검색어를 입력하세요.">
-                        <button class="btn btn-outline-primary btn-sm" type="submit">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-search mb-1">
-                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
-                            </svg>
-                        </button>
-                    </div>
+        <img src="/front/assets/img/home1.jpg" alt="" class="home__img__list">
+
+            <div class="home__container container grid">
+                <div class="home__data">
+                    <span class="home__data-subtitle"><br><br> <br><br><br> <br><br> <br><br <br><br> </span>
+                    <h2 class="home__data-title"><br><br> <br><br> <br><br>  <br><br> 커플들의 여행을 위한 게시판</h2>
+                    <c:if test="${loginOkUser.nickname !='관리자'}">
+                        <a href="/write/insert.do" class="button">글쓰기</a>
+                    </c:if>
                 </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-striped table-hover">
-                            <thead>
+
+               <section class="home" id="home"></section>
+                <div class="subscribe__bg">
+                   <div class="subscribe__container container">
+                    <!--  <h2 class="section__title subscribe__title">Subscribe Our <br> Newsletter</h2>-->
+                    <!--   <p class="subscribe__description">Subscribe to our newsletter and get a
+                    special 30% discount.-->
+                    </p>
+
+                        <form action="" class="subscribe__form">
+                        <input type="text" placeholder="검색" class="subscribe__input">
+
+                        <button class="button">
+                        검색하기
+                    </button>
+                    </form>
+                   </div>
+               </div>
+               <div class="board_type1_wrap">
+                   <table class="board_list_type1">
+                   <br>
+                       <thead>
+                           <tr>
+                                <th data-bss-hover-animate="bounce">닉네임</th>
+                                <th>제목</th>
+                        <th>날짜</th>
+                                <th>조회수</th>
+                                <c:if test="${loginOkUser.nickname =='관리자'}">
+                                    <th align='center'>삭제</th>
+                                </c:if>
+                           </tr>
+                       </thead>
+                       <tbody>
+                            <c:if test="${empty coupleList}">
                                 <tr>
-                                    <th>닉네임</th>
-                                    <th>제목</th>
-                                    <th>게시판이름</th>
-                                    <th>업로드날짜</th>
-                                    <th>수정날짜</th>
-                                    <th class="text-center">조회수</th>
-                                    <c:if test="${loginOkUser.nickname =='관리자'}">
-                                        <th align='center'>삭제</th>
-                                    </c:if>
+                                    <td align='center' colspan="5">검색된 글이 없음</td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach items="${coupleList.list.content}" var="post">
-                                    <TR align='center' noshade>
-                                        <TD>${post.nickname}</TD>
-                                        <TD>
-                                          <a href="content.do?seq=${post.seq}">
-                                            ${post.subject}
-                                          </a>
-                                        </TD>
-                                        <TD align='center'>${post.boardname}</TD>
-                                        <TD align='center'>${post.crdate}</TD>
-                                        <TD align='center'>${post.cudate}</TD>
-                                        <TD align='center'>${post.viewnum}</TD>
-                                            <c:if test="${loginOkUser.nickname =='관리자'}">
-                                                <td align='center'>
-                                                    <a href='del.do?&seq=${post.seq}'>삭제</a>
-                                                </td>
-                                            </c:if>
-                                       </TR>
-                                </c:forEach>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <nav>
-                        <ul class="pagination pagination-sm mb-0 justify-content-center">
-                               <c:forEach begin="0" end="${listResult.totalPageCount > 1 ? listResult.totalPageCount - 1 : 0}" var="i">
-                                   <li class="page-item">
-                                   <a class="page-link" href="coupleList.do?page=${i}">
-                                        <c:choose>
-                                           <c:when test="${i==coupleList.page}">
-                                           <strong>${i+1}</strong>
-                                           </c:when>
-                                           <c:otherwise>
-                                              ${i+1}
-                                           </c:otherwise>
-                                        </c:choose>
-                                </a>&nbsp;
-                                </li>
-                               </c:forEach>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="/front/assets/bootstrap/js/bootstrapList.min.js"></script>
-</body>
+                            </c:if>
+                        <c:forEach items="${coupleList.list.content}" var="coupleList">
+                                <tr>
+                                    <td>${coupleList.nickname}</td>
+                                    <td>
+                                        <a href='content.do?&seq=${coupleList.seq}'>${coupleList.subject}</a>
+                                    </td>
+                           <td>${coupleList.crdate}</td>
+                                    <td>${coupleList.viewnum}</td>
+                            <c:if test="${loginOkUser.nickname =='관리자'}">
+                                         <td align='center'>
+                                             <a href='del.do?&seq=${post.seq}'>삭제</a>
+                                         </td>
+                                     </c:if>
+                                </tr>
+                        </c:forEach>
+                       </tbody>
+                   </table>
+               </div>
+            <jsp:include page="../form/footer.jsp"/>
+        </main>
 
+        <!--=============== SCROLL UP ===============-->
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class="ri-arrow-up-line scrollup__icon"></i>
+        </a>
+        <!--=============== SCROLL REVEAL ===========-->
+        <script src="/front/assets/js/scrollreveal.min.js"></script>
+
+        <!--=============== SWIPER JS ===============-->
+        <script src="/front/assets/js/swiper-bundle.min.js"></script>
+        <!--=============== MAIN JS ===============-->
+        <script src="/front/assets/js/main.js"></script>
+    </body>
 </html>

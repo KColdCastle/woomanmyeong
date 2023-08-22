@@ -224,18 +224,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:if test="${empty couplePost}">
+                                    <c:if test="${empty coupleList}">
                                         <tr>
                                             <td align='center' colspan="5">검색된 글이 없음</td>
                                         </tr>
                                     </c:if>
-                                    <c:forEach items="${couplePost}" var="couplePost">
+                                    <c:forEach items="${coupleList}" var="coupleList">
                                         <tr>
-                                            <td>${couplePost.nickname}</td>
+                                            <td>${coupleList.nickname}</td>
                                             <td>
-                                                <a href='content.do?&seq=${couplePost.seq}'>${couplePost.subject}</a>
+                                                <a href='content.do?&seq=${coupleList.seq}'>${coupleList.subject}</a>
                                             </td>
-                                            <td>${couplePost.viewnum}</td>
+                                            <td>${coupleList.viewnum}</td>
                                         </tr>
                                     </c:forEach>
                                     </thead>
