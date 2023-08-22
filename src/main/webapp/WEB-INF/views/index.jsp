@@ -1,52 +1,50 @@
-<%@ page contentType="text/html;charset=utf-8" %>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html;charset=utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
-        <!DOCTYPE html>
-        <html lang="ko">
-
-        <head>
-
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!DOCTYPE html>
+    <html lang="ko">
+    <head>
 
 
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-            <!--=============== FAVICON ===============-->
-            <link rel="shortcut icon" href="/front/assets/img/favicon.png" type="image/png">
-
-            <!--=============== REMIXICONS ===============-->
-            <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-
-            <!--=============== SWIPER CSS ===============-->
-            <link rel="stylesheet" href="/front/assets/css/swiper-bundle.min.css">
-
-            <!--=============== CSS ===============-->
-            <link rel="stylesheet" href="/front/styles.css">
-            <link rel="stylesheet" href="/front/board_type1.css">
-            <link rel="stylesheet" href="/front/bootstrap.min.css">
-            <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
-            <link rel="stylesheet"
-                href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css">
-            <link rel="stylesheet" href="/front/Like-Button.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
-            <title>국내여행에에빠진사람들</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="/front/assets/img/favicon.png" type="image/png">
+
+        <!--=============== REMIXICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+        <!--=============== SWIPER CSS ===============-->
+        <link rel="stylesheet" href="/front/assets/css/swiper-bundle.min.css">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="front/styles.css">
+        <link rel="stylesheet" href="front/board_type1.css">
+       <link rel="stylesheet" href="/front/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="/front/Like-Button.css">
 
 
-        </head>
+        <title>국내여행에에빠진사람들</title>
 
-        <body>
-            <jsp:include page="form/navbar.jsp" />
-            </header>
+
+    </head>
+    <body>
+        <jsp:include page="form/navbar.jsp"/>
+        </header>
 
 
 
-            <main class="main">
-                <!--==================== HOME =================여기 홈===-->
+        <main class="main">
+            <!--==================== HOME =================여기 홈===-->
 
                 <img src="front/assets/img/home1.jpg" alt="" class="home__img">
 
@@ -58,25 +56,25 @@
 
                     </div>
 
-                    <!--  <section class="subscribe section"> -->
+                   <!--  <section class="subscribe section"> -->
 
-                    <div class="subscribe__bg">
-                        <div class="subscribe__container container">
-                            <!--  <h2 class="section__title subscribe__title">Subscribe Our <br> Newsletter</h2>-->
-                            <!--   <p class="subscribe__description">Subscribe to our newsletter and get a
+                <div class="subscribe__bg">
+                    <div class="subscribe__container container">
+                         <!--  <h2 class="section__title subscribe__title">Subscribe Our <br> Newsletter</h2>-->
+                      <!--   <p class="subscribe__description">Subscribe to our newsletter and get a
                             special 30% discount.-->
-                            </p>
+                        </p>
 
-                            <form action="" class="subscribe__form">
-                                <input type="text" placeholder="검색" class="subscribe__input">
+                        <form action="" class="subscribe__form">
+                            <input type="text" placeholder="검색" class="subscribe__input">
 
-                                <button class="button">
-                                    검색하기
-                                </button>
-                            </form>
-                        </div>
+                            <button class="button">
+                                검색하기
+                            </button>
+                        </form>
                     </div>
-                    <!--  </section>  -->
+                </div>
+            <!--  </section>  -->
 
 
 
@@ -98,262 +96,257 @@
                         <div>
 
                             <span class="home__info-title">regist/login</span>
-                            <c:choose>
-                                <c:when test="${empty loginOkUser}">
-                                    <a href="member/logintest">로그인</a><i class="ri-arrow-right-line"></i>
-                                    <a href="" class="button button--flex button--link home__info-button">
-                                        <br><a href="member/regtest">회원가입</a> <i class="ri-arrow-right-line"></i>
-                                </c:when>
-                                <c:otherwise>
-                                    <a href="member/logout">로그아웃</a><i class="ri-arrow-right-line"></i>
-                                    <br>
-                                    <font style="color:green">${loginOkUser.nickname}님 환영합니다.</font><br />
-                                </c:otherwise>
-                            </c:choose>
+                             <c:choose>
+                             <c:when test="${empty loginOkUser}">
+                            <a href="member/logintest">로그인</a><i class="ri-arrow-right-line"></i>
+                            <a href="" class="button button--flex button--link home__info-button">
+                            <br><a href="member/regtest">회원가입</a> <i class="ri-arrow-right-line"></i>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a href="member/logout">로그아웃</a><i class="ri-arrow-right-line"></i>
+                                        <br><font style="color:green">${loginOkUser.nickname}님 환영합니다.</font><br/>
+                                    </c:otherwise>
+                                </c:choose>
                             </a>
                         </div>
                         <section class="home" id="home">
-                            <div class="home__info-overlay">
-                                <img src="front/assets/img/home2.jpg" alt="" class="home__info-img">
-                            </div>
+                        <div class="home__info-overlay">
+                            <img src="/front/assets/img/home2.jpg" alt="" class="home__info-img">
+                        </div>
                     </div>
                 </div>
 
-                </section>
+            </section>
 
 
 
-                <!--==================== ABOUT ====================-->
+            <!--==================== ABOUT ====================-->
 
 
-                <section class="home" id="home"></section>
+                   <section class="home" id="home"></section>
 
-                <div class="board_type1_wrap">
-                    <table class="board_list_type1">
-                        <br>
+                   <div class="board_type1_wrap">
+                       <table class="board_list_type1">
+                             <br>
 
-                        <h2 class="section__title">공지 <br> 사항</h2>
-                        <thead>
-                            <tr>
+                      <h2 class="section__title">공지 <br> 사항</h2>
+                           <thead>
+                               <tr>
+                                <th data-bss-hover-animate="bounce">닉네임</th>
+                                <th>제목</th>
+                                <th>조회수</th>
+								</tr>
+							</thead>
+							<thead>
+                                <tbody>
+                            <c:if test="${empty noticePost}">
+                                <tr>
+                                    <td align='center' colspan="5">검색된 글이 없음</td>
+                                </tr>
+                            </c:if>
+                                    <c:forEach items="${noticePost}" var="noticePost">
+                                        <tr>
+                                            <td>${noticePost.nickname}</td>
+                                    <td>
+                                <a href='post_page/content.do?&seq=${noticePost.seq}'>${noticePost.subject}</a>
+                                 </td>
+                                            <td>${noticePost.viewnum}</td>
+                                        </tr>
+                                        </c:forEach>
+                                   </thead>
+                                   <tbody>
+
+                                   </tbody>
+       							 </section>
+                               </table>
+                                <div class="board_type1_wrap">
+                              <table class="board_list_type1">
+       							<a href="post_page/noticeList.do"  class="button">공지사항더보기</a>
+
+                                    <br>
+                                    <br>
+                                    <br>
+
+                            <h2 class="section__title">혼자 <br> 여행</h2>
+
+                            <thead>
+                               <tr>
                                 <th data-bss-hover-animate="bounce">닉네임</th>
                                 <th>제목</th>
                                 <th>조회수</th>
 
 
                             </tr>
-                        </thead>
-                        <tbody>
-                            <c:if test="${empty noticePost}">
+                                </thead>
+                                <tbody>
+                            <c:if test="${empty soloPost}">
                                 <tr>
                                     <td align='center' colspan="5">검색된 글이 없음</td>
                                 </tr>
                             </c:if>
-                            <c:forEach items="${noticePost}" var="noticePost">
-                                <tr>
-                                    <td>${noticePost.nickname}</td>
+                                    <c:forEach items="${soloPost}" var="soloPost">
+                                        <tr>
+                                            <td>${soloPost.nickname}</td>
                                     <td>
-                                        <a href='content.do?&seq=${noticePost.seq}'>${noticePost.subject}</a>
-                                    </td>
-                                    <td>${noticePost.viewnum}</td>
-                                </tr>
-                            </c:forEach>
-                            </thead>
-                        <tbody>
+                                <a href='post_page/content.do?&seq=${soloPost.seq}'>${soloPost.subject}</a>
+                                 </td>
+                                            <td>${soloPost.viewnum}</td>
+                                        </tr>
+                                        </c:forEach>
+                                   </thead>
+                                   <tbody>
 
-                        </tbody>
-                        </section>
-                    </table>
-                    <div class="board_type1_wrap">
-                        <table class="board_list_type1">
-                            <a href="#" class="button">더보기</a>
+                                   </tbody>
+                             </section>
+                               </table>
+                           <div class="board_type1_wrap">
+                         <table class="board_list_type1">
 
-                            <br>
-                            <br>
-                            <br>
 
-                            <h2 class="section__title">혼자 <br> 여행</h2>
+                         <a href="post_page/soloList.do" class="button">혼자여행 게시판 더보기</a>
+
+                                    <br>
+                                    <br>
+                                    <br>
+                         <h2 class="section__title">커플 <br> 여행</h2>
 
                             <thead>
-                                <tr>
-                                    <th data-bss-hover-animate="bounce">닉네임</th>
-                                    <th>제목</th>
-                                    <th>조회수</th>
+                               <tr>
+                                <th data-bss-hover-animate="bounce">닉네임</th>
+                                <th>제목</th>
+                                <th>조회수</th>
 
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <c:if test="${empty soloPost}">
-                                    <tr>
-                                        <td align='center' colspan="5">검색된 글이 없음</td>
-                                    </tr>
-                                </c:if>
-                                <c:forEach items="${soloPost}" var="soloPost">
-                                    <tr>
-                                        <td>${soloPost.nickname}</td>
-                                        <td>
-                                            <a href='content.do?&seq=${soloPost.seq}'>${soloPost.subject}</a>
-                                        </td>
-                                        <td>${soloPost.viewnum}</td>
-                                    </tr>
-                                </c:forEach>
-                                </thead>
-                            <tbody>
-
-                            </tbody>
-                            </section>
-                        </table>
-                        <div class="board_type1_wrap">
-                            <table class="board_list_type1">
-
-
-                                <a href="#" class="button">더보기</a>
-
-                                <br>
-                                <br>
-                                <br>
-                                <h2 class="section__title">커플 <br> 여행</h2>
-
-                                <thead>
-                                    <tr>
-                                        <th data-bss-hover-animate="bounce">닉네임</th>
-                                        <th>제목</th>
-                                        <th>조회수</th>
-
-
-                                    </tr>
+                            </tr>
                                 </thead>
                                 <tbody>
-                                    <c:if test="${empty couplePost}">
-                                        <tr>
-                                            <td align='center' colspan="5">검색된 글이 없음</td>
-                                        </tr>
-                                    </c:if>
+                            <c:if test="${empty couplePost}">
+                                <tr>
+                                    <td align='center' colspan="5">검색된 글이 없음</td>
+                                </tr>
+                            </c:if>
                                     <c:forEach items="${couplePost}" var="couplePost">
                                         <tr>
                                             <td>${couplePost.nickname}</td>
-                                            <td>
-                                                <a href='content.do?&seq=${couplePost.seq}'>${couplePost.subject}</a>
-                                            </td>
+                                    <td>
+                                <a href='post_page/content.do?&seq=${couplePost.seq}'>${couplePost.subject}</a>
+                                 </td>
                                             <td>${couplePost.viewnum}</td>
                                         </tr>
-                                    </c:forEach>
-                                    </thead>
-                                <tbody>
-
-                                </tbody>
-                                </section>
-                            </table>
-                            <div class="board_type1_wrap">
-                                <table class="board_list_type1">
-
-                                    <a href="#" class="button">더보기</a>
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <h2 class="section__title">단체 <br> 여행</h2>
-
-                                    <thead>
-                                        <tr>
-                                            <th data-bss-hover-animate="bounce">닉네임</th>
-                                            <th>제목</th>
-                                            <th>조회수</th>
-
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <c:if test="${empty familyPost}">
-                                            <tr>
-                                                <td align='center' colspan="5">검색된 글이 없음</td>
-                                            </tr>
-                                        </c:if>
-                                        <c:forEach items="${familyPost}" var="familyPost">
-                                            <tr>
-                                                <td>${familyPost.nickname}</td>
-                                                <td>
-                                                    <a
-                                                        href='content.do?&seq=${familyPost.seq}'>${familyPost.subject}</a>
-                                                </td>
-                                                <td>${familyPost.viewnum}</td>
-                                            </tr>
                                         </c:forEach>
-                                        </thead>
-                                    <tbody>
+                                   </thead>
+                                   <tbody>
 
-                                    </tbody>
-                                    </section>
-                                </table>
-                                <div class="board_type1_wrap">
-                                    <table class="board_list_type1">
-                                        <a href="#" class="button">더보기</a>
+                                   </tbody>
+                             </section>
+                               </table>
+                           <div class="board_type1_wrap">
+                         <table class="board_list_type1">
 
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <h2 class="section__title">자유 <br> 여행</h2>
-                                        <thead>
-                                            <tr>
-                                                <th data-bss-hover-animate="bounce">닉네임</th>
-                                                <th>제목</th>
-                                                <th>조회수</th>
+                      <a href="post_page/coupleList.do" class="button">커플 여행 <br> 게시판더보기</a>
+                                <br>
+                                <br>
+                                <br>
+                          <h2 class="section__title">단체 <br> 여행</h2>
 
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <c:if test="${empty freePost}">
-                                                <tr>
-                                                    <td align='center' colspan="5">검색된 글이 없음</td>
-                                                </tr>
-                                            </c:if>
-                                            <c:forEach items="${freePost}" var="freePost">
-                                                <tr>
-                                                    <td>${freePost.nickname}</td>
-                                                    <td>
-                                                        <a
-                                                            href='content.do?&seq=${freePost.seq}'>${freePost.subject}</a>
-                                                    </td>
-                                                    <td>${freePost.viewnum}</td>
-                                                </tr>
-                                            </c:forEach>
-                                            </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                        </section>
-                                    </table>
-
-                                </div>
+                            <thead>
+                               <tr>
+                                <th data-bss-hover-animate="bounce">닉네임</th>
+                                <th>제목</th>
+                                <th>조회수</th>
 
 
+                            </tr>
+                                </thead>
+                                <tbody>
+                            <c:if test="${empty familyPost}">
+                                <tr>
+                                    <td align='center' colspan="5">검색된 글이 없음</td>
+                                </tr>
+                            </c:if>
+                                    <c:forEach items="${familyPost}" var="familyPost">
+                                        <tr>
+                                            <td>${familyPost.nickname}</td>
+                                    <td>
+                                <a href='post_page/content.do?&seq=${familyPost.seq}'>${familyPost.subject}</a>
+                                 </td>
+                                            <td>${familyPost.viewnum}</td>
+                                        </tr>
+                                        </c:forEach>
+                                   </thead>
+                                   <tbody>
 
-                                <!--==================== VIDEO ====================-->
+                                   </tbody>
+                             </section>
+                               </table>
+                               <div class="board_type1_wrap">
+                             <table class="board_list_type1">
+                         <a href="post_page/familyList.do" class="button">가족여행 <br>게시판더보기</a>
+
+                         <br>
+                         <br>
+                         <br>
+                         <h2 class="section__title">자유 <br> 여행</h2>
+                            <thead>
+                               <tr>
+                                <th data-bss-hover-animate="bounce">닉네임</th>
+                                <th>제목</th>
+                                <th>조회수</th>
+
+
+                            </tr>
+                                </thead>
+                                <tbody>
+                            <c:if test="${empty freePost}">
+                                <tr>
+                                    <td align='center' colspan="5">검색된 글이 없음</td>
+                                </tr>
+                            </c:if>
+                                    <c:forEach items="${freePost}" var="freePost">
+                                        <tr>
+                                            <td>${freePost.nickname}</td>
+                                    <td>
+                                <a href='post_page/content.do?&seq=${freePost.seq}'>${freePost.subject}</a>
+                                 </td>
+                                            <td>${freePost.viewnum}</td>
+                                        </tr>
+                                        </c:forEach>
+                                   </thead>
+                                   <tbody>
+
+                                   </tbody>
+                             </section>
+                               </table>
+							<a href="post_page/freeList.do" class="button">자유게시판더보기</a>
+                           </div>
 
 
 
-                                <section class="video section">
-                                    <h2 class="section__title">Video Tour</h2>
-                                    <div class="video__container container">
-                                        <p class="video__description">Find out more with our video of the most beautiful
-                                            and pleasant places for you and your family.</p>
-                                        <div class="video__content">
-                                            <video id="video-file">
-                                                <source src="front/assets/video/video.mp4" type="video/mp4">
-                                            </video>
-                                            <button class="button button--flex video__button" id="video-button">
-                                                <i class="ri-play-line video__button-icon" id="video-icon"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </section>
+            <!--==================== VIDEO ====================-->
 
 
-                                <!--==================== PLACES ====================-->
+
+            <section class="video section">
+                <h2 class="section__title">Video Tour</h2>
+                <div class="video__container container">
+                    <p class="video__description">Find out more with our video of the most beautiful and pleasant places for you and your family.</p>
+                    <div class="video__content">
+                        <video id="video-file">
+                            <source src="front/assets/video/video.mp4" type="video/mp4">
+                        </video>
+                        <button class="button button--flex video__button" id="video-button">
+                            <i class="ri-play-line video__button-icon" id="video-icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
 
 
-                                <!--==================== PLACES CARD 1====================-->
-                                <!-- <div class="place__card">
+            <!--==================== PLACES ====================-->
+
+
+                    <!--==================== PLACES CARD 1====================-->
+                    <!-- <div class="place__card">
                         <img src="front/assets/img/place1.jpg" alt="" class="place__img">
                         <div class="place__content">
                             <span class="place__rating">
@@ -373,8 +366,8 @@
                         </button>
                     </div> -->
 
-                                <!--==================== PLACES CARD 2====================-->
-                                <!-- <div class="place__card">
+                    <!--==================== PLACES CARD 2====================-->
+                    <!-- <div class="place__card">
                         <img src="assets/img/place2.jpg" alt="" class="place__img">
                         <div class="place__content">
                             <span class="place__rating">
@@ -394,8 +387,8 @@
                         </button>
                     </div> -->
 
-                                <!--==================== PLACES CARD 3====================-->
-                                <!-- <div class="place__card">
+                    <!--==================== PLACES CARD 3====================-->
+                    <!-- <div class="place__card">
                         <img src="assets/img/place3.jpg" alt="" class="place__img">
                         <div class="place__content">
                             <span class="place__rating">
@@ -415,8 +408,8 @@
                         </button>
                     </div> -->
 
-                                <!--==================== PLACES CARD 4====================-->
-                                <!-- <div class="place__card">
+                    <!--==================== PLACES CARD 4====================-->
+                    <!-- <div class="place__card">
                         <img src="assets/img/place4.jpg" alt="" class="place__img">
                         <div class="place__content">
                             <span class="place__rating">
@@ -436,8 +429,8 @@
                         </button>
                     </div> -->
 
-                                <!--==================== PLACES CARD 5====================-->
-                                <!-- <div class="place__card">
+                    <!--==================== PLACES CARD 5====================-->
+                    <!-- <div class="place__card">
                         <img src="assets/img/place5.jpg" alt="" class="place__img">
                         <div class="place__content">
                             <span class="place__rating">
@@ -458,13 +451,13 @@
                     </div>
                 </div> -->
 
-                                </section>
+            </section>
 
-                                <!--==================== SUBSCRIBE ====================-->
+            <!--==================== SUBSCRIBE ====================-->
 
 
-                                <!--==================== SPONSORS ====================-->
-                                <!-- <section class="sponsor section">
+            <!--==================== SPONSORS ====================-->
+            <!-- <section class="sponsor section">
                 <div class="sponsor__container container grid">
                     <div class="sponsor__content">
                         <img src="assets/img/sponsors1.png" alt="" class="sponsor__img">
@@ -484,19 +477,21 @@
                 </div>
             </section>
         </main>
-       <jsp:include page="form/footer.jsp"/>
+
+
+
 
         <!--=============== SCROLL UP ===============-->
-            <a href="#" class="scrollup" id="scroll-up">
-                <i class="ri-arrow-up-line scrollup__icon"></i>
-            </a>
-            <!--=============== SCROLL REVEAL ===========-->
-            <script src="front/assets/js/scrollreveal.min.js"></script>
-            <!--=============== SWIPER JS ===============-->
-            <script src="front/assets/js/swiper-bundle.min.js"></script>
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class="ri-arrow-up-line scrollup__icon"></i>
+        </a>
+        <!--=============== SCROLL REVEAL ===========-->
+        <script src="/front/assets/js/scrollreveal.min.js"></script>
+        <!--=============== SWIPER JS ===============-->
+        <script src="/front/assets/js/swiper-bundle.min.js"></script>
 
-            <!--=============== MAIN JS ===============-->
-            <script src="front/assets/js/main.js"></script>
-        </body>
-
-        </html>
+        <!--=============== MAIN JS ===============-->
+        <script src="/front/assets/js/main.js"></script>
+    </body>
+    <jsp:include page="form/footer.jsp"/>
+</html>

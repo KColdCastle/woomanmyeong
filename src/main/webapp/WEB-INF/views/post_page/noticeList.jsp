@@ -50,7 +50,7 @@
             <div class="home__container container grid">
                 <div class="home__data">
                     <span class="home__data-subtitle"></span>
-                    <h1 class="home__data-title"><br><br> <br><br> <br><br> 공지 사항 필독</h1>
+                    <h1 class="home__data-title"><br><br> <br><br><br><br> <br><br> <br> 공지 사항 필독</h1>
                     <c:if test="${loginOkUser.nickname =='관리자'}">
                         <a href="/write/insert.do" class="button">글쓰기</a>
                     </c:if>
