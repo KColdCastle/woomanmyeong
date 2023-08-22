@@ -1,11 +1,10 @@
-<%@ page contentType="text/html;charset=utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
 <!DOCTYPE html>
-    <html lang="ko">
-    <head>
+<html lang="ko">
 
+<head>
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -60,13 +59,11 @@
                     <!--   <p class="subscribe__description">Subscribe to our newsletter and get a
                     special 30% discount.-->
                     </p>
-
-                        <form action="" class="subscribe__form">
-                        <input type="text" placeholder="검색" class="subscribe__input">
-
-                        <button class="button">
-                        검색하기
-                    </button>
+                    <form method="GET" action="/post_page/list.do">
+                    <div class="input-group input-group-sm w-auto">
+                        <input class="form-control form-control-sm" type="text" placeholder="검색어를 입력하세요." id="searchText" name="searchText" value="${param.searchText}">
+                        <button class="btn btn-outline-primary btn-sm" type="submit">검색</button>
+                    </div>
                     </form>
                    </div>
                </div>
@@ -104,6 +101,24 @@
                        </tbody>
                    </table>
                </div>
+                   <nav>
+                       <ul class="pagination pagination-sm mb-0 justify-content-center">
+                              <c:forEach begin="0" end="${listResult.totalPageCount > 1 ? listResult.totalPageCount - 1 : 0}" var="i">
+                                  <li class="page-item">
+                                  <a class="page-link" href="list.do?page=${i}&searchText=${param.searchText}">
+                                       <c:choose>
+                                          <c:when test="${i==listResult.page}">
+                                          <strong>${i+1}</strong>
+                                          </c:when>
+                                          <c:otherwise>
+                                             ${i+1}
+                                          </c:otherwise>
+                                       </c:choose>
+                               </a>&nbsp;
+                               </li>
+                              </c:forEach>
+                       </ul>
+                   </nav>
             <jsp:include page="../form/footer.jsp"/>
         </main>
 

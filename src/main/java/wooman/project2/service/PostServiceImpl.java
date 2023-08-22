@@ -21,29 +21,29 @@ import java.util.Optional;
 public class PostServiceImpl implements PostService {
     private final PostRepository repository;
     @Override
-    public Page<Post> listS(Pageable pageable) {
-        return repository.findByOrderBySeqDesc(pageable);
-    }
+    public Page<Post> listS(String nickName, String subject, Pageable pageable) {
+        return repository.findByNicknameOrSubject(nickName, subject, pageable);
+    }//전체 게시글 불러오는 메소드+검색기능 추가
 
     @Override
-    public PostListResult getPostListResult(Pageable pageable) {
-        Page<Post> list =listS(pageable);
+    public PostListResult getPostListResult(String nickName, String subject, Pageable pageable) {
+        Page<Post> list =listS(nickName, subject, pageable);
         int page = pageable.getPageNumber();//현재 페이지
-        long totalCount = repository.count();
+        long totalCount = repository.countByNickNameOrSubject(nickName, subject);
         int size = pageable.getPageSize();
 
         return new PostListResult(page, totalCount, size, list);
     }//전체글 페이징을 위한 메소드
 
     @Override
-    public Page<Post> listBoardNameS(String boardName, Pageable pageable) {
-        return repository.findByBoardNameOrderBySeqDesc(boardName, pageable);
+    public Page<Post> listBoardNameS(String boardName,String nickName, String subject, Pageable pageable) {
+        return repository.findByBoardNameAndNicknameOrSubject(boardName, nickName, subject, pageable);
     }
     @Override
-    public PostListResult getPostListResultWithBoardName(String boardName, Pageable pageable) {
-        Page<Post> list =listBoardNameS(boardName, pageable);
+    public PostListResult getPostListResultWithBoardName(String boardName,String nickName, String subject, Pageable pageable) {
+        Page<Post> list =listBoardNameS(boardName,nickName,subject, pageable);
         int page = pageable.getPageNumber();//현재 페이지
-        long totalCount = repository.countByBoardName(boardName);
+        long totalCount = repository.countByNickNameOrSubject(boardName,nickName,subject);
         int size = pageable.getPageSize();
 
         return new PostListResult(page, totalCount, size, list);
@@ -57,7 +57,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public Post contentS(long seq) {
         return repository.findBySeq(seq);
-    }
+    }//컨텐츠 내용 표시해주는 메소드
 
     @Override
     public void viewNumUp(long seq) {
@@ -65,7 +65,7 @@ public class PostServiceImpl implements PostService {
         Post post1=newContent.get();
         post1.setViewnum(post1.getViewnum()+1);
         repository.save(post1);
-    }
+    }//조회수 올리는 메소드
 
     @Override
     public void updateS(Post post) {
@@ -75,10 +75,10 @@ public class PostServiceImpl implements PostService {
         post1.setEmail(post.getEmail());
         post1.setSubject(post.getSubject());
         post1.setContent(post.getContent());
-        post1.setViewnum(post.getViewnum()+1);
+        post1.setViewnum(post.getViewnum());
         System.out.println(post1.getViewnum());
         repository.save(post1);
-    }
+    }//게시글 수정하는 메소드
     @Override
     public void deleteS(long seq) {
         repository.deleteById(seq);

@@ -47,8 +47,8 @@
 
             <div class="home__container container grid">
                 <div class="home__data">
-                    <span class="home__data-subtitle"><br><br> <br><br><br> <br><br> <br><br <br><br> </span>
-                    <h2 class="home__data-title"><br><br> <br><br> <br><br>  <br><br> 커플들의 여행을 위한 게시판</h2>
+                    <span class="home__data-subtitle"><br><br> <br><br><br> <br><br> <br><br> <br><br> </span>
+                    <h2 class="home__data-title"><br><br><br><br><br><br><br><br> 커플들의 여행을 위한 게시판</h2>
                     <c:if test="${loginOkUser.nickname !='관리자'}">
                         <a href="/write/insert.do" class="button">글쓰기</a>
                     </c:if>
@@ -61,14 +61,12 @@
                     <!--   <p class="subscribe__description">Subscribe to our newsletter and get a
                     special 30% discount.-->
                     </p>
-
-                        <form action="" class="subscribe__form">
-                        <input type="text" placeholder="검색" class="subscribe__input">
-
-                        <button class="button">
-                        검색하기
-                    </button>
-                    </form>
+                        <form method="GET" action="/post_page/doubleList.do">
+                        <div class="input-group input-group-sm w-auto">
+                            <input class="form-control form-control-sm" type="text" placeholder="검색어를 입력하세요." id="searchText" name="searchText" value="${param.searchText}">
+                            <button class="btn btn-outline-primary btn-sm" type="submit">검색</button>
+                        </div>
+                        </form>
                    </div>
                </div>
                <div class="board_type1_wrap">
@@ -78,7 +76,7 @@
                            <tr>
                                 <th data-bss-hover-animate="bounce">닉네임</th>
                                 <th>제목</th>
-								<th>날짜</th>
+                        <th>날짜</th>
                                 <th>조회수</th>
                                 <c:if test="${loginOkUser.nickname =='관리자'}">
                                     <th align='center'>삭제</th>
@@ -97,9 +95,9 @@
                                     <td>
                                         <a href='content.do?&seq=${coupleList.seq}'>${coupleList.subject}</a>
                                     </td>
-									<td>${coupleList.crdate}</td>
+                           <td>${coupleList.crdate}</td>
                                     <td>${coupleList.viewnum}</td>
-								    <c:if test="${loginOkUser.nickname =='관리자'}">
+                            <c:if test="${loginOkUser.nickname =='관리자'}">
                                          <td align='center'>
                                              <a href='del.do?&seq=${post.seq}'>삭제</a>
                                          </td>
@@ -109,6 +107,24 @@
                        </tbody>
                    </table>
                </div>
+                  <nav>
+                     <ul class="pagination pagination-sm mb-0 justify-content-center">
+                            <c:forEach begin="0" end="${doubleList.totalPageCount > 1 ? doubleList.totalPageCount - 1 : 0}" var="i">
+                                <li class="page-item">
+                                <a class="page-link" href="doubleList.do?page=${i}&searchText=${param.searchText}">
+                                     <c:choose>
+                                        <c:when test="${i==doubleList.page}">
+                                        <strong>${i+1}</strong>
+                                        </c:when>
+                                        <c:otherwise>
+                                           ${i+1}
+                                        </c:otherwise>
+                                     </c:choose>
+                             </a>&nbsp;
+                             </li>
+                            </c:forEach>
+                     </ul>
+                 </nav>
             <jsp:include page="../form/footer.jsp"/>
         </main>
 
