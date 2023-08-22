@@ -21,15 +21,15 @@ import java.util.Optional;
 public class PostServiceImpl implements PostService {
     private final PostRepository repository;
     @Override
-    public Page<Post> listS(Pageable pageable) {
-        return repository.findByOrderBySeqDesc(pageable);
+    public Page<Post> listS(String nickName, String subject, Pageable pageable) {
+        return repository.findByBoardNameAndNicknameOrSubject(nickName, subject, pageable);
     }
 
     @Override
-    public PostListResult getPostListResult(Pageable pageable) {
-        Page<Post> list =listS(pageable);
+    public PostListResult getPostListResult(String nickName, String subject, Pageable pageable) {
+        Page<Post> list =listS(nickName, subject, pageable);
         int page = pageable.getPageNumber();//현재 페이지
-        long totalCount = repository.count();
+        long totalCount = repository.countByNickNameOrSubject(nickName, subject);
         int size = pageable.getPageSize();
 
         return new PostListResult(page, totalCount, size, list);

@@ -55,10 +55,12 @@
             <div class="card shadow">
                 <div class="card-header d-flex flex-wrap justify-content-center align-items-center justify-content-sm-between gap-3">
                     <h5 class="display-6 text-nowrap text-capitalize mb-0">전체글</h5>
+                    <form method="GET" action="/post_page/list.do">
                     <div class="input-group input-group-sm w-auto">
-                        <input class="form-control form-control-sm" type="text" placeholder="검색어를 입력하세요.">
+                        <input class="form-control form-control-sm" type="text" placeholder="검색어를 입력하세요." id="searchText" name="searchText" value="${param.searchText}">
                         <button class="btn btn-outline-primary btn-sm" type="submit">검색</button>
                     </div>
+                    </form>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -103,9 +105,9 @@
                 <div class="card-footer">
                     <nav>
                         <ul class="pagination pagination-sm mb-0 justify-content-center">
-                               <c:forEach begin="0" end="${listResult.totalPageCount-1}" var="i">
+                               <c:forEach begin="0" end="${listResult.totalPageCount > 1 ? listResult.totalPageCount - 1 : 0}" var="i">
                                    <li class="page-item">
-                                   <a class="page-link" href="list.do?page=${i}">
+                                   <a class="page-link" href="list.do?page=${i}&searchText=${param.searchText}">
                                         <c:choose>
                                            <c:when test="${i==listResult.page}">
                                            <strong>${i+1}</strong>

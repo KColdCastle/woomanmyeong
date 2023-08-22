@@ -8,8 +8,8 @@ import wooman.project2.domain.PostListResult;
 import java.util.List;
 
 public interface PostService {
-    Page<Post> listS(Pageable pageable);
-    PostListResult getPostListResult(Pageable pageable);
+    Page<Post> listS(String nickName, String subject, Pageable pageable);
+    PostListResult getPostListResult(String nickName, String subject, Pageable pageable);
 
     Page<Post> listBoardNameS(String boardName, Pageable pageable);
 

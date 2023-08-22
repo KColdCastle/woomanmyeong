@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import wooman.project2.domain.Post;
 import wooman.project2.domain.PostListResult;
 import wooman.project2.service.PostService;
@@ -26,9 +27,9 @@ public class PostController {
     private final PostService service;
 
     @GetMapping("list.do")
-    public String list(Model model, @PageableDefault(page = 0, size = 10, sort = "seq", direction = Sort.Direction.DESC) Pageable pageable){
+    public String list(Model model, @PageableDefault(page = 0, size = 10, sort = "seq", direction = Sort.Direction.DESC) Pageable pageable, @RequestParam(required = false, defaultValue = "") String searchText){
 
-        PostListResult listResult=service.getPostListResult(pageable);
+        PostListResult listResult=service.getPostListResult(searchText, searchText, pageable);
         model.addAttribute("listResult", listResult);
 
         return "/post_page/list";

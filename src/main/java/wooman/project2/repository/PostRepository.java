@@ -28,4 +28,10 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
     @Query("SELECT p FROM Post p WHERE p.boardname = ?1 ORDER BY p.viewnum DESC")
     List<Post> findTopViewedPostsByBoardname(String boardName, Pageable pageable);
+
+    @Query("SELECT p FROM Post p WHERE p.nickname LIKE %?1% OR p.subject LIKE %?2%")
+    Page<Post> findByBoardNameAndNicknameOrSubject(String nickname, String subject, Pageable pageable);
+
+    @Query("SELECT COUNT(p) FROM Post p WHERE p.nickname LIKE %?1% OR p.subject LIKE %?2%")
+    long countByNickNameOrSubject(String nickname, String subject);
 }

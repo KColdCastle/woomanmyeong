@@ -107,7 +107,7 @@
                 <div class="card-footer">
                     <nav>
                         <ul class="pagination pagination-sm mb-0 justify-content-center">
-                               <c:forEach begin="0" end="${coupleList.totalPageCount-1}" var="i">
+                               <c:forEach begin="0" end="${listResult.totalPageCount > 1 ? listResult.totalPageCount - 1 : 0}" var="i">
                                    <li class="page-item">
                                    <a class="page-link" href="coupleList.do?page=${i}">
                                         <c:choose>
