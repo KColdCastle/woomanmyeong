@@ -61,7 +61,7 @@
                     <!--   <p class="subscribe__description">Subscribe to our newsletter and get a
                     special 30% discount.-->
                     </p>
-                        <form method="GET" action="/post_page/doubleList.do">
+                        <form method="GET" action="/post_page/coupleList.do">
                         <div class="input-group input-group-sm w-auto">
                             <input class="form-control form-control-sm" type="text" placeholder="검색어를 입력하세요." id="searchText" name="searchText" value="${param.searchText}">
                             <button class="btn btn-outline-primary btn-sm" type="submit">검색</button>
@@ -109,11 +109,11 @@
                </div>
                   <nav>
                      <ul class="pagination pagination-sm mb-0 justify-content-center">
-                            <c:forEach begin="0" end="${doubleList.totalPageCount > 1 ? doubleList.totalPageCount - 1 : 0}" var="i">
+                            <c:forEach begin="0" end="${coupleList.totalPageCount > 1 ? coupleList.totalPageCount - 1 : 0}" var="i">
                                 <li class="page-item">
-                                <a class="page-link" href="doubleList.do?page=${i}&searchText=${param.searchText}">
+                                <a class="page-link" href="coupleList.do?page=${i}&searchText=${param.searchText}">
                                      <c:choose>
-                                        <c:when test="${i==doubleList.page}">
+                                        <c:when test="${i==coupleList.page}">
                                         <strong>${i+1}</strong>
                                         </c:when>
                                         <c:otherwise>
