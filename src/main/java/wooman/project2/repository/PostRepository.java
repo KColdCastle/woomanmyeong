@@ -21,9 +21,9 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     Page<Post> findByOrderBySeqDesc(Pageable pageable);//for 페이징
     //검색기능 넣으면서 사용하지 않음
 
-    @Query("SELECT p FROM Post p WHERE p.boardname = ?1 ORDER BY p.seq DESC")
-    Page<Post> findByBoardNameOrderBySeqDesc(String boardName, Pageable pageable);
-    //게시판 종류별로 최신글로 표시하는 메소드
+//    @Query("SELECT p FROM Post p WHERE p.boardname = ?1 ORDER BY p.seq DESC")
+//    Page<Post> findByBoardNameOrderBySeqDesc(String boardName, Pageable pageable);
+//    //게시판 종류별로 최신글로 표시하는 메소드
 
     @Query("SELECT COUNT(p) FROM Post p WHERE p.boardname = ?1")
     long countByBoardName(String boardName);
@@ -43,7 +43,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     @Query("SELECT p FROM Post p WHERE p.boardname=?1 AND (p.nickname LIKE %?2% OR p.subject LIKE %?3%) ORDER BY p.viewnum DESC")
     Page<Post> findByBoardNameAndNicknameOrSubject(String Boardname, String nickname, String subject, Pageable pageable);
     //전체 게시글 닉네임, 제목으로 조회하는 메소드
-    @Query("SELECT COUNT(p) FROM Post p WHERE p.boardname=?1 AND (p.nickname LIKE %?2% OR p.subject LIKE %?3%) ORDER BY p.viewnum DESC")
+    @Query("SELECT COUNT(p) FROM Post p WHERE p.boardname=?1 AND (p.nickname LIKE %?2% OR p.subject LIKE %?3%)")
     long countByNickNameOrSubject(String Boardname, String nickname, String subject);
     //전체 게시글 닉네임, 제목으로 조회했을 때 게시글 수 가져오는 메소드
 }

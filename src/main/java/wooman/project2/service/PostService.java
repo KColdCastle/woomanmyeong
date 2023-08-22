@@ -11,9 +11,9 @@ public interface PostService {
     Page<Post> listS(String nickName, String subject, Pageable pageable);
     PostListResult getPostListResult(String nickName, String subject, Pageable pageable);
 
-    Page<Post> listBoardNameS(String boardName, Pageable pageable);
+    Page<Post> listBoardNameS(String boardName,String nickName, String subject, Pageable pageable);
 
-    PostListResult getPostListResultWithBoardName(String boardName, Pageable pageable);
+    PostListResult getPostListResultWithBoardName(String boardName, String nickName, String subject, Pageable pageable);
 
     //Post insertS(Post post);
     //boradin 으로 따로 빼서 작성함.

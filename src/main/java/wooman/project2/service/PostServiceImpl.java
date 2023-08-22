@@ -36,14 +36,14 @@ public class PostServiceImpl implements PostService {
     }//전체글 페이징을 위한 메소드
 
     @Override
-    public Page<Post> listBoardNameS(String boardName, Pageable pageable) {
-        return repository.findByBoardNameOrderBySeqDesc(boardName, pageable);
+    public Page<Post> listBoardNameS(String boardName,String nickName, String subject, Pageable pageable) {
+        return repository.findByBoardNameAndNicknameOrSubject(boardName, nickName, subject, pageable);
     }
     @Override
-    public PostListResult getPostListResultWithBoardName(String boardName, Pageable pageable) {
-        Page<Post> list =listBoardNameS(boardName, pageable);
+    public PostListResult getPostListResultWithBoardName(String boardName,String nickName, String subject, Pageable pageable) {
+        Page<Post> list =listBoardNameS(boardName,nickName,subject, pageable);
         int page = pageable.getPageNumber();//현재 페이지
-        long totalCount = repository.countByBoardName(boardName);
+        long totalCount = repository.countByNickNameOrSubject(boardName,nickName,subject);
         int size = pageable.getPageSize();
 
         return new PostListResult(page, totalCount, size, list);
