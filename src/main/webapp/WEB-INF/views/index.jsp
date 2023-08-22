@@ -32,6 +32,16 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="/front/Like-Button.css">
 
+        <style>
+                /* 커서 스타일 */
+                .custom-cursor {
+                    position: absolute;
+                    width: 30px;
+                    height: 30px;
+                    background-image: url('front/boat.png');
+                    background-size: cover;
+                }
+            </style>
 
         <title>국내여행에에빠진사람들</title>
 
@@ -480,7 +490,6 @@
 
 
 
-
         <!--=============== SCROLL UP ===============-->
         <a href="#" class="scrollup" id="scroll-up">
             <i class="ri-arrow-up-line scrollup__icon"></i>
@@ -492,6 +501,8 @@
 
         <!--=============== MAIN JS ===============-->
         <script src="/front/assets/js/main.js"></script>
+
+
     </body>
     <jsp:include page="form/footer.jsp"/>
 </html>
