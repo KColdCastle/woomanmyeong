@@ -33,9 +33,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="/front/Like-Button.css">
 
-
-        <title>공지사항</title>
-
+        <title>자유게시판 </title>
 
     </head>
     <body>
@@ -49,9 +47,9 @@
 
             <div class="home__container container grid">
                 <div class="home__data">
-                    <span class="home__data-subtitle"></span>
-                    <h1 class="home__data-title"><br><br> <br><br> <br><br> 공지 사항 필독</h1>
-                    <c:if test="${loginOkUser.nickname =='관리자'}">
+                    <span class="home__data-subtitle"><br><br> <br><br><br> <br><br> <br><br <br><br> </span>
+                    <h2 class="home__data-title"><br><br> <br><br> <br><br>  <br><br> 자유롭게 떠드는 게시판</h2>
+                    <c:if test="${loginOkUser.nickname !='관리자'}">
                         <a href="/write/insert.do" class="button">글쓰기</a>
                     </c:if>
                 </div>
@@ -76,39 +74,43 @@
                <div class="board_type1_wrap">
                    <table class="board_list_type1">
                    <br>
-
-                 <!--  <h2 class="section__title">공지 <br> 사항</h2>-->
                        <thead>
                            <tr>
                                 <th data-bss-hover-animate="bounce">닉네임</th>
                                 <th>제목</th>
+								<th>날짜</th>
                                 <th>조회수</th>
+                                <c:if test="${loginOkUser.nickname =='관리자'}">
+                                    <th align='center'>삭제</th>
+                                </c:if>
                            </tr>
                        </thead>
                        <tbody>
-                            <c:if test="${empty noticeList}">
+                            <c:if test="${empty freeList}">
                                 <tr>
                                     <td align='center' colspan="5">검색된 글이 없음</td>
                                 </tr>
                             </c:if>
-                        <c:forEach items="${noticeList.list.content}" var="noticeList">
+                        <c:forEach items="${freeList.list.content}" var="freeList">
                                 <tr>
-                                    <td>${noticeList.nickname}</td>
+                                    <td>${freeList.nickname}</td>
                                     <td>
-                                        <a href='content.do?&seq=${noticeList.seq}'>${noticeList.subject}</a>
+                                        <a href='content.do?&seq=${freeList.seq}'>${freeList.subject}</a>
                                     </td>
-                                    <td>${noticeList.viewnum}</td>
+									<td>${freeList.crdate}</td>
+                                    <td>${freeList.viewnum}</td>
+								    <c:if test="${loginOkUser.nickname =='관리자'}">
+                                         <td align='center'>
+                                             <a href='del.do?&seq=${post.seq}'>삭제</a>
+                                         </td>
+                                     </c:if>
                                 </tr>
                         </c:forEach>
                        </tbody>
-                     </section>
                    </table>
                </div>
-                <jsp:include page="../form/footer.jsp"/>
+            <jsp:include page="../form/footer.jsp"/>
         </main>
-
-
-
 
         <!--=============== SCROLL UP ===============-->
         <a href="#" class="scrollup" id="scroll-up">
@@ -116,9 +118,9 @@
         </a>
         <!--=============== SCROLL REVEAL ===========-->
         <script src="/front/assets/js/scrollreveal.min.js"></script>
+
         <!--=============== SWIPER JS ===============-->
         <script src="/front/assets/js/swiper-bundle.min.js"></script>
-
         <!--=============== MAIN JS ===============-->
         <script src="/front/assets/js/main.js"></script>
     </body>

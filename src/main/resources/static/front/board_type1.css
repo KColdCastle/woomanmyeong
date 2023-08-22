@@ -12,10 +12,12 @@
 .board_list_type1 thead tr th:nth-child(1) { width: 20%; text-align: center; }
 .board_list_type1 thead tr th:nth-child(2) { width: 60%; text-align: center; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
 .board_list_type1 thead tr th:nth-child(3) { width: 20%; text-align: center; }
+.board_list_type1 thead tr th:nth-child(4) { width: 20%; text-align: center; }
 
 .board_list_type1 tbody tr td:nth-child(1) { width: 20%; text-align: center; }
 .board_list_type1 tbody tr td:nth-child(2) { width: 60%; text-align: center; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
 .board_list_type1 tbody tr td:nth-child(3) { width: 20%; text-align: center; }
+.board_list_type1 tbody tr td:nth-child(4) { width: 20%; text-align: center; }
 
 @media only screen and (max-width: 760px) {
     .active_type { display: none; }
@@ -25,9 +27,9 @@
     .board_list_type1 tbody tr td:nth-child(2) { width: 60%; }
     .board_list_type1 thead tr th:nth-child(3),
     .board_list_type1 tbody tr td:nth-child(3) { width: 20%; }
+    .board_list_type1 thead tr th:nth-child(4),
+    .board_list_type1 tbody tr td:nth-child(4) { width: 20%; }
 }
-
-
 
 body {
   margin: 0;
@@ -43,55 +45,3 @@ body {
 }
 
 
-
-
-    .section {
-      border: 1px solid black;
-      margin: 20px;
-      padding: 10px;
-      background-color: #f9f9f9;
-    }
-
-    .section-title {
-      font-size: 24px;
-      margin: 0;
-      padding: 10px;
-    }
-
-    .section-icon img {
-      vertical-align: middle;
-    }
-
-    .article-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .article {
-      margin: 10px 0;
-      padding: 10px;
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-
-    .article a {
-      text-decoration: none;
-      color: #333;
-    }
-
-    .article-info {
-      font-size: 14px;
-      color: #888;
-    }
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr); /* 3개의 열로 구성 */
-      gap: 20px; /* 열과 행 간격 설정 */
-    }
-
-    .section {
-      border: 1px solid #ccc;
-      padding: 10px;
-    }
