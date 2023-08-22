@@ -50,7 +50,7 @@
             <div class="home__container container grid">
                 <div class="home__data">
                     <span class="home__data-subtitle"></span>
-                    <h1 class="home__data-title"><br><br> <br><br><br><br> <br><br> <br> 공지 사항 필독</h1>
+                    <h1 class="home__data-title"><br><br> <br><br> <br><br>  <br><br> 공지 사항 필독</h1>
                     <c:if test="${loginOkUser.nickname =='관리자'}">
                         <a href="/write/insert.do" class="button">글쓰기</a>
                     </c:if>
@@ -63,14 +63,14 @@
                     <!--   <p class="subscribe__description">Subscribe to our newsletter and get a
                     special 30% discount.-->
                     </p>
-                        <form method="GET" action="/post_page/noticeList.do">
-                        <div class="input-group input-group-sm w-auto">
-                            <input class="form-control form-control-sm" type="text" placeholder="검색어를 입력하세요." id="searchText" name="searchText" value="${param.searchText}">
-                            <button class="btn btn-outline-primary btn-sm" type="submit">검색</button>
-                        </div>
-                        </form>
-                   </div>
-               </div>
+                  <form method="GET" action="/post_page/noticeList.do">
+                         <div class="subscribe__form">
+                             <input class="subscribe__input " type="text" placeholder="검색어를 입력하세요." id="searchText" name="searchText" value="${param.searchText}">
+                                 <button class="button" type="submit">
+                                     검색하기
+                     </button>
+                    </div>
+                </div>
                <div class="board_type1_wrap">
                    <table class="board_list_type1">
                    <br>

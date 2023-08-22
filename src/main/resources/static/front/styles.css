@@ -123,6 +123,7 @@ body {
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
   color: var(--text-color);
+
 }
 
 h1,
@@ -670,6 +671,8 @@ input {
 }
 
 /*=============== SUBSCRIBE ===============*/
+
+
 .subscribe__bg {
   background-color: var(--first-color-second);
   padding: 2.5rem 0;
@@ -1112,3 +1115,70 @@ input {
     height: 800px;
   }
 }
+/* 여기서부터 마우스 이벤트
+ .firework-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+    }
+
+    .firework {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: black;
+        animation: explode 1s ease-out;
+    }
+
+      .particle {
+           position: absolute;
+           width: 20px;
+           height: 20px;
+           border-radius: 50%;
+           background-image: url('front/boat.png');
+           background-size: cover;
+           animation: shoot 1s ease-out, disappear 1s ease-out;
+       }
+
+    @keyframes explode {
+        0% {
+            transform: scale(0);
+        }
+        100% {
+            transform: scale(1);
+            opacity: 0;
+        }
+    }
+
+    @keyframes shoot {
+        0% {
+            transform: translateY(0) scale(1);
+        }
+        100% {
+            transform: translateY(-500px) scale(1);
+        }
+    }
+
+    @keyframes disappear {
+        0%, 100% {
+            transform: scale(1);
+            opacity: 0.8;
+        }
+        50% {
+            transform: scale(0);
+            opacity: 0;
+        }
+    }
+        .custom-cursor {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-image: url('front/boat.png');
+            background-size: cover;
+            pointer-events: none; /* 커서 이미지가 마우스 이벤트를 가로채지 않도록 설정
+        }*/
