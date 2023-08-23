@@ -13,7 +13,7 @@ public class MailServiceRestController {
     @Autowired
     RegisterMail registerMail;
 
-    //127.0.0.1:8080/ROOT/api/mail/confirm.json?email
+
     @PostMapping(value = "/confirm.json")
     public void mailConfirm(@RequestParam(name = "email") String email) throws Exception{
         code = registerMail.sendSimpleMessage(email);
