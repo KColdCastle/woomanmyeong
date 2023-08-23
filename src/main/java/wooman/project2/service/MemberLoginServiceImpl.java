@@ -33,7 +33,6 @@ public class MemberLoginServiceImpl implements MemberLoginService {
     @Override
     public Member getLogin(String email) {
         Member member = memberLoginRepository.findByEmail(email);
-        member.setPwd("");
         return member;
     }
 

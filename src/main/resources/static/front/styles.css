@@ -260,6 +260,7 @@ input {
   text-transform: uppercase;
 }
 
+
 .nav__link:hover {
   color: var(--text-color);
 }
