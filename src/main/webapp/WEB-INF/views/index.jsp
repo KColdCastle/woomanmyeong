@@ -6,11 +6,11 @@
     <html lang="ko">
     <head>
 
-
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,34 +32,37 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="/front/Like-Button.css">
 
-     <script>
-         $(document).ready(function() {
-             $('.loadContentLink').click(function(event) {
-                 event.preventDefault(); // 기본 링크 동작 방지
-                 var seq = $(this).attr('data-seq'); // 클릭한 링크의 data-seq 값을 가져옴
-
-                 $.ajax({
-                     type: 'GET',
-                     url: 'post_page/content.jsp?seq=' + seq, // content.jsp에 매개변수로 seq 전달
-                     dataType: 'html', // 받아온 데이터 타입 (HTML)
-                     success: function(data) {
-                         // 받아온 데이터를 contentContainer에 넣어 표시
-                         $('#contentContainer').html(data);
-                     },
-                     error: function() {
-                         alert('데이터를 불러오는 중 오류가 발생했습니다.');
-                     }
-                 });
-             });
-         });
-     </script>
-
+        <style>
+                /* 커서 스타일 */
+                .custom-cursor {
+                    position: absolute;
+                    width: 30px;
+                    height: 30px;
+                    background-image: url('front/boat.png');
+                    background-size: cover;
+                }
+            </style>
+        <style>
+          .included-page {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 2000px;
+            height 1000px;
+          }
+        </style>
         <title>국내여행에에빠진사람들</title>
 
 
     </head>
     <body>
         <jsp:include page="form/navbar.jsp"/>
+        <div class="included-page">
+        <jsp:include page="other/weather.jsp" />
+        </div>
+
+
+
         </header>
 
 
@@ -73,7 +76,20 @@
                     <div class="home__data">
                         <span class="home__data-subtitle">국여진사람들</span>
                         <h1 class="home__data-title">국내<br> 여행에 <b>빠진 <br> 사람들</b></h1>
-                        <a href="/write/insert.do" class="button">글쓰기</a>
+
+
+                        <button id="writebutton" class="button" type="button" onclick="writebutton()">글쓰기</button>
+
+                                <script>
+                                function writebutton(){
+                                    if(${empty loginOkUser}){
+                                    swal('알림','로그인을 해주세요.','info');
+                                    }else{
+                                    window.location.href = "/write/insert.do" ;
+                                    }
+                                }
+                                </script>
+
 
                     </div>
 
@@ -113,27 +129,7 @@
                     </div>
 
 
-                    <div class="home__info">
-                        <div>
-                            <span class="home__info-title">regist/login</span>
-                             <c:choose>
-                             <c:when test="${empty loginOkUser}">
-                            <a href="member/logintest">로그인</a><i class="ri-arrow-right-line"></i>
-                            <a href="" class="button button--flex button--link home__info-button">
-                            <br><a href="member/regtest">회원가입</a> <i class="ri-arrow-right-line"></i>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <a href="member/logout">로그아웃</a><i class="ri-arrow-right-line"></i>
-                                        <br><font style="color:green">${loginOkUser.nickname}님 환영합니다.</font><br/>
-                                    </c:otherwise>
-                                </c:choose>
-                            </a>
-                        </div>
-                        <section class="home" id="home">
-                        <div class="home__info-overlay">
-                            <img src="/front/assets/img/home2.jpg" alt="" class="home__info-img">
-                        </div>
-                    </div>
+
                 </div>
 
             </section>
@@ -155,9 +151,9 @@
                                 <th data-bss-hover-animate="bounce">닉네임</th>
                                 <th>제목</th>
                                 <th>조회수</th>
-								</tr>
-							</thead>
-							<thead>
+                        </tr>
+                     </thead>
+                     <thead>
                                 <tbody>
                             <c:if test="${empty noticePost}">
                                 <tr>
@@ -177,11 +173,11 @@
                                    <tbody>
 
                                    </tbody>
-       							 </section>
+                             </section>
                                </table>
                                 <div class="board_type1_wrap">
                               <table class="board_list_type1">
-       							<a href="post_page/noticeList.do"  class="button">공지사항더보기</a>
+                            <a href="post_page/noticeList.do"  class="button">공지사항더보기</a>
 
                                     <br>
                                     <br>
@@ -208,7 +204,7 @@
                                         <tr>
                                             <td>${soloPost.nickname}</td>
                                     <td>
-                               <a href='post_page/content.do?&seq=${soloPost.seq}'>${soloPost.subject}</a>
+                                <a href='post_page/content.do?&seq=${soloPost.seq}'>${soloPost.subject}</a>
                                  </td>
                                             <td>${soloPost.viewnum}</td>
                                         </tr>
@@ -219,7 +215,6 @@
                                    </tbody>
                              </section>
                                </table>
-
                            <div class="board_type1_wrap">
                          <table class="board_list_type1">
 
@@ -338,32 +333,12 @@
                                    </tbody>
                              </section>
                                </table>
-							<a href="post_page/freeList.do" class="button">자유게시판더보기</a>
+                     <a href="post_page/freeList.do" class="button">자유게시판더보기</a>
                            </div>
 
 
 
             <!--==================== VIDEO ====================-->
-
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            <script>
-            $(document).ready(function() {
-                $('post_page/soloList.do').on('click', function() {
-                    var seq = $(this).data('seq'); // 클릭한 요소의 data-seq 값 (게시물 번호)
-
-                    $.ajax({
-                        url: 'contentReply.jsp?seq=' + seq, // 로드할 페이지의 URL에 게시물 번호 추가
-                        type: 'GET',
-                        success: function(response) {
-                            $('#contentReplyContainer').html(response);
-                        },
-                        error: function() {
-                            console.log('Error while loading content.');
-                        }
-                    });
-                });
-            });
-            </script>
 
 
 
