@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import wooman.project2.domain.Post;
 import wooman.project2.domain.PostListResult;
+import wooman.project2.domain.Reply;
 import wooman.project2.repository.PostRepository;
+import wooman.project2.repository.ReplyRepository;
 
 import java.util.ArrayList;
 import java.util.List;

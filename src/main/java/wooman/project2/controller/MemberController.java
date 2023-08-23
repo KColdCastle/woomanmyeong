@@ -73,7 +73,7 @@ public class MemberController {
             return "member/registration_fail";
         }
     }
-    @GetMapping("logout")
+    @GetMapping("logout.do")
     public String logout(HttpSession session){
         //session.removeAttribute("loginOkUser");//1개만
         session.invalidate();//session 모든객체 제거

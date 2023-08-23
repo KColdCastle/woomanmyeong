@@ -69,7 +69,9 @@
     --smaller-font-size: 0.813rem;
   }
 }
-
+.home__data__weather {
+  margin-left: 1200px;
+}
 /*========== Variables Dark theme ==========*/
 body.dark-theme {
   --first-color-second: hsl(var(--hue-color), 54%, 12%);
@@ -259,6 +261,7 @@ input {
   font-weight: var(--font-semi-bold);
   text-transform: uppercase;
 }
+
 
 .nav__link:hover {
   color: var(--text-color);

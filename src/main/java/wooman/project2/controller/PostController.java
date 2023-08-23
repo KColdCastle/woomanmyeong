@@ -12,9 +12,11 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import wooman.project2.domain.Good;
 import wooman.project2.domain.Post;
 import wooman.project2.domain.PostListResult;
 import wooman.project2.domain.Reply;
+import wooman.project2.service.GoodService;
 import wooman.project2.service.PostService;
 import wooman.project2.service.ReplyService;
 
@@ -28,6 +30,8 @@ public class PostController {
     private final PostService service;
     @Autowired
     private final ReplyService replyService;
+    @Autowired
+    private final GoodService goodService;
 
     @GetMapping("list.do")
     public String list(Model model, @PageableDefault(page = 0, size = 10, sort = "seq", direction = Sort.Direction.DESC) Pageable pageable,
@@ -127,7 +131,12 @@ public class PostController {
         service.deleteS(seq);
         return "redirect:list.do";
     }
+    @PostMapping("good.do")
+    public Good good(Good good){
+        System.out.println("작동확인");
+        System.out.println("받은 정보:" +good);
+        goodService.insertG(good);
 
-
+        return good;
+    }
 }
-

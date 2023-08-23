@@ -5,6 +5,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import wooman.project2.domain.Post;
+import wooman.project2.domain.Reply;
 
 import java.sql.Date;
 import java.util.List;
@@ -46,4 +47,5 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     @Query("SELECT COUNT(p) FROM Post p WHERE p.boardname=?1 AND (p.nickname LIKE %?2% OR p.subject LIKE %?3%)")
     long countByNickNameOrSubject(String Boardname, String nickname, String subject);
     //전체 게시글 닉네임, 제목으로 조회했을 때 게시글 수 가져오는 메소드
+
 }

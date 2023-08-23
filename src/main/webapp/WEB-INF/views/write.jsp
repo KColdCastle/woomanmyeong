@@ -60,6 +60,7 @@
 
     </head>
     <body>
+    <jsp:include page="form/navbar.jsp"/>
     <form id="boardpostinsert" action="boardin.do" method="post" name="f">
 
         <main class="main">
@@ -139,4 +140,5 @@
             </div>
             </form>
         </body>
+        <jsp:include page="form/footer.jsp"/>
 </html>

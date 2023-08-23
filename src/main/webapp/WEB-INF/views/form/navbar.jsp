@@ -1,6 +1,26 @@
 <%@ page language="java" contentType="text/html;charset=utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<script>
+function mypage(){
+  window.open("../member/mypage.do", "My Page", "width=600, height=800, left=600, top=100");
+}
+</script>
+<style>
+.nav__link__nick {
+  background-color: transparent; /* 배경색을 투명으로 설정 */
+  color:hsl(var(--hue-color), 24%, 35%); /* 원하는 글자색으로 변경 */
+  border: none; /* 기본 테두리 제거 */
+  cursor: pointer; /* 마우스 커서 모양 변경 */
+  font-size: 16px; /* 원하는 글자 크기로 변경 */
+  font-weight: bold; /* 원하는 폰트 두께로 변경 */
+  font-family: "Open Sans", sans-serif;
+}
+.nav__link__nick:hover {
+  color: white;
+}
+</style>
+
         <header class="header" id="header">
             <nav class="nav container">
                 <a href="#" class="nav__logo"></a>
@@ -35,7 +55,7 @@
                                         <a href="../member/logintest"  class="nav__link">로그인</a>
                                     </c:when>
                                     <c:otherwise>
-                                        <a href="../member/mypage.do"  class="nav__link"><font style="color:green">${loginOkUser.nickname}</font>님 환영합니다.</a>
+                                        <input class="nav__link__nick" type="button" onclick="mypage()" value="${loginOkUser.nickname}"/>
                                     </c:otherwise>
                                 </c:choose>
                         </li>

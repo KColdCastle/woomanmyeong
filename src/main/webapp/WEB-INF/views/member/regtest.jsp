@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="/front/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/front/assets/css/animate.min.css">
     <link rel="stylesheet" href="/front/assets/css/VentasPro-Login.css">
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -58,7 +60,7 @@
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState === XMLHttpRequest.DONE) {
-                        alert("이메일 인증 코드를 발송했습니다. 이메일을 확인해주세요.");
+                        swal('코드발송','이메일 인증 코드를 발송했습니다. 이메일을 확인해주세요.','info');
                     }
                 };
                 xhr.send("email=" + completeEmail);
