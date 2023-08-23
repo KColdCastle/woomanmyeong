@@ -32,6 +32,16 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="/front/Like-Button.css">
 
+        <style>
+                /* 커서 스타일 */
+                .custom-cursor {
+                    position: absolute;
+                    width: 30px;
+                    height: 30px;
+                    background-image: url('front/boat.png');
+                    background-size: cover;
+                }
+            </style>
 
         <title>국내여행에에빠진사람들</title>
 
@@ -39,12 +49,8 @@
     </head>
     <body>
         <jsp:include page="form/navbar.jsp"/>
-
         </header>
 
-        <div class="home__data__weather">
-            <%@ include file="other/weather.jsp" %>
-        </div>
 
 
         <main class="main">
@@ -53,15 +59,12 @@
                 <img src="front/assets/img/home1.jpg" alt="" class="home__img">
 
                 <div class="home__container container grid">
-
                     <div class="home__data">
                         <span class="home__data-subtitle">국여진사람들</span>
                         <h1 class="home__data-title">국내<br> 여행에 <b>빠진 <br> 사람들</b></h1>
                         <a href="/write/insert.do" class="button">글쓰기</a>
 
                     </div>
-
-
 
                    <!--  <section class="subscribe section"> -->
 
@@ -80,7 +83,6 @@
                             </button>
                         </form>
                     </div>
-
                 </div>
             <!--  </section>  -->
 
@@ -97,6 +99,29 @@
                             <i class="ri-twitter-fill"></i>
                         </a>
 
+                    </div>
+
+
+                    <div class="home__info">
+                        <div>
+                            <span class="home__info-title">regist/login</span>
+                             <c:choose>
+                             <c:when test="${empty loginOkUser}">
+                            <a href="member/logintest">로그인</a><i class="ri-arrow-right-line"></i>
+                            <a href="" class="button button--flex button--link home__info-button">
+                            <br><a href="member/regtest">회원가입</a> <i class="ri-arrow-right-line"></i>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a href="member/logout">로그아웃</a><i class="ri-arrow-right-line"></i>
+                                        <br><font style="color:green">${loginOkUser.nickname}님 환영합니다.</font><br/>
+                                    </c:otherwise>
+                                </c:choose>
+                            </a>
+                        </div>
+                        <section class="home" id="home">
+                        <div class="home__info-overlay">
+                            <img src="/front/assets/img/home2.jpg" alt="" class="home__info-img">
+                        </div>
                     </div>
                 </div>
 
@@ -119,9 +144,9 @@
                                 <th data-bss-hover-animate="bounce">닉네임</th>
                                 <th>제목</th>
                                 <th>조회수</th>
-                        </tr>
-                     </thead>
-                     <thead>
+								</tr>
+							</thead>
+							<thead>
                                 <tbody>
                             <c:if test="${empty noticePost}">
                                 <tr>
@@ -141,11 +166,11 @@
                                    <tbody>
 
                                    </tbody>
-                             </section>
+       							 </section>
                                </table>
                                 <div class="board_type1_wrap">
                               <table class="board_list_type1">
-                            <a href="post_page/noticeList.do"  class="button">공지사항더보기</a>
+       							<a href="post_page/noticeList.do"  class="button">공지사항더보기</a>
 
                                     <br>
                                     <br>
@@ -301,7 +326,7 @@
                                    </tbody>
                              </section>
                                </table>
-                     <a href="post_page/freeList.do" class="button">자유게시판더보기</a>
+							<a href="post_page/freeList.do" class="button">자유게시판더보기</a>
                            </div>
 
 
@@ -464,18 +489,19 @@
 
 
 
-
         <!--=============== SCROLL UP ===============-->
         <a href="#" class="scrollup" id="scroll-up">
             <i class="ri-arrow-up-line scrollup__icon"></i>
         </a>
         <!--=============== SCROLL REVEAL ===========-->
-       <!-- <script src="/front/assets/js/scrollreveal.min.js"></script> -->
+        <script src="/front/assets/js/scrollreveal.min.js"></script>
         <!--=============== SWIPER JS ===============-->
         <script src="/front/assets/js/swiper-bundle.min.js"></script>
 
         <!--=============== MAIN JS ===============-->
         <script src="/front/assets/js/main.js"></script>
+
+
     </body>
     <jsp:include page="form/footer.jsp"/>
 </html>

@@ -59,7 +59,7 @@
                     <!--   <p class="subscribe__description">Subscribe to our newsletter and get a
                     special 30% discount.-->
                     </p>
-                       <form method="GET" action="/post_page/List.do">
+                       <form method="GET" action="/post_page/list.do">
                               <div class="subscribe__form">
                                   <input class="subscribe__input " type="text" placeholder="검색어를 입력하세요." id="searchText" name="searchText" value="${param.searchText}">
                                       <button class="button" type="submit">
@@ -83,14 +83,14 @@
                        </thead>
                        <tbody>
 
-                        <c:forEach items="${listResult.list.content}" var="list">
+                        <c:forEach items="${listResult.list.content}" var="post">
                                 <tr>
-                                    <td>${list.nickname}</td>
+                                    <td>${post.nickname}</td>
                                     <td>
-                                        <a href='content.do?&seq=${list.seq}'>${list.subject}</a>
+                                        <a href='content.do?&seq=${post.seq}'>${post.subject}</a>
                                     </td>
-									<td>${list.crdate}</td>
-                                    <td>${list.viewnum}</td>
+									<td>${post.crdate}</td>
+                                    <td>${post.viewnum}</td>
 								    <c:if test="${loginOkUser.nickname =='관리자'}">
                                          <td align='center'>
                                              <a href='del.do?&seq=${post.seq}'>삭제</a>

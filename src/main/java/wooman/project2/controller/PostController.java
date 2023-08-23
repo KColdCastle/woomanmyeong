@@ -1,9 +1,10 @@
 package wooman.project2.controller;
 
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import lombok.AllArgsConstructor;
+import org.eclipse.tags.shaded.org.apache.xml.utils.SystemIDResolver;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -102,10 +103,16 @@ public class PostController {
     public String content(long seq, Model model){
         service.viewNumUp(seq);
         Post post =service.contentS(seq);
-        List<Reply> reply=replyService.replyS(seq);
+        List<Reply> reply=replyService.findReplyPostseq(seq);
         model.addAttribute("post", post);
         model.addAttribute("reply", reply);
-        return "/post_page/boardviewtest";
+        return "/post_page/contentReply";
+    }
+    @PostMapping("comment.do")
+    public String comment(Reply reply){
+        System.out.println("##reply: "+reply);
+        replyService.insertS(reply);
+        return "redirect:content.do?seq="+reply.getPostseq();
     }
     @GetMapping("update.do")
     public String update(long seq, Model model){
@@ -123,6 +130,4 @@ public class PostController {
         service.deleteS(seq);
         return "redirect:list.do";
     }
-
-
 }
