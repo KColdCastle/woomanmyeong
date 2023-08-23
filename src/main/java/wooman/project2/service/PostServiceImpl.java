@@ -51,8 +51,23 @@ public class PostServiceImpl implements PostService {
         return new PostListResult(page, totalCount, size, list);
     }//특정 게시판 페이징을 위한 메소드
 
+    @Override
+    public Page<Post> listEmailS(String email, String subject, Pageable pageable) {
+        return repository.findByEmailAndSubject(email, subject, pageable);
+    }
 
-//    @Override
+    @Override
+    public PostListResult getPostListResultWithEmail(String email, String subject, Pageable pageable) {
+        Page<Post> list =listEmailS(email,subject, pageable);
+        int page = pageable.getPageNumber();//현재 페이지
+        long totalCount = repository.countByEmailAndSubject(email,subject);
+        int size = pageable.getPageSize();
+
+        return new PostListResult(page, totalCount, size, list);
+    }
+
+
+    //    @Override
 //    public Post insertS(Post post) {
 //        return repository.save(post);
 //    }

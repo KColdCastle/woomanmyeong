@@ -16,6 +16,10 @@ public interface PostService {
 
     PostListResult getPostListResultWithBoardName(String boardName, String nickName, String subject, Pageable pageable);
 
+    Page<Post> listEmailS(String email, String subject, Pageable pageable);
+
+    PostListResult getPostListResultWithEmail(String email, String subject, Pageable pageable);
+
     //Post insertS(Post post);
     //boradin 으로 따로 빼서 작성함.
     Post contentS(long seq);
