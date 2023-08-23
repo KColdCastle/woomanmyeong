@@ -2,6 +2,7 @@ package wooman.project2.controller;
 
 import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import wooman.project2.domain.Member;
 import wooman.project2.service.MemberAjaxService;
@@ -13,7 +14,9 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 public class MemberAjaxController {
+    @Autowired
     private final MemberAjaxService memberAjaxService;
+    @Autowired
     private final MemberLoginService memberLoginService;
     @PostMapping("search.do")
     public List<Member> search(String nickname){

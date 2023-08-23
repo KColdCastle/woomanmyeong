@@ -36,7 +36,6 @@ public class MemberLoginServiceImpl implements MemberLoginService {
         return member;
     }
 
-
     @Override
     public void insertM(Member member){
         member = memberLoginRepository.save(member);

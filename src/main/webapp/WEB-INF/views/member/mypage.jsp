@@ -14,46 +14,6 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-            // 닉네임 중복 여부를 확인하는 함수
-            $("#nicknamecheck").on("click", function() {
-
-                $.ajax({
-                    url: "../ajax/search.do", // 실제 서버 API 엔드포인트 URL로 변경해야 함
-                    type: "POST",
-                    data: { nickname: $("#nickname").val()},
-                    success: function(data) {
-                        if (data.length==0) {
-                            swal('사용 가능한 닉네임입니다.', 'success');
-                        } else {
-                            swal('이미 사용 중인 닉네임입니다.', 'warning');
-                        }
-                    },
-                    error: function() {
-                        alert("서버와의 통신 중에 오류가 발생했습니다.");
-                    }
-                });
-            });
-        });
-
-        $(document).ready(function() {
-            // 닉네임 변경하는 함수
-            $("#nickchange").on("click", function() {
-                $.ajax({
-                    url: "../ajax/nickChange.do",
-                    type: "POST",
-                    data: { nickname: $("#nickname").val(), email:$("#email").val(), pwd:$("#oripwd").val()},
-                    success: function(data) {
-                        swal('닉네임이 변경되었습니다.', 'success');
-                    },
-                    error: function() {
-                        alert("서버와의 통신 중에 오류가 발생했습니다.");
-                    }
-                });
-            });
-        });
-
-
         // 입력한 두 비밀번호가 일치하는지 확인하는 함수
         function checkPasswordMatch() {
             var password = document.getElementById("pwd").value;
@@ -66,26 +26,33 @@
             }
         }
         $(document).ready(function() {
-                    // 비밀번호 변경하는 함수
-                    $("#pwdchange").on("click", function() {
-                        $.ajax({
-                            url: "../ajax/pwdChange.do",
-                            type: "POST",
-                            data: { nickname: $("#nickname").val(), email:$("#email").val(), pwd:$("#pwd").val()},
-                            success: function(data) {
-                                swal('비밀전호가 변경되었습니다.', 'success');
-                            },
-                            error: function() {
-                                alert("서버와의 통신 중에 오류가 발생했습니다.");
-                            }
-                        });
-                    });
+            // 비밀번호 변경하는 함수
+            $("#pwdchange").on("click", function() {
+                $.ajax({
+                    url: "../ajax/pwdChange.do",
+                    type: "POST",
+                    data: { nickname: $("#nickname").val(), email:$("#email").val(), pwd:$("#pwd").val()},
+                    success: function(data) {
+                        swal('비밀전호가 변경되었습니다.', 'success');
+                    },
+                    error: function() {
+                        alert("서버와의 통신 중에 오류가 발생했습니다.");
+                    }
                 });
+            });
+        });
 
-        // 로그아웃 안내 표시
-        function logout() {
-                window.close();
-        }
+        $(document).ready(function() {
+            // 로그아웃 버튼 클릭 이벤트 핸들러
+            $("#logout").on("click", function() {
+                // GET 요청 보내고 페이지 새로고침
+                window.location.href = "../member/logout.do";
+                opener.parent.location.reload();
+                setTimeout(function() {
+                    window.close();
+                }, 100); // 100밀리초(0.1초) 후에 창 닫기
+            });
+        });
     </script>
 
     <style>
@@ -116,12 +83,8 @@
 
                 <div class="mb-3">
                     <label class="form-label" id="lbl-usuario-1" for="nickname">NickName</label>
-                    <input class="form-control" type="text" id="nickname" name="nickname" value="${loginOkUser.nickname}">
-                    <input class="form-control" type="hidden" id="oripwd" name="oripwd" value="${loginOkUser.pwd}">
+                    <input class="form-control" type="text" id="nickname" name="nickname" value="${loginOkUser.nickname}" readonly>
                 </div>
-                <button class="btn btn-primary-check" id="nicknamecheck" type="button">닉네임 확인</button>
-                <button class="btn btn-primary-logout" id="nickchange" type="button">닉네임 변경</button>
-
                 <div class="mb-3">
                     <label class="form-label" id="lbl-password" for="pwd">Password</label>
                     <input class="form-control" type="password" id="pwd" name="pwd">
@@ -135,10 +98,7 @@
             <br>
             <button class="btn btn-primary-check" id="pwdchange" type="button">비밀전호 변경</button>
             <br>
-            <button class="btn btn-primary-logout" id="logout" type="submit" onclick="logout();">로그아웃</button>
-            </div>
-
-
+            <button class="btn btn-primary-logout" id="logout" type="button" onclick="logout();">로그아웃</button>
         </div>
         </form>
     </div>
