@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import wooman.project2.domain.Post;
 import wooman.project2.domain.PostListResult;
+import wooman.project2.domain.Reply;
 
 import java.util.List;
 
