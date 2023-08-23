@@ -83,14 +83,14 @@
                        </thead>
                        <tbody>
 
-                        <c:forEach items="${listResult.list.content}" var="list">
+                        <c:forEach items="${listResult.list.content}" var="post">
                                 <tr>
-                                    <td>${list.nickname}</td>
+                                    <td>${post.nickname}</td>
                                     <td>
-                                        <a href='content.do?&seq=${list.seq}'>${list.subject}</a>
+                                        <a href='content.do?&seq=${post.seq}'>${post.subject}</a>
                                     </td>
-									<td>${list.crdate}</td>
-                                    <td>${list.viewnum}</td>
+									<td>${post.crdate}</td>
+                                    <td>${post.viewnum}</td>
 								    <c:if test="${loginOkUser.nickname =='관리자'}">
                                          <td align='center'>
                                              <a href='del.do?&seq=${post.seq}'>삭제</a>
