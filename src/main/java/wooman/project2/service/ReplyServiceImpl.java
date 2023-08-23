@@ -24,4 +24,6 @@ public class ReplyServiceImpl implements ReplyService {
     public Reply insertS(Reply reply) {
         return repository.save(reply);
     }
+
 }
+

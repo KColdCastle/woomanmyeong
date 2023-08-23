@@ -10,7 +10,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,16 +32,27 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="/front/Like-Button.css">
 
-        <style>
-                /* 커서 스타일 */
-                .custom-cursor {
-                    position: absolute;
-                    width: 30px;
-                    height: 30px;
-                    background-image: url('front/boat.png');
-                    background-size: cover;
-                }
-            </style>
+     <script>
+         $(document).ready(function() {
+             $('.loadContentLink').click(function(event) {
+                 event.preventDefault(); // 기본 링크 동작 방지
+                 var seq = $(this).attr('data-seq'); // 클릭한 링크의 data-seq 값을 가져옴
+
+                 $.ajax({
+                     type: 'GET',
+                     url: 'post_page/content.jsp?seq=' + seq, // content.jsp에 매개변수로 seq 전달
+                     dataType: 'html', // 받아온 데이터 타입 (HTML)
+                     success: function(data) {
+                         // 받아온 데이터를 contentContainer에 넣어 표시
+                         $('#contentContainer').html(data);
+                     },
+                     error: function() {
+                         alert('데이터를 불러오는 중 오류가 발생했습니다.');
+                     }
+                 });
+             });
+         });
+     </script>
 
         <title>국내여행에에빠진사람들</title>
 
@@ -197,7 +208,7 @@
                                         <tr>
                                             <td>${soloPost.nickname}</td>
                                     <td>
-                                <a href='post_page/content.do?&seq=${soloPost.seq}'>${soloPost.subject}</a>
+                               <a href='post_page/content.do?&seq=${soloPost.seq}'>${soloPost.subject}</a>
                                  </td>
                                             <td>${soloPost.viewnum}</td>
                                         </tr>
@@ -208,6 +219,7 @@
                                    </tbody>
                              </section>
                                </table>
+
                            <div class="board_type1_wrap">
                          <table class="board_list_type1">
 
@@ -332,6 +344,26 @@
 
 
             <!--==================== VIDEO ====================-->
+
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script>
+            $(document).ready(function() {
+                $('post_page/soloList.do').on('click', function() {
+                    var seq = $(this).data('seq'); // 클릭한 요소의 data-seq 값 (게시물 번호)
+
+                    $.ajax({
+                        url: 'contentReply.jsp?seq=' + seq, // 로드할 페이지의 URL에 게시물 번호 추가
+                        type: 'GET',
+                        success: function(response) {
+                            $('#contentReplyContainer').html(response);
+                        },
+                        error: function() {
+                            console.log('Error while loading content.');
+                        }
+                    });
+                });
+            });
+            </script>
 
 
 

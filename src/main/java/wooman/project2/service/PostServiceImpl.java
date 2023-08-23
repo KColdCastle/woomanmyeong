@@ -88,5 +88,6 @@ public class PostServiceImpl implements PostService {
     public List<Post> findTopViewedPostsByBoardname(String boardName, Pageable pageable) {
         return repository.findTopViewedPostsByBoardname(boardName, pageable);
     }//메인페이지 top 5 게시글 불러오는 메소드
+
 }
 

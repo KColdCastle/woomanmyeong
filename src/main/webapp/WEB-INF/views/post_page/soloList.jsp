@@ -126,6 +126,7 @@
                          </c:forEach>
                   </ul>
               </nav>
+
             <jsp:include page="../form/footer.jsp"/>
         </main>
 

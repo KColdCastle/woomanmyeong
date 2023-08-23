@@ -10,6 +10,7 @@ import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Date;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -35,4 +36,6 @@ public class Post {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss", timezone = "Asia/Seoul")
     @CreationTimestamp
     private Date cudate;
+
+
 }
