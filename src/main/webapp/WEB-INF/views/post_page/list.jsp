@@ -31,100 +31,107 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="/front/Like-Button.css">
 
+        <title>모든 게시판 글입니다</title>
 
-<title> Spring Board </title>
-<meta charset="utf-8">
-	<style>
-		table, th, td {
-		   border: 1px solid black;
-		   border-collapse: collapse;
-		}
-		th, td {
-		   padding: 5px;
-		}
-		a { text-decoration:none }
-	</style>
-</head>
+    </head>
+    <body>
+        <jsp:include page="../form/navbar.jsp"/>
 
-<body>
-   <input type="hidden" class="form-control" name="nickname" value="${loginOkUser.nickname}">
 
-    <div class="row justify-content-center">
-        <div class="col-xl-10 col-xxl-9">
-            <div class="card shadow">
-                <div class="card-header d-flex flex-wrap justify-content-center align-items-center justify-content-sm-between gap-3">
-                    <h5 class="display-6 text-nowrap text-capitalize mb-0">전체글</h5>
-                    <form method="GET" action="/post_page/list.do">
-                    <div class="input-group input-group-sm w-auto">
-                        <input class="form-control form-control-sm" type="text" placeholder="검색어를 입력하세요." id="searchText" name="searchText" value="${param.searchText}">
-                        <button class="btn btn-outline-primary btn-sm" type="submit">검색</button>
-                    </div>
-                    </form>
+        <main class="main">
+        <!--==================== HOME =================여기 홈===-->
+
+        <img src="/front/assets/img/home1.jpg" alt="" class="home__img__list">
+
+            <div class="home__container container grid">
+                <div class="home__data">
+                    <span class="home__data-subtitle"><br><br> <br><br><br> <br><br> <br><br <br><br> </span>
+                    <h1 class="home__data-title"><br><br> <br><br> <br><br>  <br><br>  이것은 모든 게시글입니다 </h1>
+                    <c:if test="${loginOkUser.nickname !='관리자'}">
+                        <a href="/write/insert.do" class="button">글쓰기</a>
+                    </c:if>
                 </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-striped table-hover">
-                            <thead>
+
+               <section class="home" id="home"></section>
+                <div class="subscribe__bg">
+                   <div class="subscribe__container container">
+                    <!--  <h2 class="section__title subscribe__title">Subscribe Our <br> Newsletter</h2>-->
+                    <!--   <p class="subscribe__description">Subscribe to our newsletter and get a
+                    special 30% discount.-->
+                    </p>
+                       <form method="GET" action="/post_page/List.do">
+                              <div class="subscribe__form">
+                                  <input class="subscribe__input " type="text" placeholder="검색어를 입력하세요." id="searchText" name="searchText" value="${param.searchText}">
+                                      <button class="button" type="submit">
+                                          검색하기
+                          </button>
+                         </div>
+                     </div>
+               <div class="board_type1_wrap">
+                   <table class="board_list_type1">
+                   <br>
+                       <thead>
+                           <tr>
+                                <th data-bss-hover-animate="bounce">닉네임</th>
+                                <th>제목</th>
+								<th>날짜</th>
+                                <th>조회수</th>
+                                <c:if test="${loginOkUser.nickname =='관리자'}">
+                                    <th align='center'>삭제</th>
+                                </c:if>
+                           </tr>
+                       </thead>
+                       <tbody>
+
+                        <c:forEach items="${listResult.list.content}" var="list">
                                 <tr>
-                                    <th>닉네임</th>
-                                    <th>제목</th>
-                                    <th>게시판이름</th>
-                                    <th>업로드날짜</th>
-                                    <th>수정날짜</th>
-                                    <th class="text-center">조회수</th>
-                                    <c:if test="${loginOkUser.nickname =='관리자'}">
-                                        <th align='center'>삭제</th>
-                                    </c:if>
+                                    <td>${list.nickname}</td>
+                                    <td>
+                                        <a href='content.do?&seq=${list.seq}'>${list.subject}</a>
+                                    </td>
+									<td>${list.crdate}</td>
+                                    <td>${list.viewnum}</td>
+								    <c:if test="${loginOkUser.nickname =='관리자'}">
+                                         <td align='center'>
+                                             <a href='del.do?&seq=${post.seq}'>삭제</a>
+                                         </td>
+                                     </c:if>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach items="${listResult.list.content}" var="post">
-                                    <TR align='center' noshade>
-                                        <TD>${post.nickname}</TD>
-                                        <TD>
-                                          <a href="content.do?seq=${post.seq}">
-                                            ${post.subject}
-                                          </a>
-                                        </TD>
-                                        <TD align='center'>${post.boardname}</TD>
-                                        <TD align='center'>${post.crdate}</TD>
-                                        <TD align='center'>${post.cudate}</TD>
-                                        <TD align='center'>${post.viewnum}</TD>
-                                            <c:if test="${loginOkUser.nickname =='관리자'}">
-                                                <td align='center'>
-                                                    <a href='del.do?&seq=${post.seq}'>삭제</a>
-                                                </td>
-                                            </c:if>
-                                       </TR>
-                                </c:forEach>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <nav>
-                        <ul class="pagination pagination-sm mb-0 justify-content-center">
-                               <c:forEach begin="0" end="${listResult.totalPageCount > 1 ? listResult.totalPageCount - 1 : 0}" var="i">
-                                   <li class="page-item">
-                                   <a class="page-link" href="list.do?page=${i}&searchText=${param.searchText}">
-                                        <c:choose>
-                                           <c:when test="${i==listResult.page}">
-                                           <strong>${i+1}</strong>
-                                           </c:when>
-                                           <c:otherwise>
-                                              ${i+1}
-                                           </c:otherwise>
-                                        </c:choose>
-                                </a>&nbsp;
-                                </li>
-                               </c:forEach>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="/front/assets/bootstrap/js/bootstrapList.min.js"></script>
-</body>
+                        </c:forEach>
+                       </tbody>
+                   </table>
+               </div>
+                   <nav>
+                       <ul class="pagination pagination-sm mb-0 justify-content-center">
+                              <c:forEach begin="0" end="${listResult.totalPageCount > 1 ? listResult.totalPageCount - 1 : 0}" var="i">
+                                  <li class="page-item">
+                                  <a class="page-link" href="list.do?page=${i}&searchText=${param.searchText}">
+                                       <c:choose>
+                                          <c:when test="${i==listResult.page}">
+                                          <strong>${i+1}</strong>
+                                          </c:when>
+                                          <c:otherwise>
+                                             ${i+1}
+                                          </c:otherwise>
+                                       </c:choose>
+                               </a>&nbsp;
+                               </li>
+                              </c:forEach>
+                       </ul>
+                   </nav>
+            <jsp:include page="../form/footer.jsp"/>
+        </main>
 
+        <!--=============== SCROLL UP ===============-->
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class="ri-arrow-up-line scrollup__icon"></i>
+        </a>
+        <!--=============== SCROLL REVEAL ===========-->
+        <script src="/front/assets/js/scrollreveal.min.js"></script>
+
+        <!--=============== SWIPER JS ===============-->
+        <script src="/front/assets/js/swiper-bundle.min.js"></script>
+        <!--=============== MAIN JS ===============-->
+        <script src="/front/assets/js/main.js"></script>
+    </body>
 </html>
