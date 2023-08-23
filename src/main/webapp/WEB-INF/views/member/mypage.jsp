@@ -20,26 +20,34 @@
             var confirmPassword = document.getElementById("pwdConfirm").value;
 
             if (password !== confirmPassword) {
-                swal('비밀번호가 일치하지 않습니다.', 'warning');
+                swal('비밀번호가 일치하지 않습니다.',"", 'warning');
             }else{
-                swal('비밀번호가 일치합니다.', 'success');
+                swal('비밀번호가 일치합니다.',"", 'success');
             }
         }
         $(document).ready(function() {
             // 비밀번호 변경하는 함수
             $("#pwdchange").on("click", function() {
-                $.ajax({
-                    url: "../ajax/pwdChange.do",
-                    type: "POST",
-                    data: { nickname: $("#nickname").val(), email:$("#email").val(), pwd:$("#pwd").val()},
-                    success: function(data) {
-                        swal('비밀전호가 변경되었습니다.', 'success');
-                    },
-                    error: function() {
-                        alert("서버와의 통신 중에 오류가 발생했습니다.");
-                    }
-                });
-            });
+            var password = document.getElementById("pwd").value;
+            var confirmPassword = document.getElementById("pwdConfirm").value;
+            if (password !== confirmPassword) {
+                swal('비밀번호가 일치하지 않습니다.',"", 'warning');
+            }else{
+
+                     $.ajax({
+                         url: "../ajax/pwdChange.do",
+                         type: "POST",
+                         data: { nickname: $("#nickname").val(), email:$("#email").val(), pwd:$("#pwd").val()},
+                         success: function(data) {
+                             swal('비밀번호가 변경되었습니다.',"", 'success');
+                         },
+                         error: function() {
+                             alert("서버와의 통신 중에 오류가 발생했습니다.");
+                         }
+                     });
+
+                 }
+             });
         });
 
         $(document).ready(function() {
@@ -53,6 +61,27 @@
                 }, 100); // 100밀리초(0.1초) 후에 창 닫기
             });
         });
+        $(document).ready(function() {
+            // 홈으로 버튼 클릭 이벤트 핸들러
+            $("#home").on("click", function() {
+                // GET 요청 보내고 페이지 새로고침
+                opener.parent.location.reload();
+                setTimeout(function() {
+                    window.close();
+                }, 100); // 100밀리초(0.1초) 후에 창 닫기
+            });
+        });
+        $(document).ready(function() {
+            // 홈으로 버튼 클릭 이벤트 핸들러
+            $("#mywritelist").on("click", function() {
+                // GET 요청 보내고 페이지 새로고침
+                window.opener.parent.location = "../post_page/mywritelist.do?email=${loginOkUser.email}";
+                setTimeout(function() {
+                    window.close();
+                }, 100); // 100밀리초(0.1초) 후에 창 닫기
+            });
+        });
+
     </script>
 
     <style>
@@ -96,7 +125,13 @@
                 </div>
             <button class="btn btn-primary-check" id="pwdcheck" type="button" onclick="checkPasswordMatch();">비밀번호 확인</button>
             <br>
-            <button class="btn btn-primary-check" id="pwdchange" type="button">비밀전호 변경</button>
+            <button class="btn btn-primary-check" id="pwdchange" type="button">비밀번호 변경</button>
+            <br>
+            <br>
+            <button class="btn btn-primary-logout" id="mywritelist" type="button" onclick="mywritelist();">내가 쓴 글</button>
+            <br>
+            <br>
+            <button class="btn btn-primary-logout" id="home" type="button" onclick="home();">홈으로</button>
             <br>
             <button class="btn btn-primary-logout" id="logout" type="button" onclick="logout();">로그아웃</button>
         </div>
