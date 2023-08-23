@@ -32,10 +32,10 @@
                         <li class="nav__item">
                                 <c:choose>
                                     <c:when test="${empty loginOkUser}">
-                                        <a href="member/logintest"  class="nav__link">로그인</a>
+                                        <a href="../member/logintest"  class="nav__link">로그인</a>
                                     </c:when>
                                     <c:otherwise>
-                                        <a href="member/logout"  class="nav__link"><font style="color:green">${loginOkUser.nickname}</font>님 환영합니다.</a>
+                                        <a href="../member/mypage.do"  class="nav__link"><font style="color:green">${loginOkUser.nickname}</font>님 환영합니다.</a>
                                     </c:otherwise>
                                 </c:choose>
                         </li>
