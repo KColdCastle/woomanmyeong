@@ -28,34 +28,6 @@
     <link rel="stylesheet" href="/front/write.css">
     <script src="/front/js/trim.js"></script>
 
-    <script language="javascript">
-        function check() {
-            var bd_subjectval = f.bd_subject.value;
-            bd_subjectval = trim(bd_subjectval);
-            if (bd_subjectval.length == 0) {
-                alert("제목을 입력해주세요");
-                f.bd_subject.value = "";
-                f.bd_subject.focus();
-                return false;
-            } else {
-                pass = checkByteLen(bd_subjectval, 80);
-                if (!pass) {
-                    alert("제목이 너무 길어요");
-                    f.bd_subject.focus();
-                    return false;
-                }
-            }
-            }
-    var bd_contentval = f.summernote.value;
-
-            if (bd_contentval.length == 0) {
-                alert("내용을 입력해주세요");
-                f.bd_content.value = "";
-                f.bd_content.focus();
-                return false;
-            }
-
-    </script>
 
 
         <!--=============== FAVICON ===============-->
@@ -81,13 +53,15 @@
                 <div class="row">
                     <div class="row-in">
                        <input type="hidden" class="form-control" name="email" value="${loginOkUser.email}">
+                       <input type="hidden" class="form-control" name="postseq" value="${loginOkUser.seq}">
+
 
                         <!--<form action="insert.do" name="f" method="post" class="form-horizontal" id="board_write_form"
                               novalidate="novalidate" enctype="multipart/form-data"> -->
                             <div class="form-group">
-                                <label class="col-md-2 control-label">닉네임</label>
+                                <label class="col-md-2 control-label">글쓴이</label>
                                 <div class="form-group-half">
-                                    <input type="text" class="form-control" value="${loginOkUser.nickname}" name="nickname"
+                                    <input type="text" class="form-control" value=${post.nickname} name="nickname"
                                            onkeydown="enterCheck(this)" readonly>
                                 </div>
                             </div>
@@ -95,7 +69,7 @@
                                 <label class="col-md-2 control-label">제목</label>
                                 <div class="form-group-half">
 
-                                    <input type="text" class="form-control" placeholder="제목을 입력하세요" name="subject">
+                                    <input type="text" class="form-control" value=${post.subject} name="subject" readonly>
                                 </div>
                             </div>
 
@@ -105,7 +79,7 @@
                               <label class="col-md-2 control-label">내용</label>
                                 <div class="form-group-in">
 
-                                <textarea name="content" id="summernote" value="content"></textarea>
+                                <textarea name="content" id="summernote" readonly value=${post.content}>${post.content}</textarea>
 
                                 </div>
                                 <script>
@@ -149,26 +123,12 @@
                                             <div style="overflow: visible;" class="media-body">
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <p><a href="#">Sara Doe:</a> This guy has been going 100+ MPH on side streets. <br>
-<small class="text-muted">August 6, 2016 @ 10:35am </small></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item" style="margin-bottom: 6px;">
-                                <div class="d-flex media">
-                                    <div></div>
-                                    <div class="media-body">
-                                        <div class="d-flex media" style="overflow: visible;">
+                                                    <c:forEach items="${reply}" var="reply">
+                                                        <p>${reply.nickname} : ${reply.replycontent} <br>
+                                                            <small class="text-muted">${reply.replydate} </small>
+                                                        </p>
+                                                    </c:forEach>
 
-                                            <div style="overflow: visible;" class="media-body">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <p><a href="#">Brennan Prill:</a> This guy has been going 100+ MPH on side streets. <br>
-<small class="text-muted">August 6, 2016 @ 10:35am </small></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -176,6 +136,7 @@
                                     </div>
                                 </div>
                             </li>
+
                         </ul>
                     </div>
                 </div>

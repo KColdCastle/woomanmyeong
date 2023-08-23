@@ -14,12 +14,17 @@
 </head>
 
 <body>
-    <div class="container" style="padding-top: 20px;">
+
+    <div class="container" style="padding-top: 20px; ">
+
+
+
 <div class="container">
 		<div class="row">
 			<div class="col-sm-4">
 				<div id="card" class="weater">
 					<div class="city-selected">
+
 						<article>
 
 							<div class="info">
@@ -88,10 +93,10 @@
 										c0.276-0.479,0.112-1.09-0.366-1.366l-2.83-1.634l2.83-1.634C22.749,51.167,22.913,50.556,22.637,50.077z"/>
 								</svg>
 							</div>
-
+                        <figure style="background-color: url(http://136.243.1.253/~creolitic/bootsnipp/home.jpg);">
 						</article>
 
-						<figure style="background-image: url(http://136.243.1.253/~creolitic/bootsnipp/home.jpg);"></figure>
+						</figure>
 					</div>
 
 

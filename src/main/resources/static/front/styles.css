@@ -351,6 +351,7 @@ input {
   margin-bottom: var(--mb-2-5);
 }
 
+
 .home__social {
   display: flex;
   flex-direction: column;
@@ -958,6 +959,10 @@ input {
   .home__data {
     align-self: flex-end;
   }
+  .home__data__weather {
+      position: relative;
+      left: 700px;
+    }
   .home__social {
     flex-direction: row;
     align-self: flex-end;
@@ -1020,14 +1025,17 @@ input {
 
 @media screen and (min-width: 1024px) {
   .container {
+    overflow-x:hidden; overflow-y:auto
     margin-left: auto;
     margin-right: auto;
   }
   .home__container {
+  overflow-x:hidden; overflow-y:auto
     grid-template-rows: 2fr 0.5fr;
   }
 
   .home__info {
+    overflow-x:hidden; overflow-y:auto
     width: 328px;
     grid-template-columns: 1fr 2fr;
     column-gap: 2rem;

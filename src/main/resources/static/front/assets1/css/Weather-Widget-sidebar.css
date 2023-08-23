@@ -23,7 +23,10 @@
   position: relative;
   overflow: hidden;
   min-height: 200px;
-  background: #3D6AA2;
+  background:  rgba(20, 80, 92, 1); ;
+
+
+
 }
 
 article {

@@ -18,7 +18,9 @@ import java.sql.Date;
 public class Reply {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "REPLY_SEQ_GENERATOR")
+    @Column(name="replyseq")
     private long seq;
+    private long postseq;
     private String email;
     private String nickname;
     private String replycontent;
