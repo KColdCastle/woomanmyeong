@@ -6,8 +6,8 @@
     <html lang="ko">
     <head>
 
-
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
@@ -42,13 +42,27 @@
                     background-size: cover;
                 }
             </style>
-
+        <style>
+          .included-page {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 2000px;
+            height 1000px;
+          }
+        </style>
         <title>국내여행에에빠진사람들</title>
 
 
     </head>
     <body>
         <jsp:include page="form/navbar.jsp"/>
+        <div class="included-page">
+        <jsp:include page="other/weather.jsp" />
+        </div>
+
+
+
         </header>
 
 
@@ -62,7 +76,20 @@
                     <div class="home__data">
                         <span class="home__data-subtitle">국여진사람들</span>
                         <h1 class="home__data-title">국내<br> 여행에 <b>빠진 <br> 사람들</b></h1>
-                        <a href="/write/insert.do" class="button">글쓰기</a>
+
+
+                        <button id="writebutton" class="button" type="button" onclick="writebutton()">글쓰기</button>
+
+                                <script>
+                                function writebutton(){
+                                    if(${empty loginOkUser}){
+                                    swal('알림','로그인을 해주세요.','info');
+                                    }else{
+                                    window.location.href = "/write/insert.do" ;
+                                    }
+                                }
+                                </script>
+
 
                     </div>
 
@@ -102,27 +129,7 @@
                     </div>
 
 
-                    <div class="home__info">
-                        <div>
-                            <span class="home__info-title">regist/login</span>
-                             <c:choose>
-                             <c:when test="${empty loginOkUser}">
-                            <a href="member/logintest">로그인</a><i class="ri-arrow-right-line"></i>
-                            <a href="" class="button button--flex button--link home__info-button">
-                            <br><a href="member/regtest">회원가입</a> <i class="ri-arrow-right-line"></i>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <a href="member/logout">로그아웃</a><i class="ri-arrow-right-line"></i>
-                                        <br><font style="color:green">${loginOkUser.nickname}님 환영합니다.</font><br/>
-                                    </c:otherwise>
-                                </c:choose>
-                            </a>
-                        </div>
-                        <section class="home" id="home">
-                        <div class="home__info-overlay">
-                            <img src="/front/assets/img/home2.jpg" alt="" class="home__info-img">
-                        </div>
-                    </div>
+
                 </div>
 
             </section>

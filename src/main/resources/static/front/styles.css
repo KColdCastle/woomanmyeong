@@ -69,7 +69,9 @@
     --smaller-font-size: 0.813rem;
   }
 }
-
+.home__data__weather {
+  margin-left: 1200px;
+}
 /*========== Variables Dark theme ==========*/
 body.dark-theme {
   --first-color-second: hsl(var(--hue-color), 54%, 12%);
@@ -351,7 +353,6 @@ input {
   font-weight: var(--font-medium);
   margin-bottom: var(--mb-2-5);
 }
-
 
 .home__social {
   display: flex;
@@ -962,10 +963,6 @@ input {
   .home__data {
     align-self: flex-end;
   }
-  .home__data__weather {
-      position: relative;
-      left: 700px;
-    }
   .home__social {
     flex-direction: row;
     align-self: flex-end;
@@ -1028,17 +1025,14 @@ input {
 
 @media screen and (min-width: 1024px) {
   .container {
-    overflow-x:hidden; overflow-y:auto
     margin-left: auto;
     margin-right: auto;
   }
   .home__container {
-  overflow-x:hidden; overflow-y:auto
     grid-template-rows: 2fr 0.5fr;
   }
 
   .home__info {
-    overflow-x:hidden; overflow-y:auto
     width: 328px;
     grid-template-columns: 1fr 2fr;
     column-gap: 2rem;
