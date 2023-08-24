@@ -142,10 +142,10 @@
                                 <div class="form-group-quarter">
                                     <select id="board_category" name="boardname" class="form-control" >
 
-                                                <option value="sololist">혼자여행</option>
-                                                <option value="couplelist">커플여행</option>
-                                                <option value="familylist">가족여행</option>
-                                                <option value="freelist">자유게시판</option>
+                                                <option value="혼자여행">혼자여행</option>
+                                                <option value="커플여행">커플여행</option>
+                                                <option value="가족여행">가족여행</option>
+                                                <option value="자유게시판">자유게시판</option>
                                                 <c:choose>
                                                 <c:when test="${loginOkUser.nickname =='관리자'}">
                                                     <option value="noticelist">공지사항</option>

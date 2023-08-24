@@ -46,7 +46,7 @@ public class PostController {
     public String soloList(Model model, @PageableDefault(page = 0, size = 10, sort = "seq", direction = Sort.Direction.DESC) Pageable pageable,
                            @RequestParam(required = false, defaultValue = "") String searchText){
 
-        PostListResult soloList=service.getPostListResultWithBoardName("sololist", searchText, searchText, pageable);
+        PostListResult soloList=service.getPostListResultWithBoardName("혼자여행", searchText, searchText, pageable);
         model.addAttribute("soloList", soloList);
 
         return "/post_page/soloList";
@@ -57,7 +57,7 @@ public class PostController {
     public String coupleList(Model model, @PageableDefault(page = 0, size = 10, sort = "seq", direction = Sort.Direction.DESC) Pageable pageable,
                              @RequestParam(required = false, defaultValue = "") String searchText){
 
-        PostListResult coupleList=service.getPostListResultWithBoardName("couplelist", searchText, searchText, pageable);
+        PostListResult coupleList=service.getPostListResultWithBoardName("커플여행", searchText, searchText, pageable);
         model.addAttribute("coupleList", coupleList);
 
         return "/post_page/coupleList";
@@ -67,7 +67,7 @@ public class PostController {
     public String noticeList(Model model, @PageableDefault(page = 0, size = 10, sort = "seq", direction = Sort.Direction.DESC) Pageable pageable,
                              @RequestParam(required = false, defaultValue = "") String searchText){
 
-        PostListResult noticeList=service.getPostListResultWithBoardName("noticelist", searchText, searchText, pageable);
+        PostListResult noticeList=service.getPostListResultWithBoardName("공지사항", searchText, searchText, pageable);
         model.addAttribute("noticeList", noticeList);
 
         return "/post_page/noticeList";
@@ -76,7 +76,7 @@ public class PostController {
     public String familyList(Model model, @PageableDefault(page = 0, size = 10, sort = "seq", direction = Sort.Direction.DESC) Pageable pageable,
                              @RequestParam(required = false, defaultValue = "") String searchText){
 
-        PostListResult familyList=service.getPostListResultWithBoardName("familylist", searchText, searchText, pageable);
+        PostListResult familyList=service.getPostListResultWithBoardName("가족여행", searchText, searchText, pageable);
         model.addAttribute("familyList", familyList);
 
         return "/post_page/familyList";
@@ -86,7 +86,7 @@ public class PostController {
     public String freeList(Model model, @PageableDefault(page = 0, size = 10, sort = "seq", direction = Sort.Direction.DESC) Pageable pageable,
                            @RequestParam(required = false, defaultValue = "") String searchText){
 
-        PostListResult freeList=service.getPostListResultWithBoardName("freelist", searchText, searchText, pageable);
+        PostListResult freeList=service.getPostListResultWithBoardName("자유게시판", searchText, searchText, pageable);
         model.addAttribute("freeList", freeList);
 
         return "/post_page/freeBoardList";
