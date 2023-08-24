@@ -25,7 +25,7 @@ public interface PostService {
     Post contentS(long seq);
     void viewNumUp(long seq);
     void updateS(Post post);
-    void deleteS(long seq);
+    Post deleteS(Long seq);
 
     List<Post> findTopViewedPostsByBoardname(String boardName, Pageable pageable);
 

@@ -135,12 +135,14 @@ public class PostController {
     public String update(Post post){
         service.updateS(post);
         System.out.println(post.getBoardname());
-        return "redirect:list.do";
+        return "redirect:mywritelist.do?email="+post.getEmail();
     }
     @GetMapping("del.do")
-    public String delete(long seq){
-        service.deleteS(seq);
-        return "redirect:list.do";
+    public String delete(Long seq){
+
+        System.out.println("seq: "+seq);
+        Post post=service.deleteS(seq);
+        return "redirect:mywritelist.do?email="+post.getEmail();
     }
     @PostMapping("good.do")
     public Good good(Good good){

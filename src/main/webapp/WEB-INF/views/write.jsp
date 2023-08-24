@@ -148,7 +148,7 @@
                                                 <option value="자유게시판">자유게시판</option>
                                                 <c:choose>
                                                 <c:when test="${loginOkUser.nickname =='관리자'}">
-                                                    <option value="noticelist">공지사항</option>
+                                                    <option value="공지사항">공지사항</option>
                                                 </c:when>
                                                 </c:choose>
                                     </select>
