@@ -81,7 +81,7 @@
     <jsp:include page="form/navbar.jsp"/>
     <img src="/front/assets/img/home1.jpg" alt="" class="board_reply_img">
         <h1 class="home__data-title" style="position: absolute;"><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 여행에 빠지다</h1>
-    <form id="boardpostinsert" action="write/boardin.do" method="post" name="f">
+    <form id="boardpostinsert" action="boardin.do" method="post" name="f">
 
         <main class="main">
             <div class="write">
@@ -144,7 +144,7 @@
 
                             <div class="form-group">
                                 <div class="form-group-submit">
-                                    <button type="submit" class="btn btn-primary"onclick="back();">글쓰기</button>
+                                    <button type="submit" class="btn btn-primary" onclick="back()">글쓰기</button>
                                 </div>
                             </div>
 

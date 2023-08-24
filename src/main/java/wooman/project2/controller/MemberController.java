@@ -76,7 +76,7 @@ public class MemberController {
     @GetMapping("logout.do")
     public String logout(HttpSession session){
         session.invalidate();//session 모든객체 제거
-        return "../index.do";
+        return "redirect:../index.do";
     }
 
     @GetMapping("mypage.do")
