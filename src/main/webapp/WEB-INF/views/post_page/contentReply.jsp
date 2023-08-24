@@ -66,10 +66,12 @@
                                            onkeydown="enterCheck(this)" readonly >${post.nickname}</a>
 
         </div>
+        <c:set var="replyCount" value="${reply.size()}"/>
+
         <div data-v-0c83c085="" class="wrap-info"><span data-v-0c83c085="" class="date"><i data-v-0c83c085=""
                     class="blind">작성일</i>${post.crdate}</span> <span data-v-0c83c085="" class="pv"><i data-v-0c83c085=""
                     class="blind">조회수</i>${post.viewnum}</span> <span data-v-0c83c085="" class="cmt"><i data-v-0c83c085=""
-                    class="blind">댓글</i></span>
+                    class="blind">댓글</i>${replyCount}</span>
             <div data-v-0c83c085="" class="info_fnc">
                <span style="display: none;">
                             <div data-v-0c83c085="" class="ly_more popper">
@@ -167,9 +169,10 @@
                                             <div style="overflow: visible;" class="media-body">
                                                 <div class="row">
                                                     <div class="col-md-12">
+
                                                     <c:forEach items="${reply}" var="reply">
-                                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;${reply.nickname} : ${reply.replycontent} <br>
-                                                            <small class="text-muted">&nbsp;&nbsp;&nbsp;&nbsp;${reply.replydate} </small>
+                                                        <p>&nbsp;&nbsp;${reply.nickname} : ${reply.replycontent} <br>
+                                                            <small class="text-muted">&nbsp;&nbsp;&nbsp;${reply.replydate} </small>
                                                         </p>
                                                     </c:forEach>
 
