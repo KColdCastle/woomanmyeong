@@ -29,11 +29,11 @@ public class IndexController {
     @GetMapping("index.do")
     public String getIndex(Model model) {  //베스트글 추천수에 따라 5개
         int count = 5; // 가져올 개수
-        List<Post> noticeList = service.findTopViewedPostsByBoardname("noticelist", PageRequest.of(0, count));
-        List<Post> soloList = service.findTopViewedPostsByBoardname("sololist", PageRequest.of(0, count));
-        List<Post> coupleList = service.findTopViewedPostsByBoardname("couplelist", PageRequest.of(0, count));
-        List<Post> familyList = service.findTopViewedPostsByBoardname("familylist", PageRequest.of(0, count));
-        List<Post> freeList = service.findTopViewedPostsByBoardname("freelist", PageRequest.of(0, count));
+        List<Post> noticeList = service.findTopViewedPostsByBoardname("공지사항", PageRequest.of(0, count));
+        List<Post> soloList = service.findTopViewedPostsByBoardname("혼자여행", PageRequest.of(0, count));
+        List<Post> coupleList = service.findTopViewedPostsByBoardname("커플여행", PageRequest.of(0, count));
+        List<Post> familyList = service.findTopViewedPostsByBoardname("가족여행", PageRequest.of(0, count));
+        List<Post> freeList = service.findTopViewedPostsByBoardname("자유게시판", PageRequest.of(0, count));
 
         model.addAttribute("noticePost", noticeList);
         model.addAttribute("soloPost", soloList);

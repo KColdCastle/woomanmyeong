@@ -67,10 +67,10 @@ public class MemberController {
             Member loginOkUser = memberLoginService.getLogin(member.getEmail());
             session.setAttribute("loginOkUser", loginOkUser);
             model.addAttribute("result", result);
-            return "member/registration_success";
+            return "member/login_success";
         }
         else {
-            return "member/registration_fail";
+            return "member/login_fail";
         }
     }
     @GetMapping("logout.do")
