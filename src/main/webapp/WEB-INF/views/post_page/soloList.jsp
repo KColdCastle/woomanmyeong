@@ -7,7 +7,7 @@
 <html lang="ko">
 
 <head>
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -49,9 +49,17 @@
                 <div class="home__data">
                     <span class="home__data-subtitle"><br><br> <br><br><br> <br><br> <br><br <br><br> </span>
                     <h1 class="home__data-title"><br><br> <br><br> <br><br>  <br><br> <br><br> <br><br> 혼자 여행을 즐기는 사람들</h1>
-                    <c:if test="${loginOkUser.nickname !='관리자'}">
-                        <a href="/write/insert.do" class="button">글쓰기</a>
-                    </c:if>
+                     <button id="writebutton" class="button" type="button" onclick="writebutton()">글쓰기</button>
+
+                                                    <script>
+                                                    function writebutton(){
+                                                        if(${empty loginOkUser}){
+                                                        swal('알림','로그인을 해주세요.','info');
+                                                        }else{
+                                                        window.location.href = "/write/insert.do" ;
+                                                        }
+                                                    }
+                                                    </script>
                 </div>
 
                <section class="home" id="home"></section>
@@ -141,6 +149,6 @@
         <!--=============== SWIPER JS ===============-->
         <script src="/front/assets/js/swiper-bundle.min.js"></script>
         <!--=============== MAIN JS ===============-->
-        <script src="/front/assets/js/main.js"></script>
+
     </body>
 </html>

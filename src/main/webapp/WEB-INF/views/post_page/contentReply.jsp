@@ -58,8 +58,8 @@
 
        <div data-v-0c83c085="" role="main" class="contents">
     <div data-v-0c83c085="" class="article-view-head">
-        <h1 data-v-0c83c085=""><a data-v-0c83c085="" href="../index" class="">홈</a> <a
-                data-v-0c83c085=""href="../list.do" >게시판폼</a></h1>
+        <h1 data-v-0c83c085=""><a data-v-0c83c085="" href="../index.do" class="">홈</a> <a
+                data-v-0c83c085=""href="../" >게시판폼</a></h1>
         <h2 data-v-0c83c085="">${post.subject}</h2>
         <div data-v-0c83c085="" class="name"><a data-v-0c83c085=""
                  class="point" input type="text" class="form-control" value=${post.nickname} name="nickname"
