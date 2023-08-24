@@ -48,4 +48,9 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     long countByNickNameOrSubject(String Boardname, String nickname, String subject);
     //전체 게시글 닉네임, 제목으로 조회했을 때 게시글 수 가져오는 메소드
 
+    @Query("SELECT p FROM Post p WHERE p.email=?1 AND p.subject LIKE %?2% ORDER BY p.seq DESC")
+    Page<Post> findByEmailAndSubject(String email, String subject, Pageable pageable);
+    @Query("SELECT COUNT(p) FROM Post p WHERE p.email=?1 AND p.subject LIKE %?2%")
+    long countByEmailAndSubject(String email, String subject);
+    //전체 게시글 닉네임, 제목으로 조회했을 때 게시글 수 가져오는 메소드
 }

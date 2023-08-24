@@ -13,11 +13,16 @@
 .board_list_type1 thead tr th:nth-child(2) { width: 60%; text-align: center; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
 .board_list_type1 thead tr th:nth-child(3) { width: 20%; text-align: center; }
 .board_list_type1 thead tr th:nth-child(4) { width: 20%; text-align: center; }
+.board_list_type1 thead tr th:nth-child(5) { width: 20%; text-align: center; }
+.board_list_type1 thead tr th:nth-child(6) { width: 20%; text-align: center; }
 
 .board_list_type1 tbody tr td:nth-child(1) { width: 20%; text-align: center; }
 .board_list_type1 tbody tr td:nth-child(2) { width: 60%; text-align: center; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
 .board_list_type1 tbody tr td:nth-child(3) { width: 20%; text-align: center; }
 .board_list_type1 tbody tr td:nth-child(4) { width: 20%; text-align: center; }
+.board_list_type1 tbody tr td:nth-child(5) { width: 20%; text-align: center; }
+.board_list_type1 tbody tr td:nth-child(6) { width: 20%; text-align: center; }
+/* 수정과 삭제 링크 스타일 */
 
 @media only screen and (max-width: 760px) {
     .active_type { display: none; }
@@ -29,6 +34,10 @@
     .board_list_type1 tbody tr td:nth-child(3) { width: 20%; }
     .board_list_type1 thead tr th:nth-child(4),
     .board_list_type1 tbody tr td:nth-child(4) { width: 20%; }
+    .board_list_type1 thead tr th:nth-child(5),
+    .board_list_type1 tbody tr td:nth-child(5) { width: 20%; }
+    .board_list_type1 thead tr th:nth-child(6),
+    .board_list_type1 tbody tr td:nth-child(6) { width: 20%; }
 }
 
 body {

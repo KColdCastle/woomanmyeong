@@ -91,6 +91,16 @@ public class PostController {
 
         return "/post_page/freeBoardList";
     }
+    @GetMapping("mywritelist.do")  //내가 쓴 글 게시판
+    public String mywritelist(Model model, @PageableDefault(page = 0, size = 10, sort = "seq", direction = Sort.Direction.DESC) Pageable pageable,
+                           @RequestParam(required = false, defaultValue = "") String searchText, String email){
+        PostListResult mywritelist=service.getPostListResultWithEmail(email, searchText, pageable);
+        System.out.println(mywritelist);
+        model.addAttribute("mywritelist", mywritelist);
+
+        return "/post_page/mywritelist";
+    }
+
     @GetMapping("write.do")
     public String write(){
         return "/post_page/write";
