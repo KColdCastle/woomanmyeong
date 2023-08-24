@@ -142,7 +142,7 @@ public class PostController {
 
         System.out.println("seq: "+seq);
         Post post=service.deleteS(seq);
-        return "redirect:mywritelist.do?email="+post.getEmail();
+        return "redirect:../index.do";
     }
     @PostMapping("good.do")
     public Good good(Good good){
