@@ -78,19 +78,20 @@
 
        <div data-v-0c83c085="" role="main" class="contents">
     <div data-v-0c83c085="" class="article-view-head">
-        <h1 data-v-0c83c085=""><a data-v-0c83c085="" href="../index.do" class="">홈</a> <a
-                data-v-0c83c085=""href="${param.boardType eq 'noticeList.do' ? './noticeList.do' : (param.boardType eq 'freeList.do' ? './freeList.do' : (param.boardType eq 'familyList.do' ? './familyList.do' : (param.boardType eq 'coupleList.do' ? './coupleList.do' : '#')))}">게시판폼</a>
-                </h1>
+        <h1 data-v-0c83c085=""><a data-v-0c83c085="" href="../" class="">홈</a> <a
+                data-v-0c83c085=""href="./list.do" >게시판폼</a></h1>
         <h2 data-v-0c83c085="">${post.subject}</h2>
         <div data-v-0c83c085="" class="name"><a data-v-0c83c085=""
                  class="point" input type="text" class="form-control" value=${post.nickname} name="nickname"
                                            onkeydown="enterCheck(this)" readonly >${post.nickname}</a>
 
         </div>
+        <c:set var="replyCount" value="${reply.size()}"/>
+
         <div data-v-0c83c085="" class="wrap-info"><span data-v-0c83c085="" class="date"><i data-v-0c83c085=""
                     class="blind">작성일</i>${post.crdate}</span> <span data-v-0c83c085="" class="pv"><i data-v-0c83c085=""
                     class="blind">조회수</i>${post.viewnum}</span> <span data-v-0c83c085="" class="cmt"><i data-v-0c83c085=""
-                    class="blind">댓글</i></span>
+                    class="blind">댓글</i>${replyCount}</span>
             <div data-v-0c83c085="" class="info_fnc">
                <span style="display: none;">
                             <div data-v-0c83c085="" class="ly_more popper">
@@ -102,7 +103,7 @@
         </div>
     </div>
 <div data-v-0c83c085="" class="article-view-contents">
-<p data-v-0c83c085="" id="contentArea" class="contents-txt" input type="text" class="form-control" value="${post.content}">${post.content}</p>
+<p data-v-0c83c085="" id="contentArea" class="contents-txt" input type="text" class="form-control" >${post.content}</p>
 <div data-v-0c83c085="" class="article_info">
 
                 <form id="likeForm">

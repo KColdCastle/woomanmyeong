@@ -97,8 +97,16 @@ public class PostServiceImpl implements PostService {
         repository.save(post1);
     }//게시글 수정하는 메소드
     @Override
-    public void deleteS(long seq) {
-        repository.deleteById(seq);
+    public Post deleteS(Long seq) {
+        Optional<Post> newContent= repository.findById(seq);
+        Post post1=newContent.get();
+        post1.setEmail(post1.getEmail());
+        post1.setSubject(post1.getSubject());
+        post1.setContent(post1.getContent());
+        post1.setBoardname("삭제된글");
+        post1.setViewnum(post1.getViewnum());
+        repository.save(post1);
+        return post1;
     }
 
     @Override
