@@ -55,15 +55,27 @@
                     return false;
                 }
             }
-            var bd_contentval = document.getElementById("content").value;
+            var bd_contentval = document.getElementById("summernote").value;
             if (bd_contentval.length == 0 || bd_contentval=="") {
                 swal('내용을 입력해주세요.',"", 'warning');
                 f.bd_content.value = "";
                 f.bd_content.focus();
                 return false;
             }
-            f.submit();
-            location.href = document.referrer;
+            $.ajax({
+                    url: "boardin.do",
+                    method: "POST",
+                    data: $("#boardpostinsert").serialize(),
+                    success: function(response) {
+                        // 서버로의 요청이 성공적으로 완료되면 페이지 이동
+                        location.href = document.referrer;
+                    },
+                    error: function(xhr, status, error) {
+                        // 서버 요청 실패 시 처리
+                        // 예: swal로 에러 메시지 출력
+                        swal('서버 요청 실패', '서버와의 통신 중 문제가 발생했습니다.', 'error');
+                    }
+                });
             });
         });
     </script>
@@ -146,12 +158,12 @@
                               <label class="col-md-2 control-label">내용</label>
                                 <div class="form-group-in">
 
-                                <textarea name="content" id="content" value="content"></textarea>
+                                <textarea name="content" id="summernote" value="content"></textarea>
 
                                 </div>
                                 <script>
                                 $(document).ready(function() {
-                                     $('#content').summernote({
+                                     $('#summernote').summernote({
                                              height: 300,                 // set editor height
                                              minHeight: null,             // set minimum height of editor
                                              maxHeight: null,             // set maximum height of editor
@@ -160,7 +172,7 @@
                                 });
 
                                 $(document).ready(function() {
-                                     $('#content').summernote();
+                                     $('#summernote').summernote();
                                    });
                                 </script>
                             </div>
