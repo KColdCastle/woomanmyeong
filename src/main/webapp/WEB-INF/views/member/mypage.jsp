@@ -54,8 +54,7 @@
             // 로그아웃 버튼 클릭 이벤트 핸들러
             $("#logout").on("click", function() {
                 // GET 요청 보내고 페이지 새로고침
-                window.location.href = "../member/logout.do";
-                opener.parent.location.reload();
+                opener.parent.location="logout.do";
                 setTimeout(function() {
                     window.close();
                 }, 100); // 100밀리초(0.1초) 후에 창 닫기
@@ -65,14 +64,14 @@
             // 홈으로 버튼 클릭 이벤트 핸들러
             $("#home").on("click", function() {
                 // GET 요청 보내고 페이지 새로고침
-                opener.parent.location.reload();
+                opener.parent.location="../index.do";
                 setTimeout(function() {
                     window.close();
                 }, 100); // 100밀리초(0.1초) 후에 창 닫기
             });
         });
         $(document).ready(function() {
-            // 홈으로 버튼 클릭 이벤트 핸들러
+            // 내글보기 버튼 클릭 이벤트 핸들러
             $("#mywritelist").on("click", function() {
                 // GET 요청 보내고 페이지 새로고침
                 window.opener.parent.location = "../post_page/mywritelist.do?email=${loginOkUser.email}";

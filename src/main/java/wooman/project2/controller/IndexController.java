@@ -35,7 +35,6 @@ public class IndexController {
         List<Post> familyList = service.findTopViewedPostsByBoardname("가족여행", PageRequest.of(0, count));
         List<Post> freeList = service.findTopViewedPostsByBoardname("자유게시판", PageRequest.of(0, count));
 
-
         model.addAttribute("noticePost", noticeList);
         model.addAttribute("soloPost", soloList);
         model.addAttribute("couplePost", coupleList);

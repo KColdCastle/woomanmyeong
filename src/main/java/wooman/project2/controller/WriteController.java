@@ -20,11 +20,10 @@ public class WriteController {
         return "write";
     }
     @PostMapping("boardin.do")
-    public String write(Post post){
+    public void write(Post post){
         System.out.println(post);
         service.insertS(post);
         System.out.println("insertS(): "+service.insertS(post));
-        return "redirect:../";
     }
 
 

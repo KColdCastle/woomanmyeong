@@ -39,7 +39,9 @@
                 f.bd_content.focus();
                 return false;
             }
-
+    function back(){
+        location.href = document.referrer;
+    }
     </script>
 
 
@@ -61,16 +63,13 @@
     </head>
     <body>
     <jsp:include page="form/navbar.jsp"/>
-    <form id="boardpostinsert" action="boardin.do" method="post" name="f">
+    <form id="boardpostinsert" action="write/boardin.do" method="post" name="f">
 
         <main class="main">
             <div class="write">
                 <div class="row">
                     <div class="row-in">
                        <input type="hidden" class="form-control" name="email" value="${loginOkUser.email}">
-
-                        <!--<form action="insert.do" name="f" method="post" class="form-horizontal" id="board_write_form"
-                              novalidate="novalidate" enctype="multipart/form-data"> -->
                             <div class="form-group">
                                 <label class="col-md-2 control-label">닉네임</label>
                                 <div class="form-group-half">
@@ -99,12 +98,9 @@
                                                     <option value="공지사항">공지사항</option>
                                                 </c:when>
                                                 </c:choose>
-
                                     </select>
                                 </div>
                             </div>
-
-
                             <div class="form-group">
                               <label class="col-md-2 control-label">내용</label>
                                 <div class="form-group-in">
@@ -130,11 +126,9 @@
 
                             <div class="form-group">
                                 <div class="form-group-submit">
-                                    <button type="submit" class="btn btn-primary">글쓰기</button>
+                                    <button type="submit" class="btn btn-primary"onclick="back();">글쓰기</button>
                                 </div>
                             </div>
-
-                        <!-- </form> -->
                     </div>
                 </div>
             </div>
