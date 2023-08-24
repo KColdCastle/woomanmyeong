@@ -51,6 +51,15 @@ body {
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
+
 }
+.banner {
+    margin-top: 20px; /* 원하는 여백 조정 */
+    text-align: center; /* 이미지 중앙 정렬 */
+}
+
+.banner img {
+    max-width: 100%; /* 이미지가 부모 요소에 맞게 조절되도록 */
+
 
 

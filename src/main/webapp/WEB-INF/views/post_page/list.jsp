@@ -75,6 +75,7 @@
                                 <th data-bss-hover-animate="bounce">닉네임</th>
                                 <th>제목</th>
 								<th>날짜</th>
+                                <th>게시판종류</th>
                                 <th>조회수</th>
                                 <c:if test="${loginOkUser.nickname =='관리자'}">
                                     <th align='center'>삭제</th>
@@ -90,6 +91,7 @@
                                         <a href='content.do?&seq=${post.seq}'>${post.subject}</a>
                                     </td>
 									<td>${post.crdate}</td>
+                                    <td>${post.boardname}</td>
                                     <td>${post.viewnum}</td>
 								    <c:if test="${loginOkUser.nickname =='관리자'}">
                                          <td align='center'>

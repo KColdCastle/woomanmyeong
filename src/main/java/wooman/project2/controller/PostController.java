@@ -42,8 +42,9 @@ public class PostController {
 
         return "/post_page/list";
     }
+
     @GetMapping("soloList.do")
-    public String soloList(Model model, @PageableDefault(page = 0, size = 10, sort = "seq", direction = Sort.Direction.DESC) Pageable pageable,
+    public String soloList(Model model, @PageableDefault(page = 0, size = 10, sort = "seq") Pageable pageable,
                            @RequestParam(required = false, defaultValue = "") String searchText){
 
         PostListResult soloList=service.getPostListResultWithBoardName("혼자여행", searchText, searchText, pageable);
@@ -54,7 +55,7 @@ public class PostController {
 
 
     @GetMapping("coupleList.do")
-    public String coupleList(Model model, @PageableDefault(page = 0, size = 10, sort = "seq", direction = Sort.Direction.DESC) Pageable pageable,
+    public String coupleList(Model model, @PageableDefault(page = 0, size = 10, sort = "seq") Pageable pageable,
                              @RequestParam(required = false, defaultValue = "") String searchText){
 
         PostListResult coupleList=service.getPostListResultWithBoardName("커플여행", searchText, searchText, pageable);
@@ -64,7 +65,7 @@ public class PostController {
     }//커플게시판 메소드
 
     @GetMapping("noticeList.do")  //공지사항 
-    public String noticeList(Model model, @PageableDefault(page = 0, size = 10, sort = "seq", direction = Sort.Direction.DESC) Pageable pageable,
+    public String noticeList(Model model, @PageableDefault(page = 0, size = 10, sort = "seq") Pageable pageable,
                              @RequestParam(required = false, defaultValue = "") String searchText){
 
         PostListResult noticeList=service.getPostListResultWithBoardName("공지사항", searchText, searchText, pageable);
@@ -73,7 +74,7 @@ public class PostController {
         return "/post_page/noticeList";
     }
     @GetMapping("familyList.do")  //가족여행
-    public String familyList(Model model, @PageableDefault(page = 0, size = 10, sort = "seq", direction = Sort.Direction.DESC) Pageable pageable,
+    public String familyList(Model model, @PageableDefault(page = 0, size = 10, sort = "seq") Pageable pageable,
                              @RequestParam(required = false, defaultValue = "") String searchText){
 
         PostListResult familyList=service.getPostListResultWithBoardName("가족여행", searchText, searchText, pageable);
@@ -83,7 +84,7 @@ public class PostController {
     }
 
     @GetMapping("freeList.do")  //자유게시판
-    public String freeList(Model model, @PageableDefault(page = 0, size = 10, sort = "seq", direction = Sort.Direction.DESC) Pageable pageable,
+    public String freeList(Model model, @PageableDefault(page = 0, size = 10, sort = "seq") Pageable pageable,
                            @RequestParam(required = false, defaultValue = "") String searchText){
 
         PostListResult freeList=service.getPostListResultWithBoardName("자유게시판", searchText, searchText, pageable);

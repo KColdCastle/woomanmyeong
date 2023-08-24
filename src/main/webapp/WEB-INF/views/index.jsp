@@ -46,10 +46,6 @@
 
 
 
-        </header>
-
-
-
         <main class="main">
             <!--==================== HOME =================여기 홈===-->
 
@@ -125,6 +121,9 @@
                    <section class="home" id="home"></section>
 
                    <div class="board_type1_wrap">
+                   <aside class="banner">
+                       <img src="/front/img/img.png" alt="Banner Image">
+                   </aside>
                        <table class="board_list_type1">
                              <br>
 
@@ -451,6 +450,7 @@
                 </div> -->
 
             </section>
+
 
             <!--==================== SUBSCRIBE ====================-->
 
