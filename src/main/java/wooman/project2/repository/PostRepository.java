@@ -26,31 +26,31 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 //    Page<Post> findByBoardNameOrderBySeqDesc(String boardName, Pageable pageable);
 //    //게시판 종류별로 최신글로 표시하는 메소드
 
-    @Query("SELECT COUNT(p) FROM Post p WHERE p.boardname = ?1")
+    @Query("SELECT COUNT(p) FROM Post p WHERE p.boardname = ?1 AND p.boardname NOT IN ('삭제된글')")
     long countByBoardName(String boardName);
     //게시판 종류에 따른 게시글 수를 가져오는 메소드
 
-    @Query("SELECT p FROM Post p WHERE p.boardname = ?1 ORDER BY p.viewnum DESC")
+    @Query("SELECT p FROM Post p WHERE p.boardname = ?1 AND p.boardname NOT IN ('삭제된글') ORDER BY p.viewnum DESC")
     List<Post> findTopViewedPostsByBoardname(String boardName, Pageable pageable);
     //게시판 종류별로 조회수 많은 순으로 내림차순정렬하여 표시하는 메소드
 
-    @Query("SELECT p FROM Post p WHERE p.nickname LIKE %?1% OR p.subject LIKE %?2%")
+    @Query("SELECT p FROM Post p WHERE (p.nickname LIKE %?1% OR p.subject LIKE %?2%) AND p.boardname NOT IN ('삭제된글')")
     Page<Post> findByNicknameOrSubject(String nickname, String subject, Pageable pageable);
     //전체 게시글 닉네임, 제목으로 조회하는 메소드
-    @Query("SELECT COUNT(p) FROM Post p WHERE p.nickname LIKE %?1% OR p.subject LIKE %?2%")
+    @Query("SELECT COUNT(p) FROM Post p WHERE (p.nickname LIKE %?1% OR p.subject LIKE %?2%) AND p.boardname NOT IN ('삭제된글')")
     long countByNickNameOrSubject(String nickname, String subject);
     //전체 게시글 닉네임, 제목으로 조회했을 때 게시글 수 가져오는 메소드
 
-    @Query("SELECT p FROM Post p WHERE p.boardname=?1 AND (p.nickname LIKE %?2% OR p.subject LIKE %?3%) ORDER BY p.seq DESC")
+    @Query("SELECT p FROM Post p WHERE (p.boardname=?1 AND (p.nickname LIKE %?2% OR p.subject LIKE %?3%)) AND p.boardname NOT IN ('삭제된글') ORDER BY p.seq DESC")
     Page<Post> findByBoardNameAndNicknameOrSubject(String Boardname, String nickname, String subject, Pageable pageable);
     //전체 게시글 닉네임, 제목으로 조회하는 메소드
-    @Query("SELECT COUNT(p) FROM Post p WHERE p.boardname=?1 AND (p.nickname LIKE %?2% OR p.subject LIKE %?3%)")
+    @Query("SELECT COUNT(p) FROM Post p WHERE (p.boardname=?1 AND (p.nickname LIKE %?2% OR p.subject LIKE %?3%)) AND p.boardname NOT IN ('삭제된글')")
     long countByNickNameOrSubject(String Boardname, String nickname, String subject);
     //전체 게시글 닉네임, 제목으로 조회했을 때 게시글 수 가져오는 메소드
 
-    @Query("SELECT p FROM Post p WHERE p.email=?1 AND p.subject LIKE %?2% ORDER BY p.seq DESC")
+    @Query("SELECT p FROM Post p WHERE (p.email=?1 AND p.subject LIKE %?2%) AND p.boardname NOT IN ('삭제된글') ORDER BY p.seq DESC")
     Page<Post> findByEmailAndSubject(String email, String subject, Pageable pageable);
-    @Query("SELECT COUNT(p) FROM Post p WHERE p.email=?1 AND p.subject LIKE %?2%")
+    @Query("SELECT COUNT(p) FROM Post p WHERE (p.email=?1 AND p.subject LIKE %?2%) AND p.boardname NOT IN ('삭제된글')")
     long countByEmailAndSubject(String email, String subject);
     //전체 게시글 닉네임, 제목으로 조회했을 때 게시글 수 가져오는 메소드
 }

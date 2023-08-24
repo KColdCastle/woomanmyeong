@@ -81,7 +81,7 @@
         </div>
     </div>
 <div data-v-0c83c085="" class="article-view-contents">
-<p data-v-0c83c085="" id="contentArea" class="contents-txt" input type="text" class="form-control" value="${post.content}">${post.content}</p>
+<p data-v-0c83c085="" id="contentArea" class="contents-txt" input type="text" class="form-control" >${post.content}</p>
 <div data-v-0c83c085="" class="article_info">
 
                 <form id="likeForm">

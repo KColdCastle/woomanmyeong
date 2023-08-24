@@ -13,33 +13,71 @@
     <link rel="stylesheet" href="/front/write.css">
     <script src="/front/js/trim.js"></script>
 
-    <script language="javascript">
-        function check() {
-            var bd_subjectval = f.bd_subject.value;
-            bd_subjectval = trim(bd_subjectval);
-            if (bd_subjectval.length == 0) {
-                alert("제목을 입력해주세요");
-                f.bd_subject.value = "";
-                f.bd_subject.focus();
-                return false;
-            } else {
-                pass = checkByteLen(bd_subjectval, 80);
-                if (!pass) {
-                    alert("제목이 너무 길어요");
-                    f.bd_subject.focus();
-                    return false;
+    <script>
+        function trim(str){
+        	while(str && str.indexOf(" ") == 0)
+        		str = str.substring(1);
+        	while(str && str.lastIndexOf(" ") == str.length-1)
+        		str = str.substring(0, str.length-1);
+        	return str;
+        }
+        function checkByteLen(str, maxBytes) {
+            var len = 0;
+            for (var i = 0; i < str.length; i++) {
+                var charCode = str.charCodeAt(i);
+                if (charCode <= 0x007F) {
+                    len += 1;
+                } else if (charCode <= 0x07FF) {
+                    len += 2;
+                } else if (charCode <= 0xFFFF) {
+                    len += 3;
+                } else {
+                    len += 4;
                 }
             }
-            }
-    var bd_contentval = f.summernote.value;
-
-            if (bd_contentval.length == 0) {
-                alert("내용을 입력해주세요");
-                f.bd_content.value = "";
-                f.bd_content.focus();
-                return false;
-            }
-    </script>
+            return len <= maxBytes;
+        }
+        $(document).ready(function() {
+            $("#submitButton").on("click", function() {
+                var bd_subjectval = document.getElementById("subject").value;
+                bd_subjectval = trim(bd_subjectval);
+                if (bd_subjectval.length == 0 || bd_subjectval=="") {
+                    swal('제목을 입력해주세요.',"", 'warning');
+                    f.bd_subject.value = "";
+                    f.bd_subject.focus();
+                    return false;
+                } else {
+                    pass = checkByteLen(bd_subjectval, 80);
+                    if (!pass) {
+                        swal('제목이 너무 길어요.',"", 'warning');
+                        f.bd_subject.focus();
+                        return false;
+                    }
+                }
+                var bd_contentval = document.getElementById("summernote").value;
+                if (bd_contentval.length == 0 || bd_contentval=="") {
+                    swal('내용을 입력해주세요.',"", 'warning');
+                    f.bd_content.value = "";
+                    f.bd_content.focus();
+                    return false;
+                }
+                $.ajax({
+                        url: "update.do",
+                        method: "POST",
+                        data: $("#boardpostupdate").serialize(),
+                        success: function(response) {
+                            // 서버로의 요청이 성공적으로 완료되면 페이지 이동
+                            location.href = "post_page/mywritelist.do?seq=${post.nickname}";
+                        },
+                        error: function(xhr, status, error) {
+                            // 서버 요청 실패 시 처리
+                            // 예: swal로 에러 메시지 출력
+                            swal('서버 요청 실패', '서버와의 통신 중 문제가 발생했습니다.', 'error');
+                        }
+                    });
+                });
+            });
+        </script>
         <!--=============== FAVICON ===============-->
         <link rel="shortcut icon" href="/front/assets/img/favicon.png" type="image/png">
 
@@ -112,7 +150,7 @@
 
                             <div class="form-group">
                                 <div class="form-group-submit">
-                                    <button type="submit" class="btn btn-primary">글쓰기</button>
+                                    <button type="submit" class="btn btn-primary" id="submitButton">글쓰기</button>
                                 </div>
                             </div>
                         <!-- </form> -->
