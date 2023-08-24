@@ -75,8 +75,9 @@
                             <input class="subscribe__input " type="text" placeholder="검색어를 입력하세요." id="searchText" name="searchText" value="${param.searchText}">
                                 <button class="button" type="submit">
                                     검색하기
-                    </button>
-                   </div>
+                                </button>
+                        </div>
+                   </form>
                </div>
                <div class="board_type1_wrap">
                    <table class="board_list_type1">

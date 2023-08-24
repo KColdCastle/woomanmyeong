@@ -8,40 +8,64 @@
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
     <link rel="stylesheet" href="/front/write.css">
     <script src="/front/js/trim.js"></script>
 
-    <script language="javascript">
-        function check() {
-            var bd_subjectval = f.bd_subject.value;
+    <script>
+    function trim(str){
+    	while(str && str.indexOf(" ") == 0)
+    		str = str.substring(1);
+    	while(str && str.lastIndexOf(" ") == str.length-1)
+    		str = str.substring(0, str.length-1);
+    	return str;
+    }
+    function checkByteLen(str, maxBytes) {
+        var len = 0;
+        for (var i = 0; i < str.length; i++) {
+            var charCode = str.charCodeAt(i);
+            if (charCode <= 0x007F) {
+                len += 1;
+            } else if (charCode <= 0x07FF) {
+                len += 2;
+            } else if (charCode <= 0xFFFF) {
+                len += 3;
+            } else {
+                len += 4;
+            }
+        }
+        return len <= maxBytes;
+    }
+    $(document).ready(function() {
+        $("#submitButton").on("click", function() {
+            var bd_subjectval = document.getElementById("subject").value;
             bd_subjectval = trim(bd_subjectval);
-            if (bd_subjectval.length == 0) {
-                alert("제목을 입력해주세요");
+            if (bd_subjectval.length == 0 || bd_subjectval=="") {
+                swal('제목을 입력해주세요.',"", 'warning');
                 f.bd_subject.value = "";
                 f.bd_subject.focus();
                 return false;
             } else {
                 pass = checkByteLen(bd_subjectval, 80);
                 if (!pass) {
-                    alert("제목이 너무 길어요");
+                    swal('제목이 너무 길어요.',"", 'warning');
                     f.bd_subject.focus();
                     return false;
                 }
             }
-            }
-    var bd_contentval = f.summernote.value;
-
-            if (bd_contentval.length == 0) {
-                alert("내용을 입력해주세요");
+            var bd_contentval = document.getElementById("content").value;
+            if (bd_contentval.length == 0 || bd_contentval=="") {
+                swal('내용을 입력해주세요.',"", 'warning');
                 f.bd_content.value = "";
                 f.bd_content.focus();
                 return false;
             }
-    function back(){
-        location.href = document.referrer;
-    }
+            f.submit();
+            location.href = document.referrer;
+            });
+        });
     </script>
 
 
@@ -81,8 +105,8 @@
     <jsp:include page="form/navbar.jsp"/>
     <img src="/front/assets/img/home1.jpg" alt="" class="board_reply_img">
         <h1 class="home__data-title" style="position: absolute;"><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 여행에 빠지다</h1>
-    <form id="boardpostinsert" action="write/boardin.do" method="post" name="f">
 
+    <form id="boardpostinsert" action="boardin.do" method="post" name="f" >
         <main class="main">
             <div class="write">
                 <div class="row">
@@ -98,8 +122,7 @@
                             <div class="form-group">
                                 <label class="col-md-2 control-label">제목</label>
                                 <div class="form-group-half">
-
-                                    <input type="text" class="form-control" placeholder="제목을 입력하세요" name="subject">
+                                    <input type="text" class="form-control" placeholder="제목을 입력하세요" name="subject" id="subject">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -107,13 +130,13 @@
                                 <div class="form-group-quarter">
                                     <select id="board_category" name="boardname" class="form-control" >
 
-                                                <option value="혼자여행">혼자여행</option>
-                                                <option value="커플여행">커플여행</option>
-                                                <option value="가족여행">가족여행</option>
-                                                <option value="자유게시판">자유게시판</option>
+                                                <option value="sololist">혼자여행</option>
+                                                <option value="couplelist">커플여행</option>
+                                                <option value="familylist">가족여행</option>
+                                                <option value="freelist">자유게시판</option>
                                                 <c:choose>
                                                 <c:when test="${loginOkUser.nickname =='관리자'}">
-                                                    <option value="공지사항">공지사항</option>
+                                                    <option value="noticelist">공지사항</option>
                                                 </c:when>
                                                 </c:choose>
                                     </select>
@@ -123,12 +146,12 @@
                               <label class="col-md-2 control-label">내용</label>
                                 <div class="form-group-in">
 
-                                <textarea name="content" id="summernote" value="content"></textarea>
+                                <textarea name="content" id="content" value="content"></textarea>
 
                                 </div>
                                 <script>
                                 $(document).ready(function() {
-                                     $('#summernote').summernote({
+                                     $('#content').summernote({
                                              height: 300,                 // set editor height
                                              minHeight: null,             // set minimum height of editor
                                              maxHeight: null,             // set maximum height of editor
@@ -137,18 +160,16 @@
                                 });
 
                                 $(document).ready(function() {
-                                     $('#summernote').summernote();
+                                     $('#content').summernote();
                                    });
                                 </script>
                             </div>
 
                             <div class="form-group">
                                 <div class="form-group-submit">
-                                    <button type="submit" class="btn btn-primary"onclick="back();">글쓰기</button>
+                                    <button type="button" class="btn btn-primary" id="submitButton">글쓰기</button>
                                 </div>
                             </div>
-
-                        <!-- </form> -->
                     </div>
                 </div>
             </div>

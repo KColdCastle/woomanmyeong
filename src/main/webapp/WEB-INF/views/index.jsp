@@ -102,12 +102,13 @@
                             special 30% discount.-->
                         </p>
 
-                        <form action="" class="subscribe__form">
-                            <input type="text" placeholder="검색" class="subscribe__input">
-
-                            <button class="button">
-                                검색하기
-                            </button>
+                        <form method="GET" action="/post_page/list.do">
+                             <div class="subscribe__form">
+                                 <input class="subscribe__input " type="text" placeholder="검색어를 입력하세요." id="searchText" name="searchText" value="${param.searchText}">
+                                     <button class="button" type="submit">
+                                         검색하기
+                                     </button>
+                             </div>
                         </form>
                     </div>
                 </div>
@@ -127,8 +128,6 @@
                         </a>
 
                     </div>
-
-
 
                 </div>
 
