@@ -58,11 +58,29 @@
         <link rel="stylesheet" type="text/css" href="/front/styles.css">
         <link rel="stylesheet" type="text/css" href="/front/board_type1.css">
 
+            <!--=============== FAVICON ===============-->
+                    <link rel="shortcut icon" href="/front/assets/img/favicon.png" type="image/png">
+
+                    <!--=============== REMIXICONS ===============-->
+                    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+                    <!--=============== SWIPER CSS ===============-->
+                    <link rel="stylesheet" href="/front/assets/css/swiper-bundle.min.css">
+
+                    <!--=============== CSS ===============-->
+                    <link rel="stylesheet" href="/front/styles.css">
+                    <link rel="stylesheet" href="/front/board_type1.css">
+                   <link rel="stylesheet" href="/front/bootstrap.min.css">
+                    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css">
+                    <link rel="stylesheet" href="/front/Like-Button.css">
         <title>글쓰기</title>
 
     </head>
     <body>
     <jsp:include page="form/navbar.jsp"/>
+    <img src="/front/assets/img/home1.jpg" alt="" class="board_reply_img">
+        <h1 class="home__data-title" style="position: absolute;"><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 여행에 빠지다</h1>
     <form id="boardpostinsert" action="write/boardin.do" method="post" name="f">
 
         <main class="main">
@@ -129,6 +147,8 @@
                                     <button type="submit" class="btn btn-primary"onclick="back();">글쓰기</button>
                                 </div>
                             </div>
+
+                        <!-- </form> -->
                     </div>
                 </div>
             </div>
