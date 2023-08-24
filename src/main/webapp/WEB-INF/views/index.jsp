@@ -507,7 +507,7 @@
         <!--=============== MAIN JS ===============-->
         <script src="/front/assets/js/main.js"></script>
 
-
+    <jsp:include page="other/chat.jsp"/>
     </body>
     <jsp:include page="form/footer.jsp"/>
 </html>
