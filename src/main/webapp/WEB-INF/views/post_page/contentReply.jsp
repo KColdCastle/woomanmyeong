@@ -58,8 +58,8 @@
 
        <div data-v-0c83c085="" role="main" class="contents">
     <div data-v-0c83c085="" class="article-view-head">
-        <h1 data-v-0c83c085=""><a data-v-0c83c085="" href="../index.do" class="">홈</a> <a
-                data-v-0c83c085=""href="../" >게시판폼</a></h1>
+        <h1 data-v-0c83c085=""><a data-v-0c83c085="" href="../" class="">홈</a> <a
+                data-v-0c83c085=""href="./list.do" >게시판폼</a></h1>
         <h2 data-v-0c83c085="">${post.subject}</h2>
         <div data-v-0c83c085="" class="name"><a data-v-0c83c085=""
                  class="point" input type="text" class="form-control" value=${post.nickname} name="nickname"
@@ -81,7 +81,7 @@
         </div>
     </div>
 <div data-v-0c83c085="" class="article-view-contents">
-<p data-v-0c83c085="" id="contentArea" class="contents-txt" input type="text" class="form-control">${post.content}</p>
+<p data-v-0c83c085="" id="contentArea" class="contents-txt" input type="text" class="form-control" value="${post.content}">${post.content}</p>
 <div data-v-0c83c085="" class="article_info">
 
                 <form id="likeForm">
@@ -97,7 +97,7 @@
                                 <form style="padding-right: 0px;padding-left: 0px;" method="POST" action="comment.do">
                                 <input type="hidden" class="form-control" name="email" value="${loginOkUser.email}">
                                 <input type="hidden" class="form-control" name="nickname" value="${loginOkUser.nickname}">
-                                <input type="hidden" class="form-control" name="postseq" value="${post.seq}">
+                                <input type="hidden" id="postseq" class="form-control" name="postseq" value="${post.seq}">
                                     <div class="mb-3">
                                         <label class="form-label" for="replycontent">comment</label>
                                         <textarea class="form-control" id="replycontent" name="replycontent"></textarea>
@@ -105,11 +105,52 @@
                                     <div class="mb-3">
                                         <div class="row">
                                             <div class="asd">
-                                                <input type="submit" class="btn btn-primary" style="margin: -3px 22px 0px 10px;background: var(--bs-gray-600);padding-left: 37px;margin-right: 24px;padding-right: 37px;" value="작성">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
+                                        <form style="padding-right: 0px; padding-left: 0px;" method="POST" action="comment.do">
+                                            <input type="hidden" name="email" value="${loginOkUser.email}">
+                                            <input type="hidden" name="nickname" value="${loginOkUser.nickname}">
+
+                                            <input type="button" class="btn btn-primary" style="margin: -3px 22px 0px 10px; background: var(--bs-gray-600); padding-left: 37px; margin-right: 24px; padding-right: 37px;" value="작성"
+                                            <c:choose>
+                                                <c:when test="${empty loginOkUser}">
+                                                    onclick="showLoginAlert(); return false;"
+                                                </c:when>
+                                                <c:otherwise>
+                                                    onclick="submitForm(); return false;"
+                                                </c:otherwise>
+                                            </c:choose>
+                                            >
+                                        </form>
+
+                                        <script>
+                                            function showLoginAlert() {
+                                                swal('알림', '로그인 후 이용해주세요.', 'info');
+                                            }
+
+                                              function submitForm() {
+                                                var formData = new FormData();
+                                                formData.append("email", "${loginOkUser.email}");
+                                                formData.append("nickname", "${loginOkUser.nickname}");
+                                                formData.append("replycontent", document.getElementById("replycontent").value);
+                                                formData.append("postseq", document.getElementById("postseq").value);
+                                                var xhr = new XMLHttpRequest();
+                                                xhr.open("POST", "comment.do", true);
+                                                xhr.onreadystatechange = function() {
+                                                    if (xhr.readyState === 4) {
+                                                        if (xhr.status === 200) { // 성공적으로 작성된 경우
+                                                        swal('알림', '댓글이 작성되었습니다.', 'success');
+                                                        setTimeout(function() {
+                                                            location.reload(); // 1초 뒤에 페이지를 새로고침
+                                                        }, 1000);
+                                                        } else {
+                                                            swal('에러', '댓글을 작성하려면 내용을 입력하세요', 'error');
+                                                        }
+                                                    }
+                                                };
+
+                                                xhr.send(formData);
+                                            }
+
+                                        </script>
 
                 <div class="card">
                     <div class="card-header">
