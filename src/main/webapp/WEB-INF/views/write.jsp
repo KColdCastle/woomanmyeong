@@ -115,6 +115,28 @@
     </head>
     <body>
     <jsp:include page="form/navbar.jsp"/>
+
+      <aside class="banner">
+                <img src="../front/img.png" style="position: absolute;
+                                               top: 400px;
+                                               right: 300px;
+                                               width: 200px;
+                                               height: 600px;
+                                               display: flex;
+                                               justify-content: center;
+                                               align-items: flex-end;"
+                     alt="Banner Image">
+
+                <img src="../front/banner2.png" style="position: absolute;
+                                                    top: 400px;
+                                                    right: 1400px;
+                                                    width: 200px;
+                                                    height: 600px;
+                                                    display: flex;
+                                                    justify-content: center;
+                                                    align-items: flex-end;"
+                     alt="Banner Image">
+            </aside>
     <img src="/front/assets/img/home1.jpg" alt="" class="board_reply_img">
         <h1 class="home__data-title" style="position: absolute;"><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 여행에 빠지다</h1>
 
@@ -148,7 +170,7 @@
                                                 <option value="자유게시판">자유게시판</option>
                                                 <c:choose>
                                                 <c:when test="${loginOkUser.nickname =='관리자'}">
-                                                    <option value="noticelist">공지사항</option>
+                                                    <option value="공지사항">공지사항</option>
                                                 </c:when>
                                                 </c:choose>
                                     </select>

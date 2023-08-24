@@ -45,7 +45,27 @@
     <img src="/front/assets/img/home1.jpg" alt="" class="board_reply_img">
     <h1 class="home__data-title" style="position: absolute;"><br><br><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 여행에 빠지다</h1>
 
+      <aside class="banner">
+            <img src="../front/img.png" style="position: absolute;
+                                           top: 400px;
+                                           right: 300px;
+                                           width: 200px;
+                                           height: 600px;
+                                           display: flex;
+                                           justify-content: center;
+                                           align-items: flex-end;"
+                 alt="Banner Image">
 
+            <img src="../front/banner2.png" style="position: absolute;
+                                                top: 400px;
+                                                right: 1400px;
+                                                width: 200px;
+                                                height: 600px;
+                                                display: flex;
+                                                justify-content: center;
+                                                align-items: flex-end;"
+                 alt="Banner Image">
+        </aside>
 
 
 
@@ -58,8 +78,9 @@
 
        <div data-v-0c83c085="" role="main" class="contents">
     <div data-v-0c83c085="" class="article-view-head">
-        <h1 data-v-0c83c085=""><a data-v-0c83c085="" href="../" class="">홈</a> <a
-                data-v-0c83c085=""href="./list.do" >게시판폼</a></h1>
+        <h1 data-v-0c83c085=""><a data-v-0c83c085="" href="../index.do" class="">홈</a> <a
+                data-v-0c83c085=""href="${param.boardType eq 'noticeList.do' ? './noticeList.do' : (param.boardType eq 'freeList.do' ? './freeList.do' : (param.boardType eq 'familyList.do' ? './familyList.do' : (param.boardType eq 'coupleList.do' ? './coupleList.do' : '#')))}">게시판폼</a>
+                </h1>
         <h2 data-v-0c83c085="">${post.subject}</h2>
         <div data-v-0c83c085="" class="name"><a data-v-0c83c085=""
                  class="point" input type="text" class="form-control" value=${post.nickname} name="nickname"
@@ -156,7 +177,7 @@
                     <div class="card-header">
                         <h3>Community&nbsp;</h3>
                     </div>
-                    <div class="card-body" style="height: 233px;">
+                    <div class="card-body" style="height: auto;">
                         <ul class="list-group">
                             <li class="list-group-item" style="margin-bottom: 6px;">
                                 <div class="d-flex media">

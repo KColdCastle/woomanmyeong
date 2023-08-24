@@ -44,7 +44,7 @@
         <jsp:include page="other/weather.jsp" />
         </div>
 
-
+        <jsp:include page="post_page/sidebanner.jsp" />
 
         <main class="main">
             <!--==================== HOME =================여기 홈===-->
@@ -117,12 +117,11 @@
             <!--==================== ABOUT ====================-->
 
 
+
                    <section class="home" id="home"></section>
 
                    <div class="board_type1_wrap">
-                   <aside class="banner">
-                       <img src="/front/img/img.png" alt="Banner Image">
-                   </aside>
+
                        <table class="board_list_type1">
                              <br>
 
@@ -479,6 +478,7 @@
 
 
         <!--=============== SCROLL UP ===============-->
+
         <a href="#" class="scrollup" id="scroll-up">
             <i class="ri-arrow-up-line scrollup__icon"></i>
         </a>
