@@ -20,8 +20,34 @@
     <link rel="stylesheet" type="text/css" href="/front/board_reply.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+    <!--=============== FAVICON ===============-->
+            <link rel="shortcut icon" href="/front/assets/img/favicon.png" type="image/png">
+
+            <!--=============== REMIXICONS ===============-->
+            <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+            <!--=============== SWIPER CSS ===============-->
+            <link rel="stylesheet" href="/front/assets/css/swiper-bundle.min.css">
+
+            <!--=============== CSS ===============-->
+            <link rel="stylesheet" href="/front/styles.css">
+            <link rel="stylesheet" href="/front/board_type1.css">
+           <link rel="stylesheet" href="/front/bootstrap.min.css">
+            <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css">
+            <link rel="stylesheet" href="/front/Like-Button.css">
+
+
     <title>글쓰기</title>
 </head>
+     <jsp:include page="../form/navbar.jsp"/>
+
+    <img src="/front/assets/img/home1.jpg" alt="" class="board_reply_img">
+    <h1 class="home__data-title" style="position: absolute;"><br><br><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 여행에 빠지다</h1>
+
+
+
+
 
     <body>
 
@@ -32,18 +58,8 @@
 
        <div data-v-0c83c085="" role="main" class="contents">
     <div data-v-0c83c085="" class="article-view-head">
-
-            <h1 data-v-0c83c085="">
-            <a data-v-0c83c085="" href="../" class="">홈</a>
-            <a data-v-0c83c085="" href="<c:choose>
-                     <c:when test="${param.boardType eq 'noticeList.do'}">./noticeList.do</c:when>
-                     <c:when test="${param.boardType eq 'freeList.do'}">./freeList.do</c:when>
-                     <c:when test="${param.boardType eq 'familyList.do'}">./familyList.do</c:when>
-                     <c:when test="${param.boardType eq 'coupleList.do'}">./coupleList.do</c:when>
-                     <c:otherwise>"#"</c:otherwise>
-                 </c:choose>">게시판폼</a>
-            </h1>
-
+        <h1 data-v-0c83c085=""><a data-v-0c83c085="" href="../" class="">홈</a> <a
+                data-v-0c83c085=""href="./list.do" >게시판폼</a></h1>
         <h2 data-v-0c83c085="">${post.subject}</h2>
         <div data-v-0c83c085="" class="name"><a data-v-0c83c085=""
                  class="point" input type="text" class="form-control" value=${post.nickname} name="nickname"
@@ -168,7 +184,6 @@
                         </ul>
                     </div>
                 </div>
-
             </footer>
 
             <div class="container">

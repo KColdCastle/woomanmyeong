@@ -75,10 +75,10 @@ public class MemberController {
     }
     @GetMapping("logout.do")
     public String logout(HttpSession session){
-        //session.removeAttribute("loginOkUser");//1개만
         session.invalidate();//session 모든객체 제거
-        return "redirect:../";
+        return "redirect:../index.do";
     }
+
     @GetMapping("mypage.do")
     public String mypage(){
         return "member/mypage";

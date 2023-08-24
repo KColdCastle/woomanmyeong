@@ -29,7 +29,7 @@ function mypage(){
                     <ul class="nav__list">
 
                         <li class="nav__item">
-                            <a href="../" class="nav__link active-link">Home</a>
+                            <a href="../index.do" class="nav__link active-link">Home</a>
                         </li>
                         <li class="nav__item">
                             <a href="../post_page/soloList.do" class="nav__link">혼자여행</a>
@@ -52,7 +52,7 @@ function mypage(){
                         <li class="nav__item">
                                 <c:choose>
                                     <c:when test="${empty loginOkUser}">
-                                        <a href="../member/logintest"  class="nav__link">로그인</a>
+                                        <a href="../"  class="nav__link">로그인</a>
                                     </c:when>
                                     <c:otherwise>
                                         <input class="nav__link__nick" type="button" onclick="mypage()" value="${loginOkUser.nickname}"/>

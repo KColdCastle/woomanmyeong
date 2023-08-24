@@ -14,7 +14,7 @@
 
 <body>
     <div id="main">
-    <form id="loginform" action="login" method="post">
+    <form id="loginform" action="member/login" method="post">
         <div class="text-center" id="info" style="padding: 1px;height: 437px;">
             <h3 class="text-center" style="padding: 45px;">여행에 빠진 사람들</h3>
             <p class="text-center" style="height: 18px;font-size: 21px;">fall in travel</p>
@@ -24,8 +24,8 @@
             </form>
             <button class="btn btn-primary" id="btn-sesion" type="submit" style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: #323537;">로그인</button>
 
-            <a class="fs-6" href="../" style="padding: -87px;margin: 41px;">비회원 접속</a><br>
-            <a class="fs-6" href="../member/regtest" style="padding: -87px;margin: 41px;">회원가입</a>
+            <a class="fs-6" href="index.do" style="padding: -87px;margin: 41px;">비회원 접속</a><br>
+            <a class="fs-6" href="member/regtest" style="padding: -87px;margin: 41px;">회원가입</a>
         </div>
         </form>
     </div>

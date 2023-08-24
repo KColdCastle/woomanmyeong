@@ -24,7 +24,7 @@ public class WriteController {
         System.out.println(post);
         service.insertS(post);
         System.out.println("insertS(): "+service.insertS(post));
-        return "redirect:../";
+        return "redirect:../index.do";
     }
 
 
