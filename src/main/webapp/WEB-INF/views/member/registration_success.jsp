@@ -13,7 +13,7 @@
 
             // 일정 시간 후에 페이지 이동
             setTimeout(function() {
-                window.location.href = "../";
+                window.location.href = "../index.do";
             }, 1000); // 1초 후에 페이지 이동
         };
     </script>

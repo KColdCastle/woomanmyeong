@@ -22,6 +22,11 @@ public class IndexController {
     private final PostService service;
 
     @GetMapping("")
+    public String login(){
+        return "member/logintest";
+    }
+
+    @GetMapping("index.do")
     public String getIndex(Model model) {  //베스트글 추천수에 따라 5개
         int count = 5; // 가져올 개수
         List<Post> noticeList = service.findTopViewedPostsByBoardname("공지사항", PageRequest.of(0, count));
