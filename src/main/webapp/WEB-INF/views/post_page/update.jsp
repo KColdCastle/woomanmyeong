@@ -8,6 +8,7 @@
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
     <link rel="stylesheet" href="/front/write.css">
@@ -67,7 +68,7 @@
                         data: $("#boardpostupdate").serialize(),
                         success: function(response) {
                             // 서버로의 요청이 성공적으로 완료되면 페이지 이동
-                            location.href = "post_page/mywritelist.do?seq=${post.nickname}";
+                           location.href = document.referrer;
                         },
                         error: function(xhr, status, error) {
                             // 서버 요청 실패 시 처리
@@ -95,6 +96,32 @@
 
     </head>
     <body>
+    <jsp:include page="../form/footer.jsp"/>
+
+          <aside class="banner">
+                    <img src="../front/img.png" style="position: absolute;
+                                                   top: 400px;
+                                                   right: 300px;
+                                                   width: 200px;
+                                                   height: 600px;
+                                                   display: flex;
+                                                   justify-content: center;
+                                                   align-items: flex-end;"
+                         alt="Banner Image">
+
+                    <img src="../front/banner2.png" style="position: absolute;
+                                                        top: 400px;
+                                                        right: 1400px;
+                                                        width: 200px;
+                                                        height: 600px;
+                                                        display: flex;
+                                                        justify-content: center;
+                                                        align-items: flex-end;"
+                         alt="Banner Image">
+                </aside>
+        <img src="/front/assets/img/home1.jpg" alt="" class="board_reply_img">
+            <h1 class="home__data-title" style="position: absolute;"><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 여행에 빠지다</h1>
+
     <form id="boardpostupdate" action="update.do" method="post" name="f">
 
         <main class="main">
@@ -102,13 +129,10 @@
                 <div class="row">
                     <div class="row-in">
                        <input type="hidden" class="form-control" name="seq" value="${post.seq}">
-                       <input type="hidden" class="form-control" name="email" value="${post.email}">
+                       <input type="hidden" class="form-control" name="email" value="${loginOkUser.email}">
                        <input type="hidden" class="form-control" name="viewnum" value="${post.viewnum}">
 
 
-
-                        <!--<form action="insert.do" name="f" method="post" class="form-horizontal" id="board_write_form"
-                              novalidate="novalidate" enctype="multipart/form-data"> -->
                             <div class="form-group">
                                 <label class="col-md-2 control-label">닉네임</label>
                                 <div class="form-group-half">
@@ -119,7 +143,7 @@
                             <div class="form-group">
                                 <label class="col-md-2 control-label">제목</label>
                                 <div class="form-group-half">
-                                    <input type="text" class="form-control" placeholder="제목을 입력하세요" name="subject" value="${post.subject}">
+                                    <input type="text" class="form-control" placeholder="제목을 입력하세요" name="subject" id="subject" value="${post.subject}">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -150,13 +174,13 @@
 
                             <div class="form-group">
                                 <div class="form-group-submit">
-                                    <button type="submit" class="btn btn-primary" id="submitButton">글쓰기</button>
+                                    <button type="button" class="btn btn-primary" id="submitButton">글쓰기</button>
                                 </div>
                             </div>
-                        <!-- </form> -->
                     </div>
                 </div>
             </div>
             </form>
         </body>
+        <jsp:include page="../form/footer.jsp"/>
 </html>

@@ -74,6 +74,7 @@
                                           검색하기
                           </button>
                          </div>
+                         </from>
                      </div>
                <div class="board_type1_wrap">
                    <table class="board_list_type1">

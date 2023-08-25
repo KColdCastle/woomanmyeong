@@ -95,6 +95,7 @@ public class PostController {
     @GetMapping("mywritelist.do")  //내가 쓴 글 게시판
     public String mywritelist(Model model, @PageableDefault(page = 0, size = 10, sort = "seq", direction = Sort.Direction.DESC) Pageable pageable,
                            @RequestParam(required = false, defaultValue = "") String searchText, String email){
+        System.out.println("내가쓴글 email: "+ email);
         PostListResult mywritelist=service.getPostListResultWithEmail(email, searchText, pageable);
         System.out.println(mywritelist);
         model.addAttribute("mywritelist", mywritelist);
@@ -136,7 +137,8 @@ public class PostController {
     public String update(Post post){
         service.updateS(post);
         System.out.println(post.getBoardname());
-        return "redirect:mywritelist.do?email="+post.getEmail();
+        //return "redirect:mywritelist.do?email="+post.getEmail();
+        return "redirect:mywritelist.do";
     }
     @GetMapping("del.do")
     public String delete(Long seq){

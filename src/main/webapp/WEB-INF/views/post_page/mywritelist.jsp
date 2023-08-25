@@ -58,7 +58,8 @@
                    <div class="subscribe__container container">
 
                     </p>
-                 <form method="GET" action="/post_page/mywriteList.do">
+                 <form method="GET" action="mywritelist.do">
+                        <input type="hidden" class="form-control" name="email" value="${loginOkUser.email}">
                         <div class="subscribe__form">
                             <input class="subscribe__input " type="text" placeholder="검색어를 입력하세요." id="searchText" name="searchText" value="${param.searchText}">
                                 <button class="button" type="submit">

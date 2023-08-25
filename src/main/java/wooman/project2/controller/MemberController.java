@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import wooman.project2.domain.Member;
 import wooman.project2.service.MemberLoginService;
 
+import javax.sound.midi.Soundbank;
+
 import static wooman.project2.service.MemberLoginConst.YES_ID_PWD;
 
 @RequestMapping("member")
@@ -67,6 +69,7 @@ public class MemberController {
             Member loginOkUser = memberLoginService.getLogin(member.getEmail());
             session.setAttribute("loginOkUser", loginOkUser);
             model.addAttribute("result", result);
+            System.out.println("로그인함: "+loginOkUser.getNickname());
             return "member/login_success";
         }
         else {
