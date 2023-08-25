@@ -18,8 +18,8 @@ public class MemberAjaxController {
     private final MemberAjaxService memberAjaxService;
     @Autowired
     private final MemberLoginService memberLoginService;
-    @PostMapping("search.do")
-    public List<Member> search(String nickname){
+    @PostMapping("searchnick.do")
+    public List<Member> searchnick(String nickname){
         List<Member> list = memberAjaxService.getListByNicknames(nickname);
         return list;
     }

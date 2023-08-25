@@ -18,11 +18,12 @@ public class MemberAjaxServiceImpl implements MemberAjaxService {
 
     @Override
     public List<Member> getListByNicknames(String nickname) {
-        System.out.println("받은 닉네임:" +nickname);
+        System.out.println("입력닉네임: "+nickname);
         List<Member> list= repository.findNicknameByNickname(nickname);
-        System.out.println("뽑아온 데이터: "+list);
+        System.out.println("백 데이트: "+list);
         return repository.findNicknameByNickname(nickname);
     }
+
 
     @Override
     public void updateNicknameByEmail(Member member) {

@@ -8,24 +8,29 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Untitled</title>
+    <title>회원가입</title>
     <link rel="stylesheet" href="/front/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/front/assets/css/animate.min.css">
     <link rel="stylesheet" href="/front/assets/css/VentasPro-Login.css">
-
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
 </head>
 
 <body>
     <div id="main">
-    <form id="signupForm" action="register" method="post">
+    <form id="signupForm" action="register" method="post" name="register">
         <div class="text-center" id="info" style="padding: 1px;height: 732px;">
             <h3 class="text-center" style="padding: 45px;">여행에 빠진 사람들</h3>
             <p class="fs-4 text-center" style="height: 18px;font-size: 21px;margin: 15px;">회원가입</p>
             <form class="text-start" id="form-login">
-                <div class="mb-3"><label class="form-label" id="lbl-usuario" for="txt-usuario">NickName</label><input class="form-control" input type="text" id="txt-usuario" name="nickname">
-                    <div class="mb-3"><label class="form-label" id="lbl-usuario-1" for="txt-usuario">Password</label><input class="form-control"input type="password" id="txt-usuario-1" name="pwd">
-                        <div class="mb-3"><label class="form-label" id="lbl-usuario-1" for="txt-usuario">Re_Password</label><input class="form-control"input type="password" id="txt-usuario-1" name="check_pwd"></div>
+                <div class="mb-3">
+                    <label class="form-label" id="lbl-usuario" for="nickname">NickName</label>
+                        <input class="form-control" input type="text" id="nickname" name="nickname">
+                    <div class="mb-3"><label class="form-label" id="lbl-usuario-1" for="txt-usuario">Password</label>
+                        <input class="form-control"input type="password" id="pwd" name="pwd">
+                        <div class="mb-3"><label class="form-label" id="lbl-usuario-1" for="txt-usuario">Re_Password</label>
+                        <input class="form-control"input type="password" id="check_pwd" name="check_pwd"></div>
                     </div>
                 </div>
                 <div class="mb-3"><label class="form-label" id="lbl-password" for="txt-password">Email</label>
@@ -36,13 +41,14 @@
                         <option value="@daum.net">@daum.net</option>
                         <option value="@nate.com ">@nate.com </option>
                     </select>
-                    <div class="mb-3"><label class="form-label" id="lbl-password-1" for="txt-password">Certification Number</label><input class="form-control" type="text" id="txt-usuario-3" disabled="disabled" onkeyup="checkAuthNumFn()" name="verificationCode" maxlength="10"></div>
+                    <div class="mb-3"><label class="form-label" id="lbl-password-1" for="txt-password">Certification Number</label>
+                    <input class="form-control" type="text" id="txt-usuario-3" disabled="disabled" onkeyup="checkAuthNumFn()" name="verificationCode" maxlength="10"></div>
                 </div>
             </form>
                 <div class="mb-3">
                   <button class="btn btn-primary pulse animated" id="btn-sesion" id="emailConfirmButton" value="메일인증" onclick="sendEmailConfirmation()" type="button" style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: #323537;width: 248px;padding: 6px 12px;margin: -51px;">메일인증</button>
                 </div>
-                <button class="btn btn-primary pulse animated" id="btn-sesion-1" type="submit" style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: #323537;width: 249px;">회원가입</button>
+                <button class="btn btn-primary pulse animated" id="btn-sesion-1" type="button" style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: #323537;width: 249px;">회원가입</button>
             </div>
          </form>
     </div>
@@ -78,6 +84,33 @@
             function disableEmail(){
                 document.getElementById("txt-usuario-2").readOnly = true;
             }
+
+            $(document).ready(function() {
+                $("#btn-sesion-1").on("click", function() {
+                    var nicknames= document.getElementById("nickname").value;
+                    $.ajax({
+                        url: "../ajax/searchnick.do",
+                        type: "POST",
+                        data: { nickname: nicknames},
+                        success: function(data) {
+                            if (data.length==0) {
+                                register.submit();
+                                <!--swal('사용 가능한 닉네임입니다.',"", 'success');-->
+                            } else {
+                                swal('이미 사용 중인 닉네임입니다.',"", 'warning');
+                                return false;
+                            }
+                        },
+                        error: function() {
+                            swal("서버와의 통신 중에 오류가 발생했습니다.","", 'warning');
+                            return false;
+                        }
+                    });
+                });
+            });
+
+
+
         </script>
 </body>
 

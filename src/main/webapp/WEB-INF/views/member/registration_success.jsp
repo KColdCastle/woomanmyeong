@@ -14,7 +14,7 @@
             // 일정 시간 후에 페이지 이동
             setTimeout(function() {
                 window.location.href = "../";
-            }, 1000); // 1초 후에 페이지 이동
+            }, 3000); // 1초 후에 페이지 이동
         };
     </script>
 </head>

@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface MemberAjaxRepository extends JpaRepository<Member,String> {
     List<Member> findNicknameByNickname(String nickname);
+
 }
