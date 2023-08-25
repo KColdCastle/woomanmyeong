@@ -36,9 +36,6 @@ public class MemberController {
     {
 
         if (MailServiceRestController.code.equals(verificationCode)) {
-            // 인증 코드가 일치하는 경우 처리 로직 (예: 회원 가입 처리)
-            // 여기서 db insert 구현.
-            // ...
             member.setEmail(email+maildomain);
             memberLoginService.insertM(member);
             System.out.println("인증성공");

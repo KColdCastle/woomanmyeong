@@ -10,6 +10,4 @@ import wooman.project2.service.GoodService;
 
 import java.sql.Date;
 public interface GoodRepository extends JpaRepository<Good, Long> {
-
-
 }

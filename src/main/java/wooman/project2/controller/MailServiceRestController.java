@@ -18,6 +18,5 @@ public class MailServiceRestController {
     public void mailConfirm(@RequestParam(name = "email") String email) throws Exception{
         code = registerMail.sendSimpleMessage(email);
         System.out.println("사용자에게 발송한 인증코드 ==> " + code);
-        //return "/map/regtest";
     }
 }

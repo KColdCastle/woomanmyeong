@@ -66,11 +66,6 @@ public class PostServiceImpl implements PostService {
         return new PostListResult(page, totalCount, size, list);
     }
 
-
-    //    @Override
-//    public Post insertS(Post post) {
-//        return repository.save(post);
-//    }
     @Override
     public Post contentS(long seq) {
         return repository.findBySeq(seq);

@@ -13,11 +13,4 @@ import java.util.List;
 public interface ReplyRepository extends JpaRepository<Reply, Long> {
 
     List<Reply> findByPostseqOrderBySeqDesc(long postseq);
-    @Query(value = "SELECT CURRENT_DATE", nativeQuery = true)
-    Date getCurrentDate();
-    //자동으로 현재 날짜 넣어주는 메소드
-
-    @Query("SELECT COUNT(p) FROM Post p WHERE p.boardname=?1 AND (p.nickname LIKE %?2% OR p.subject LIKE %?3%)")
-    long countByNickNameOrSubject(String Boardname, String nickname, String subject);
-
 }

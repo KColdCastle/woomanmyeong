@@ -20,11 +20,6 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     List<Post> findByContentContaining(String content);
     //검색기능 넣으면서 사용하지 않음
     Page<Post> findByOrderBySeqDesc(Pageable pageable);//for 페이징
-    //검색기능 넣으면서 사용하지 않음
-
-//    @Query("SELECT p FROM Post p WHERE p.boardname = ?1 ORDER BY p.seq DESC")
-//    Page<Post> findByBoardNameOrderBySeqDesc(String boardName, Pageable pageable);
-//    //게시판 종류별로 최신글로 표시하는 메소드
 
     @Query("SELECT COUNT(p) FROM Post p WHERE p.boardname = ?1 AND p.boardname NOT IN ('삭제된글')")
     long countByBoardName(String boardName);

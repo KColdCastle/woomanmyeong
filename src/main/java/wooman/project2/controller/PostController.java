@@ -102,16 +102,6 @@ public class PostController {
 
         return "/post_page/mywritelist";
     }
-
-    @GetMapping("write.do")
-    public String write(){
-        return "/post_page/write";
-    }
-//    @PostMapping("write.do")
-//    public String write(Post post){
-//        service.insertS(post);
-//        return "redirect:list.do";
-//    }
     @GetMapping("content.do")
     public String content(long seq, Model model){
         service.viewNumUp(seq);
@@ -137,7 +127,6 @@ public class PostController {
     public String update(Post post){
         service.updateS(post);
         System.out.println(post.getBoardname());
-        //return "redirect:mywritelist.do?email="+post.getEmail();
         return "redirect:mywritelist.do";
     }
     @GetMapping("del.do")
@@ -152,7 +141,6 @@ public class PostController {
         System.out.println("작동확인");
         System.out.println("받은 정보:" +good);
         goodService.insertG(good);
-
         return good;
     }
 }

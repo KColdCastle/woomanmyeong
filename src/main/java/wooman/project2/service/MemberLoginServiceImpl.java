@@ -38,7 +38,7 @@ public class MemberLoginServiceImpl implements MemberLoginService {
 
     @Override
     public void insertM(Member member){
-        member = memberLoginRepository.save(member);
+        memberLoginRepository.save(member);
     }
 
 
