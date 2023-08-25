@@ -9,6 +9,7 @@
 </head>
 <body>
     <aside class="banner">
+     <a href="https://happypuppy.dog/" target="_blank">
         <img src="front/img.png" style="position: absolute;
                                        top: 1200px;
                                        right: 100px;
@@ -18,7 +19,8 @@
                                        justify-content: center;
                                        align-items: flex-end;"
              alt="Banner Image">
-
+        </a>
+         <a href="https://www.manutd.com/ko" target="_blank">
         <img src="front/banner2.png" style="position: absolute;
                                             top: 1200px;
                                             right: 1600px;
@@ -27,7 +29,7 @@
                                             display: flex;
                                             justify-content: center;
                                             align-items: flex-end;"
-             alt="Banner Image">
+             alt="Banner Image"> </a>
     </aside>
 </body>
 </html>
