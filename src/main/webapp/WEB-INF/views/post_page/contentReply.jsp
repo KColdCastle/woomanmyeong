@@ -45,27 +45,31 @@
     <img src="/front/assets/img/home1.jpg" alt="" class="board_reply_img">
     <h1 class="home__data-title" style="position: absolute;"><br><br><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 여행에 빠지다</h1>
 
-      <aside class="banner">
-            <img src="../front/img.png" style="position: absolute;
-                                           top: 400px;
-                                           right: 300px;
-                                           width: 200px;
-                                           height: 600px;
-                                           display: flex;
-                                           justify-content: center;
-                                           align-items: flex-end;"
-                 alt="Banner Image">
-
-            <img src="../front/banner2.png" style="position: absolute;
+     <aside class="banner">
+         <a href="https://happypuppy.dog/" target="_blank">
+             <img src="../front/img.png" style="position: absolute;
                                                 top: 400px;
-                                                right: 1400px;
+                                                right: 300px;
                                                 width: 200px;
                                                 height: 600px;
                                                 display: flex;
                                                 justify-content: center;
                                                 align-items: flex-end;"
-                 alt="Banner Image">
-        </aside>
+                  alt="Banner Image">
+         </a>
+
+         <a href="https://www.manutd.com/ko" target="_blank">
+             <img src="../front/banner2.png" style="position: absolute;
+                                                     top: 400px;
+                                                     right: 1400px;
+                                                     width: 200px;
+                                                     height: 600px;
+                                                     display: flex;
+                                                     justify-content: center;
+                                                     align-items: flex-end;"
+                  alt="Banner Image">
+         </a>
+     </aside>
 
 
 
