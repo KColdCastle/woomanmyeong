@@ -19,7 +19,7 @@ public class OpenWeatherMapExample {
     }
 
     public void fetchWeatherData() {
-        String apiKey = "1c832af858bbfc14862bdcdfed82f525";
+        String apiKey = "오픈키입력";
         String city = "Seoul";
         String apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=metric";
 
